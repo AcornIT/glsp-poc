@@ -54,6 +54,7 @@ public class CreateTaskNodeHandler extends AbstractEMFCreateNodeOperationHandler
 
    public CreateTaskNodeHandler() {
       super(TaskListModelTypes.TASK);
+
    }
 
    @Override
@@ -61,29 +62,36 @@ public class CreateTaskNodeHandler extends AbstractEMFCreateNodeOperationHandler
       GModelElement container = modelState.getIndex().get(operation.getContainerId()).orElseGet(modelState::getRoot);
       Optional<GPoint> absoluteLocation = getLocation(operation);
       Optional<GPoint> relativeLocation = getRelativeLocation(operation, absoluteLocation, container);
-
+      System.out.println("createCommand creare NOD");
       return Optional.of(createTaskAndShape(relativeLocation));
    }
 
    @Override
    public String getLabel() { return "Task"; }
 
+   // crearea unei sarcini de adaugare a unui nod
    protected Command createTaskAndShape(final Optional<GPoint> relativeLocation) {
+      // obtine modelul semantic
       TaskList taskList = modelState.getSemanticModel(TaskList.class).orElseThrow();
       Diagram diagram = modelState.getNotationModel();
       EditingDomain editingDomain = modelState.getEditingDomain();
 
       Task newTask = createTask();
+      // se creaza o noua instanta pt a adauga o noua sarcina
       Command taskCommand = AddCommand.create(editingDomain, taskList,
          ModelPackage.Literals.TASK_LIST__TASKS, newTask);
 
       Shape shape = createShape(idGenerator.getOrCreateId(newTask), relativeLocation);
+      // se creeaza o comanda pt a adauga noua forma in lista de elemente a diagramelor
       Command shapeCommand = AddCommand.create(editingDomain, diagram,
          NotationPackage.Literals.DIAGRAM__ELEMENTS, shape);
 
+      // comanda compusa: contine ambele comenzi de adaugare pt sarcina si pt forma
       CompoundCommand compoundCommand = new CompoundCommand();
       compoundCommand.append(taskCommand);
       compoundCommand.append(shapeCommand);
+      System.out.println("createTaskShape NOD");
+
       return compoundCommand;
    }
 

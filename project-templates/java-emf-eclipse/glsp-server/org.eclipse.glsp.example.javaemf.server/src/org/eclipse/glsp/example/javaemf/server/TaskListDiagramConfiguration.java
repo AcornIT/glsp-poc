@@ -30,6 +30,12 @@ public class TaskListDiagramConfiguration extends BaseDiagramConfiguration {
    }
 
    @Override
-   public List<EdgeTypeHint> getEdgeTypeHints() { return List.of(); }
+   public List<EdgeTypeHint> getEdgeTypeHints() {
+      // edges can be moved and deleted
+      System.out.println("EdgeTypeHints");
+      return List.of(
+         new EdgeTypeHint(TaskListModelTypes.TRANSITION, false, true, false, List.of(TaskListModelTypes.TASK),
+            List.of(TaskListModelTypes.TASK)));
+   }
 
 }
