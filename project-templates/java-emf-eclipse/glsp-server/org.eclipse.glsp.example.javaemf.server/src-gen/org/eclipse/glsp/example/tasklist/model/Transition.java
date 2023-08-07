@@ -30,47 +30,47 @@ package org.eclipse.glsp.example.tasklist.model;
  */
 public interface Transition extends Identifiable {
    /**
-    * Returns the value of the '<em><b>Source</b></em>' reference.
-    * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @return the value of the '<em>Source</em>' reference.
-    * @see #setSource(Task)
-    * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTransition_Source()
-    * @model required="true"
-    * @generated
-    */
+	 * @return the value of the '<em>Source</em>' reference.
+	 * @see #setSource(Task)
+	 * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTransition_Source()
+	 * @model required="true"
+	 * @generated
+	 */
    Task getSource();
 
    /**
-    * Sets the value of the '{@link org.eclipse.glsp.example.tasklist.model.Transition#getSource <em>Source</em>}' reference.
-    * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.eclipse.glsp.example.tasklist.model.Transition#getSource <em>Source</em>}' reference.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @param value the new value of the '<em>Source</em>' reference.
-    * @see #getSource()
-    * @generated
-    */
+	 * @param value the new value of the '<em>Source</em>' reference.
+	 * @see #getSource()
+	 * @generated
+	 */
    void setSource(Task value);
 
    /**
-    * Returns the value of the '<em><b>Target</b></em>' reference.
-    * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @return the value of the '<em>Target</em>' reference.
-    * @see #setTarget(Task)
-    * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTransition_Target()
-    * @model required="true"
-    * @generated
-    */
+	 * @return the value of the '<em>Target</em>' reference.
+	 * @see #setTarget(Task)
+	 * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTransition_Target()
+	 * @model required="true"
+	 * @generated
+	 */
    Task getTarget();
 
    /**
-    * Sets the value of the '{@link org.eclipse.glsp.example.tasklist.model.Transition#getTarget <em>Target</em>}' reference.
-    * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.eclipse.glsp.example.tasklist.model.Transition#getTarget <em>Target</em>}' reference.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @param value the new value of the '<em>Target</em>' reference.
-    * @see #getTarget()
-    * @generated
-    */
+	 * @param value the new value of the '<em>Target</em>' reference.
+	 * @see #getTarget()
+	 * @generated
+	 */
    void setTarget(Task value);
 
 } // Transition

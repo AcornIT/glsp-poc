@@ -23,6 +23,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.glsp.example.javaemf.server.TaskListModelTypes;
 import org.eclipse.glsp.example.tasklist.model.ModelFactory;
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
 import org.eclipse.glsp.example.tasklist.model.Task;
@@ -50,6 +51,10 @@ public class CreateEdgeHandler extends AbstractEMFCreateEdgeOperationHandler {
 
    @Inject
    protected EMFIdGenerator idGenerator;
+
+   public CreateEdgeHandler() {
+      super(TaskListModelTypes.TRANSITION);
+   }
 
    @Override
    public Optional<Command> createCommand(final CreateEdgeOperation operation) {

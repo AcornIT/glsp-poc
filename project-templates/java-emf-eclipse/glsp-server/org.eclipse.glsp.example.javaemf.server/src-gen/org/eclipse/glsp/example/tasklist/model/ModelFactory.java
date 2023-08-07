@@ -22,47 +22,56 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface ModelFactory extends EFactory {
    /**
-    * The singleton instance of the factory.
-    * <!-- begin-user-doc -->
+	 * The singleton instance of the factory.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    ModelFactory eINSTANCE = org.eclipse.glsp.example.tasklist.model.impl.ModelFactoryImpl.init();
 
    /**
-    * Returns a new object of class '<em>Task List</em>'.
-    * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Task List</em>'.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @return a new object of class '<em>Task List</em>'.
-    * @generated
-    */
+	 * @return a new object of class '<em>Task List</em>'.
+	 * @generated
+	 */
    TaskList createTaskList();
 
    /**
-    * Returns a new object of class '<em>Task</em>'.
-    * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Task</em>'.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @return a new object of class '<em>Task</em>'.
-    * @generated
-    */
+	 * @return a new object of class '<em>Task</em>'.
+	 * @generated
+	 */
    Task createTask();
 
    /**
-    * Returns a new object of class '<em>Transition</em>'.
-    * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Transition</em>'.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @return a new object of class '<em>Transition</em>'.
-    * @generated
-    */
+	 * @return a new object of class '<em>Transition</em>'.
+	 * @generated
+	 */
    Transition createTransition();
 
    /**
-    * Returns the package supported by this factory.
-    * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Decision</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Decision</em>'.
+	 * @generated
+	 */
+	Decision createDecision();
+
+			/**
+	 * Returns the package supported by this factory.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @return the package supported by this factory.
-    * @generated
-    */
+	 * @return the package supported by this factory.
+	 * @generated
+	 */
    ModelPackage getModelPackage();
 
 } //ModelFactory

@@ -37,192 +37,192 @@ import org.eclipse.glsp.example.tasklist.model.Transition;
  */
 public class TransitionImpl extends IdentifiableImpl implements Transition {
    /**
-    * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
-    * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @see #getSource()
-    * @generated
-    * @ordered
-    */
+	 * @see #getSource()
+	 * @generated
+	 * @ordered
+	 */
    protected Task source;
 
    /**
-    * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
-    * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @see #getTarget()
-    * @generated
-    * @ordered
-    */
+	 * @see #getTarget()
+	 * @generated
+	 * @ordered
+	 */
    protected Task target;
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    protected TransitionImpl() {
-      super();
-   }
+		super();
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    @Override
    protected EClass eStaticClass() {
-      return ModelPackage.Literals.TRANSITION;
-   }
+		return ModelPackage.Literals.TRANSITION;
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    @Override
    public Task getSource() {
-      if (source != null && source.eIsProxy()) {
-         InternalEObject oldSource = (InternalEObject)source;
-         source = (Task)eResolveProxy(oldSource);
-         if (source != oldSource) {
-            if (eNotificationRequired())
-               eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.TRANSITION__SOURCE, oldSource, source));
-         }
-      }
-      return source;
-   }
+		if (source != null && source.eIsProxy()) {
+			InternalEObject oldSource = (InternalEObject)source;
+			source = (Task)eResolveProxy(oldSource);
+			if (source != oldSource) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.TRANSITION__SOURCE, oldSource, source));
+			}
+		}
+		return source;
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    public Task basicGetSource() {
-      return source;
-   }
+		return source;
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    @Override
    public void setSource(Task newSource) {
-      Task oldSource = source;
-      source = newSource;
-      if (eNotificationRequired())
-         eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TRANSITION__SOURCE, oldSource, source));
-   }
+		Task oldSource = source;
+		source = newSource;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TRANSITION__SOURCE, oldSource, source));
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    @Override
    public Task getTarget() {
-      if (target != null && target.eIsProxy()) {
-         InternalEObject oldTarget = (InternalEObject)target;
-         target = (Task)eResolveProxy(oldTarget);
-         if (target != oldTarget) {
-            if (eNotificationRequired())
-               eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.TRANSITION__TARGET, oldTarget, target));
-         }
-      }
-      return target;
-   }
+		if (target != null && target.eIsProxy()) {
+			InternalEObject oldTarget = (InternalEObject)target;
+			target = (Task)eResolveProxy(oldTarget);
+			if (target != oldTarget) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.TRANSITION__TARGET, oldTarget, target));
+			}
+		}
+		return target;
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    public Task basicGetTarget() {
-      return target;
-   }
+		return target;
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    @Override
    public void setTarget(Task newTarget) {
-      Task oldTarget = target;
-      target = newTarget;
-      if (eNotificationRequired())
-         eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TRANSITION__TARGET, oldTarget, target));
-   }
+		Task oldTarget = target;
+		target = newTarget;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TRANSITION__TARGET, oldTarget, target));
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    @Override
    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-      switch (featureID) {
-         case ModelPackage.TRANSITION__SOURCE:
-            if (resolve) return getSource();
-            return basicGetSource();
-         case ModelPackage.TRANSITION__TARGET:
-            if (resolve) return getTarget();
-            return basicGetTarget();
-      }
-      return super.eGet(featureID, resolve, coreType);
-   }
+		switch (featureID) {
+			case ModelPackage.TRANSITION__SOURCE:
+				if (resolve) return getSource();
+				return basicGetSource();
+			case ModelPackage.TRANSITION__TARGET:
+				if (resolve) return getTarget();
+				return basicGetTarget();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    @Override
    public void eSet(int featureID, Object newValue) {
-      switch (featureID) {
-         case ModelPackage.TRANSITION__SOURCE:
-            setSource((Task)newValue);
-            return;
-         case ModelPackage.TRANSITION__TARGET:
-            setTarget((Task)newValue);
-            return;
-      }
-      super.eSet(featureID, newValue);
-   }
+		switch (featureID) {
+			case ModelPackage.TRANSITION__SOURCE:
+				setSource((Task)newValue);
+				return;
+			case ModelPackage.TRANSITION__TARGET:
+				setTarget((Task)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    @Override
    public void eUnset(int featureID) {
-      switch (featureID) {
-         case ModelPackage.TRANSITION__SOURCE:
-            setSource((Task)null);
-            return;
-         case ModelPackage.TRANSITION__TARGET:
-            setTarget((Task)null);
-            return;
-      }
-      super.eUnset(featureID);
-   }
+		switch (featureID) {
+			case ModelPackage.TRANSITION__SOURCE:
+				setSource((Task)null);
+				return;
+			case ModelPackage.TRANSITION__TARGET:
+				setTarget((Task)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    @Override
    public boolean eIsSet(int featureID) {
-      switch (featureID) {
-         case ModelPackage.TRANSITION__SOURCE:
-            return source != null;
-         case ModelPackage.TRANSITION__TARGET:
-            return target != null;
-      }
-      return super.eIsSet(featureID);
-   }
+		switch (featureID) {
+			case ModelPackage.TRANSITION__SOURCE:
+				return source != null;
+			case ModelPackage.TRANSITION__TARGET:
+				return target != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //TransitionImpl

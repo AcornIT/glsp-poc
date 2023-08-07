@@ -19,6 +19,7 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.glsp.example.javaemf.server.TaskListModelTypes;
+import org.eclipse.glsp.example.tasklist.model.Decision;
 import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
@@ -49,11 +50,13 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          taskList.getTransitions().stream()
             .map(this::createEdge)
             .forEachOrdered(graph.getChildren()::add);
+         taskList.getDecisions().stream()
+            .map(this::createTaskNodeDecision)
+            .forEachOrdered(graph.getChildren()::add);
       }
    }
 
    protected GNode createTaskNode(final Task task) {
-      System.out.println("GNodeBuilder");
       GNodeBuilder taskNodeBuilder = new GNodeBuilder(TaskListModelTypes.TASK)
          .id(idGenerator.getOrCreateId(task))
          .addCssClass("tasklist-node")
@@ -65,16 +68,27 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
    }
 
    protected GEdge createEdge(final Transition edge) {
-      System.out.println("GEdgeBuilder");
       GEdgeBuilder edgeBuilder = new GEdgeBuilder(TaskListModelTypes.TRANSITION)
          .id(idGenerator.getOrCreateId(edge))
-         // .addCssClass("tasklist-edge")
+         .addCssClass("tasklist-edge")
          .sourceId(edge.getSource().getId())
          .targetId(edge.getTarget().getId())
-         .add(new GLabelBuilder(DefaultTypes.LABEL).text(edge.getName()).id(edge.getId() + "_label").build());
-
+         .add(new GLabelBuilder(DefaultTypes.LABEL).text(edge.getName()).id(edge.getId() + "_label")
+            .build());
       applyEdgeData(edge, edgeBuilder);
       return edgeBuilder.build();
+   }
+
+   protected GNode createTaskNodeDecision(final Decision decision) {
+      GNodeBuilder taskNodeBuilder = new GNodeBuilder(TaskListModelTypes.DIAMOND)
+         .id(idGenerator.getOrCreateId(decision))
+         .addCssClass("decision-node")
+         .type(DefaultTypes.NODE_DIAMOND)
+         .add(new GLabelBuilder(DefaultTypes.LABEL).text(decision.getName()).id(decision.getId() + "_label").build())
+         .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_LEFT, 5));
+
+      applyShapeData(decision, taskNodeBuilder);
+      return taskNodeBuilder.build();
    }
 
 }

@@ -62,7 +62,6 @@ public class CreateTaskNodeHandler extends AbstractEMFCreateNodeOperationHandler
       GModelElement container = modelState.getIndex().get(operation.getContainerId()).orElseGet(modelState::getRoot);
       Optional<GPoint> absoluteLocation = getLocation(operation);
       Optional<GPoint> relativeLocation = getRelativeLocation(operation, absoluteLocation, container);
-      System.out.println("createCommand creare NOD");
       return Optional.of(createTaskAndShape(relativeLocation));
    }
 
@@ -90,7 +89,6 @@ public class CreateTaskNodeHandler extends AbstractEMFCreateNodeOperationHandler
       CompoundCommand compoundCommand = new CompoundCommand();
       compoundCommand.append(taskCommand);
       compoundCommand.append(shapeCommand);
-      System.out.println("createTaskShape NOD");
 
       return compoundCommand;
    }
