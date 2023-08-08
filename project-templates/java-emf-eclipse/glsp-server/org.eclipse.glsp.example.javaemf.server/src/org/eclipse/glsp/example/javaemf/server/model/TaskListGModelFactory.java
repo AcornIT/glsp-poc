@@ -83,7 +83,6 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
       GNodeBuilder taskNodeBuilder = new GNodeBuilder(TaskListModelTypes.DIAMOND)
          .id(idGenerator.getOrCreateId(decision))
          .addCssClass("decision-node")
-         .type(DefaultTypes.NODE_DIAMOND)
          .add(new GLabelBuilder(DefaultTypes.LABEL).text(decision.getName()).id(decision.getId() + "_label").build())
          .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_LEFT, 5));
 

@@ -21,14 +21,4 @@
     <position x="370.5327863072941" y="177.42930783005886"/>
     <size width="60.0" height="25.0"/>
   </elements>
-  <elements xsi:type="notation:Shape">
-    <semanticElement elementId="905cee71-86a9-42d3-ab3c-67fc476dec3a"/>
-    <position x="41.92610484075925" y="86.26229045835294"/>
-    <size width="84.0" height="50.0"/>
-  </elements>
-  <elements xsi:type="notation:Shape">
-    <semanticElement elementId="08a17f8d-f4c9-4c84-a3da-b38a1d22da4b"/>
-    <position x="250.92610484075925" y="97.26229045835294"/>
-    <size width="60.0" height="25.0"/>
-  </elements>
 </notation:Diagram>

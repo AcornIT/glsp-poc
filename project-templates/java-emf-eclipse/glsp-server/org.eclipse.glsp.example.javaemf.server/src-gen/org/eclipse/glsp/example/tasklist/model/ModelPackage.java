@@ -446,6 +446,8 @@ public interface ModelPackage extends EPackage {
     */
    EReference getTaskList_Transitions();
 
+   EReference getTaskList_Decisions();
+
    /**
     * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Task <em>Task</em>}'.
     * <!-- begin-user-doc -->
@@ -591,6 +593,8 @@ public interface ModelPackage extends EPackage {
        */
       EReference TASK_LIST__TRANSITIONS = eINSTANCE.getTaskList_Transitions();
 
+      EReference TASK_LIST_DECISIONS = eINSTANCE.getTaskList_Decisions();
+
       /**
        * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TaskImpl <em>Task</em>}'
        * class.
@@ -644,8 +648,6 @@ public interface ModelPackage extends EPackage {
        * @generated
        */
       EClass DECISION = eINSTANCE.getDecision();
-
-      // EReference TASKS_LIST_DECISIONS = eINSTANCE.getDecision();
 
    }
 

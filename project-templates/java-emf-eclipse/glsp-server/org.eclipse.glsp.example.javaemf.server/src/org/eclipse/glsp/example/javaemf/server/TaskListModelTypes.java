@@ -26,6 +26,5 @@ public final class TaskListModelTypes {
    // public static final String CIRCLE = DefaultTypes.NODE_CIRCLE;
    // public static final String BUTTON = DefaultTypes.BUTTON;
    // public static final String RECTANGLE = DefaultTypes.NODE_RECTANGLE;
-   // public static final String EDGE = DefaultTypes.EDGE;
 
 }

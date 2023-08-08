@@ -25,5 +25,17 @@ svg {
 }
 
 .tasklist-node {
-    fill: #f1bd6c;
+    fill: plum;
+}
+
+.decision-node {
+    fill: cadetblue;
+}
+
+.tasklist-edge {
+    outline-color: black;
+    position: absolute;
+    fill: black;
+    font-size: 24px;
+    height: 15%;
 }
