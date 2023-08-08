@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.glsp.example.javaemf.server.TaskListModelTypes;
+import org.eclipse.glsp.server.actions.TriggerEdgeCreationAction;
 import org.eclipse.glsp.server.actions.TriggerNodeCreationAction;
 import org.eclipse.glsp.server.features.toolpalette.PaletteItem;
 import org.eclipse.glsp.server.features.toolpalette.ToolPaletteItemProvider;
@@ -41,7 +42,7 @@ public class TaskListToolPaletteItemProvider implements ToolPaletteItemProvider 
    }
 
    private PaletteItem edges() {
-      PaletteItem createEdge = node(TaskListModelTypes.TRANSITION, "Edge");
+      PaletteItem createEdge = edge(TaskListModelTypes.TRANSITION, "Edge");
       List<PaletteItem> nodes = Lists.newArrayList(createEdge);
       return PaletteItem.createPaletteGroup("nodes", "Edge", nodes, "symbol-property");
    }
@@ -49,5 +50,15 @@ public class TaskListToolPaletteItemProvider implements ToolPaletteItemProvider 
    private PaletteItem node(final String elementTypeId, final String label) {
       return new PaletteItem(elementTypeId, label, new TriggerNodeCreationAction(elementTypeId));
    }
+
+   private PaletteItem edge(final String elementTypeId, final String label) {
+      return new PaletteItem(elementTypeId, label, new TriggerEdgeCreationAction(elementTypeId));
+   }
+
+   /*
+    * private PaletteItem decision(final String elementTypeId, final String label) {
+    * return new PaletteItem(elementTypeId, label, new Trigger)
+    * }
+    */
 
 }
