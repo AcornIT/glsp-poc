@@ -60,7 +60,6 @@ public class CreateEdgeHandler extends AbstractEMFCreateEdgeOperationHandler {
    public Optional<Command> createCommand(final CreateEdgeOperation operation) {
       GModelElement source = modelState.getIndex().get(operation.getSourceElementId()).orElseThrow();
       GModelElement target = modelState.getIndex().get(operation.getTargetElementId()).orElseThrow();
-
       return Optional.of(createTaskAndEdge(source, target));
    }
 
@@ -102,22 +101,19 @@ public class CreateEdgeHandler extends AbstractEMFCreateEdgeOperationHandler {
       newTransition.setSource(source);
       newTransition.setTarget(target);
       setInitialName(newTransition);
-
       return newTransition;
    }
 
    protected void setInitialName(final Transition transition) {
-      Function<Integer, String> nameProvider = i -> "New" + transition.eClass().getName() + i;
+      Function<Integer, String> nameProvider = i -> transition.eClass().getName() + " " + i;
       int edgeCounter = modelState.getIndex().getCounter(GraphPackage.Literals.GEDGE, nameProvider);
       transition.setName(nameProvider.apply(edgeCounter));
    }
 
    protected Edge createEdge(final String elementId, final Shape source, final Shape target) {
       Edge newTransition = NotationFactory.eINSTANCE.createEdge();
-
       newTransition.setSource(source);
       newTransition.setTarget(target);
-
       SemanticElementReference reference = NotationFactory.eINSTANCE.createSemanticElementReference();
       reference.setElementId(elementId);
       newTransition.setSemanticElement(reference);

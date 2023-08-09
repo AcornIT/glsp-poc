@@ -35,7 +35,8 @@ svg {
 .tasklist-edge {
     outline-color: black;
     position: absolute;
-    fill: black;
     font-size: 24px;
-    height: 15%;
+    visibility: visible;
+    opacity: 1;
+    z-index: 9999;
 }

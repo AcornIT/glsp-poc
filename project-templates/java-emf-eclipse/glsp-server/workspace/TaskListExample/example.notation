@@ -21,4 +21,9 @@
     <position x="370.5327863072941" y="177.42930783005886"/>
     <size width="60.0" height="25.0"/>
   </elements>
+  <elements xsi:type="notation:Shape">
+    <semanticElement elementId="54b1cdfa-fa14-4aee-8413-57e68cc52c3e"/>
+    <position x="250.35124610354825" y="247.41620141434237"/>
+    <size width="60.0" height="25.0"/>
+  </elements>
 </notation:Diagram>

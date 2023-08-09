@@ -54,7 +54,6 @@ public class CreateTaskNodeHandler extends AbstractEMFCreateNodeOperationHandler
 
    public CreateTaskNodeHandler() {
       super(TaskListModelTypes.TASK);
-
    }
 
    @Override
@@ -85,7 +84,7 @@ public class CreateTaskNodeHandler extends AbstractEMFCreateNodeOperationHandler
       Command shapeCommand = AddCommand.create(editingDomain, diagram,
          NotationPackage.Literals.DIAGRAM__ELEMENTS, shape);
 
-      // comanda compusa: contine ambele comenzi de adaugare pt sarcina si pt forma
+      // comanda compusa: comenzi de adaugare pt sarcina si pt forma
       CompoundCommand compoundCommand = new CompoundCommand();
       compoundCommand.append(taskCommand);
       compoundCommand.append(shapeCommand);

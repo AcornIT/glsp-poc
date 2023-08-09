@@ -24,22 +24,22 @@ import org.eclipse.glsp.example.tasklist.model.Task;
  */
 public class TaskImpl extends IdentifiableImpl implements Task {
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    protected TaskImpl() {
-		super();
-	}
+      super();
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    @Override
    protected EClass eStaticClass() {
-		return ModelPackage.Literals.TASK;
-	}
+      return ModelPackage.Literals.TASK;
+   }
 
 } //TaskImpl

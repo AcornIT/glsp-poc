@@ -73,7 +73,9 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          .addCssClass("tasklist-edge")
          .sourceId(edge.getSource().getId())
          .targetId(edge.getTarget().getId())
-         .add(new GLabelBuilder(DefaultTypes.LABEL).text(edge.getName()).id(edge.getId() + "_label")
+         .add(new GLabelBuilder(DefaultTypes.LABEL)
+            .text(edge.getName())
+            .id(edge.getId() + "_label")
             .build());
       applyEdgeData(edge, edgeBuilder);
       return edgeBuilder.build();
@@ -83,7 +85,9 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
       GNodeBuilder taskNodeBuilder = new GNodeBuilder(TaskListModelTypes.DIAMOND)
          .id(idGenerator.getOrCreateId(decision))
          .addCssClass("decision-node")
-         .add(new GLabelBuilder(DefaultTypes.LABEL).text(decision.getName()).id(decision.getId() + "_label").build())
+         .add(new GLabelBuilder(DefaultTypes.LABEL)
+            .text(decision.getName())
+            .id(decision.getId() + "_label").build())
          .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_LEFT, 5));
 
       applyShapeData(decision, taskNodeBuilder);

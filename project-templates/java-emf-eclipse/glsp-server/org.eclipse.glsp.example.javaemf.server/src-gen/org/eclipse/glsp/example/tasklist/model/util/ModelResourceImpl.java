@@ -23,14 +23,14 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
  */
 public class ModelResourceImpl extends XMIResourceImpl {
    /**
-	 * Creates an instance of the resource.
-	 * <!-- begin-user-doc -->
+    * Creates an instance of the resource.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @param uri the URI of the new resource.
-	 * @generated
-	 */
+    * @param uri the URI of the new resource.
+    * @generated
+    */
    public ModelResourceImpl(URI uri) {
-		super(uri);
-	}
+      super(uri);
+   }
 
 } //ModelResourceImpl

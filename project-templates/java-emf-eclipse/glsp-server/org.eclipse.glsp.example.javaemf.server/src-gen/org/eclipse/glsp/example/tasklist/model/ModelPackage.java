@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.EReference;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- *
  * @see org.eclipse.glsp.example.tasklist.model.ModelFactory
  * @model kind="package"
  * @generated
@@ -37,7 +36,6 @@ public interface ModelPackage extends EPackage {
     * The package name.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    String eNAME = "model";
@@ -46,7 +44,6 @@ public interface ModelPackage extends EPackage {
     * The package namespace URI.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    String eNS_URI = "http://www.eclipse.org/glsp/examples/tasklist";
@@ -55,7 +52,6 @@ public interface ModelPackage extends EPackage {
     * The package namespace name.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    String eNS_PREFIX = "example-model";
@@ -64,17 +60,14 @@ public interface ModelPackage extends EPackage {
     * The singleton instance of the package.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    ModelPackage eINSTANCE = org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl.init();
 
    /**
-    * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.IdentifiableImpl
-    * <em>Identifiable</em>}' class.
+    * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.IdentifiableImpl <em>Identifiable</em>}' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @see org.eclipse.glsp.example.tasklist.model.impl.IdentifiableImpl
     * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getIdentifiable()
     * @generated
@@ -85,7 +78,6 @@ public interface ModelPackage extends EPackage {
     * The feature id for the '<em><b>Id</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -95,7 +87,6 @@ public interface ModelPackage extends EPackage {
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -105,7 +96,6 @@ public interface ModelPackage extends EPackage {
     * The number of structural features of the '<em>Identifiable</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -115,18 +105,15 @@ public interface ModelPackage extends EPackage {
     * The number of operations of the '<em>Identifiable</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
    int IDENTIFIABLE_OPERATION_COUNT = 0;
 
    /**
-    * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl <em>Task List</em>}'
-    * class.
+    * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl <em>Task List</em>}' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @see org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl
     * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getTaskList()
     * @generated
@@ -137,7 +124,6 @@ public interface ModelPackage extends EPackage {
     * The feature id for the '<em><b>Id</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -147,7 +133,6 @@ public interface ModelPackage extends EPackage {
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -157,7 +142,6 @@ public interface ModelPackage extends EPackage {
     * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -167,22 +151,29 @@ public interface ModelPackage extends EPackage {
     * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
    int TASK_LIST__TRANSITIONS = IDENTIFIABLE_FEATURE_COUNT + 1;
 
    /**
+    * The feature id for the '<em><b>Decisions</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int TASK_LIST__DECISIONS = IDENTIFIABLE_FEATURE_COUNT + 2;
+
+   /**
     * The number of structural features of the '<em>Task List</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
 
-   int TASK_LIST_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 2;
+   int TASK_LIST_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 3;
 
    int TASK_LIST_DECISIONS = IDENTIFIABLE_FEATURE_COUNT + 3;
 
@@ -190,7 +181,6 @@ public interface ModelPackage extends EPackage {
     * The number of operations of the '<em>Task List</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -200,7 +190,6 @@ public interface ModelPackage extends EPackage {
     * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TaskImpl <em>Task</em>}' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @see org.eclipse.glsp.example.tasklist.model.impl.TaskImpl
     * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getTask()
     * @generated
@@ -211,7 +200,6 @@ public interface ModelPackage extends EPackage {
     * The feature id for the '<em><b>Id</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -221,7 +209,6 @@ public interface ModelPackage extends EPackage {
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -231,7 +218,6 @@ public interface ModelPackage extends EPackage {
     * The number of structural features of the '<em>Task</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -241,18 +227,15 @@ public interface ModelPackage extends EPackage {
     * The number of operations of the '<em>Task</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
    int TASK_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
 
    /**
-    * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TransitionImpl
-    * <em>Transition</em>}' class.
+    * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TransitionImpl <em>Transition</em>}' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @see org.eclipse.glsp.example.tasklist.model.impl.TransitionImpl
     * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getTransition()
     * @generated
@@ -263,7 +246,6 @@ public interface ModelPackage extends EPackage {
     * The feature id for the '<em><b>Id</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -273,7 +255,6 @@ public interface ModelPackage extends EPackage {
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -283,7 +264,6 @@ public interface ModelPackage extends EPackage {
     * The feature id for the '<em><b>Source</b></em>' reference.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -293,7 +273,6 @@ public interface ModelPackage extends EPackage {
     * The feature id for the '<em><b>Target</b></em>' reference.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -303,7 +282,6 @@ public interface ModelPackage extends EPackage {
     * The number of structural features of the '<em>Transition</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -313,18 +291,15 @@ public interface ModelPackage extends EPackage {
     * The number of operations of the '<em>Transition</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
    int TRANSITION_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
 
    /**
-    * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.DecisionImpl <em>Decision</em>}'
-    * class.
+    * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.DecisionImpl <em>Decision</em>}' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @see org.eclipse.glsp.example.tasklist.model.impl.DecisionImpl
     * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getDecision()
     * @generated
@@ -335,7 +310,6 @@ public interface ModelPackage extends EPackage {
     * The feature id for the '<em><b>Id</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -345,7 +319,6 @@ public interface ModelPackage extends EPackage {
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -355,7 +328,6 @@ public interface ModelPackage extends EPackage {
     * The number of structural features of the '<em>Decision</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
@@ -365,18 +337,15 @@ public interface ModelPackage extends EPackage {
     * The number of operations of the '<em>Decision</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     * @ordered
     */
    int DECISION_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
 
    /**
-    * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Identifiable
-    * <em>Identifiable</em>}'.
+    * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Identifiable <em>Identifiable</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @return the meta object for class '<em>Identifiable</em>'.
     * @see org.eclipse.glsp.example.tasklist.model.Identifiable
     * @generated
@@ -384,11 +353,9 @@ public interface ModelPackage extends EPackage {
    EClass getIdentifiable();
 
    /**
-    * Returns the meta object for the attribute '{@link org.eclipse.glsp.example.tasklist.model.Identifiable#getId
-    * <em>Id</em>}'.
+    * Returns the meta object for the attribute '{@link org.eclipse.glsp.example.tasklist.model.Identifiable#getId <em>Id</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @return the meta object for the attribute '<em>Id</em>'.
     * @see org.eclipse.glsp.example.tasklist.model.Identifiable#getId()
     * @see #getIdentifiable()
@@ -397,11 +364,9 @@ public interface ModelPackage extends EPackage {
    EAttribute getIdentifiable_Id();
 
    /**
-    * Returns the meta object for the attribute '{@link org.eclipse.glsp.example.tasklist.model.Identifiable#getName
-    * <em>Name</em>}'.
+    * Returns the meta object for the attribute '{@link org.eclipse.glsp.example.tasklist.model.Identifiable#getName <em>Name</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @return the meta object for the attribute '<em>Name</em>'.
     * @see org.eclipse.glsp.example.tasklist.model.Identifiable#getName()
     * @see #getIdentifiable()
@@ -413,7 +378,6 @@ public interface ModelPackage extends EPackage {
     * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.TaskList <em>Task List</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @return the meta object for class '<em>Task List</em>'.
     * @see org.eclipse.glsp.example.tasklist.model.TaskList
     * @generated
@@ -421,11 +385,9 @@ public interface ModelPackage extends EPackage {
    EClass getTaskList();
 
    /**
-    * Returns the meta object for the containment reference list
-    * '{@link org.eclipse.glsp.example.tasklist.model.TaskList#getTasks <em>Tasks</em>}'.
+    * Returns the meta object for the containment reference list '{@link org.eclipse.glsp.example.tasklist.model.TaskList#getTasks <em>Tasks</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @return the meta object for the containment reference list '<em>Tasks</em>'.
     * @see org.eclipse.glsp.example.tasklist.model.TaskList#getTasks()
     * @see #getTaskList()
@@ -434,11 +396,9 @@ public interface ModelPackage extends EPackage {
    EReference getTaskList_Tasks();
 
    /**
-    * Returns the meta object for the containment reference list
-    * '{@link org.eclipse.glsp.example.tasklist.model.TaskList#getTransitions <em>Transitions</em>}'.
+    * Returns the meta object for the containment reference list '{@link org.eclipse.glsp.example.tasklist.model.TaskList#getTransitions <em>Transitions</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @return the meta object for the containment reference list '<em>Transitions</em>'.
     * @see org.eclipse.glsp.example.tasklist.model.TaskList#getTransitions()
     * @see #getTaskList()
@@ -452,7 +412,6 @@ public interface ModelPackage extends EPackage {
     * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Task <em>Task</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @return the meta object for class '<em>Task</em>'.
     * @see org.eclipse.glsp.example.tasklist.model.Task
     * @generated
@@ -460,11 +419,9 @@ public interface ModelPackage extends EPackage {
    EClass getTask();
 
    /**
-    * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Transition
-    * <em>Transition</em>}'.
+    * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Transition <em>Transition</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @return the meta object for class '<em>Transition</em>'.
     * @see org.eclipse.glsp.example.tasklist.model.Transition
     * @generated
@@ -472,11 +429,9 @@ public interface ModelPackage extends EPackage {
    EClass getTransition();
 
    /**
-    * Returns the meta object for the reference '{@link org.eclipse.glsp.example.tasklist.model.Transition#getSource
-    * <em>Source</em>}'.
+    * Returns the meta object for the reference '{@link org.eclipse.glsp.example.tasklist.model.Transition#getSource <em>Source</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @return the meta object for the reference '<em>Source</em>'.
     * @see org.eclipse.glsp.example.tasklist.model.Transition#getSource()
     * @see #getTransition()
@@ -485,11 +440,9 @@ public interface ModelPackage extends EPackage {
    EReference getTransition_Source();
 
    /**
-    * Returns the meta object for the reference '{@link org.eclipse.glsp.example.tasklist.model.Transition#getTarget
-    * <em>Target</em>}'.
+    * Returns the meta object for the reference '{@link org.eclipse.glsp.example.tasklist.model.Transition#getTarget <em>Target</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @return the meta object for the reference '<em>Target</em>'.
     * @see org.eclipse.glsp.example.tasklist.model.Transition#getTarget()
     * @see #getTransition()
@@ -501,7 +454,6 @@ public interface ModelPackage extends EPackage {
     * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Decision <em>Decision</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @return the meta object for class '<em>Decision</em>'.
     * @see org.eclipse.glsp.example.tasklist.model.Decision
     * @generated
@@ -512,7 +464,6 @@ public interface ModelPackage extends EPackage {
     * Returns the factory that creates the instances of the model.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @return the factory that creates the instances of the model.
     * @generated
     */
@@ -529,16 +480,13 @@ public interface ModelPackage extends EPackage {
     * <li>and each data type</li>
     * </ul>
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    interface Literals {
       /**
-       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.IdentifiableImpl
-       * <em>Identifiable</em>}' class.
+       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.IdentifiableImpl <em>Identifiable</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       *
        * @see org.eclipse.glsp.example.tasklist.model.impl.IdentifiableImpl
        * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getIdentifiable()
        * @generated
@@ -549,7 +497,6 @@ public interface ModelPackage extends EPackage {
        * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       *
        * @generated
        */
       EAttribute IDENTIFIABLE__ID = eINSTANCE.getIdentifiable_Id();
@@ -558,17 +505,14 @@ public interface ModelPackage extends EPackage {
        * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       *
        * @generated
        */
       EAttribute IDENTIFIABLE__NAME = eINSTANCE.getIdentifiable_Name();
 
       /**
-       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl <em>Task
-       * List</em>}' class.
+       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl <em>Task List</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       *
        * @see org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl
        * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getTaskList()
        * @generated
@@ -579,7 +523,6 @@ public interface ModelPackage extends EPackage {
        * The meta object literal for the '<em><b>Tasks</b></em>' containment reference list feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       *
        * @generated
        */
       EReference TASK_LIST__TASKS = eINSTANCE.getTaskList_Tasks();
@@ -588,19 +531,24 @@ public interface ModelPackage extends EPackage {
        * The meta object literal for the '<em><b>Transitions</b></em>' containment reference list feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       *
        * @generated
        */
       EReference TASK_LIST__TRANSITIONS = eINSTANCE.getTaskList_Transitions();
 
+      /**
+       * The meta object literal for the '<em><b>Decisions</b></em>' containment reference list feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EReference TASK_LIST__DECISIONS = eINSTANCE.getTaskList_Decisions();
+
       EReference TASK_LIST_DECISIONS = eINSTANCE.getTaskList_Decisions();
 
       /**
-       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TaskImpl <em>Task</em>}'
-       * class.
+       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TaskImpl <em>Task</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       *
        * @see org.eclipse.glsp.example.tasklist.model.impl.TaskImpl
        * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getTask()
        * @generated
@@ -608,11 +556,9 @@ public interface ModelPackage extends EPackage {
       EClass TASK = eINSTANCE.getTask();
 
       /**
-       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TransitionImpl
-       * <em>Transition</em>}' class.
+       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TransitionImpl <em>Transition</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       *
        * @see org.eclipse.glsp.example.tasklist.model.impl.TransitionImpl
        * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getTransition()
        * @generated
@@ -623,7 +569,6 @@ public interface ModelPackage extends EPackage {
        * The meta object literal for the '<em><b>Source</b></em>' reference feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       *
        * @generated
        */
       EReference TRANSITION__SOURCE = eINSTANCE.getTransition_Source();
@@ -632,17 +577,14 @@ public interface ModelPackage extends EPackage {
        * The meta object literal for the '<em><b>Target</b></em>' reference feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       *
        * @generated
        */
       EReference TRANSITION__TARGET = eINSTANCE.getTransition_Target();
 
       /**
-       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.DecisionImpl
-       * <em>Decision</em>}' class.
+       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.DecisionImpl <em>Decision</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       *
        * @see org.eclipse.glsp.example.tasklist.model.impl.DecisionImpl
        * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getDecision()
        * @generated
