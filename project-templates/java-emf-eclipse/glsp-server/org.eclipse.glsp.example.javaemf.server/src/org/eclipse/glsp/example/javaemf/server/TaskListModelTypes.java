@@ -23,9 +23,5 @@ public final class TaskListModelTypes {
    public static final String TASK = DefaultTypes.NODE;
    public static final String TRANSITION = DefaultTypes.EDGE;
    public static final String DIAMOND = DefaultTypes.NODE_DIAMOND;
-   // public static final String ROUTING_POINT = DefaultTypes.ROUTING_POINT;
-   // public static final String CIRCLE = DefaultTypes.NODE_CIRCLE;
-   // public static final String BUTTON = DefaultTypes.BUTTON;
-   // public static final String RECTANGLE = DefaultTypes.NODE_RECTANGLE;
 
 }
