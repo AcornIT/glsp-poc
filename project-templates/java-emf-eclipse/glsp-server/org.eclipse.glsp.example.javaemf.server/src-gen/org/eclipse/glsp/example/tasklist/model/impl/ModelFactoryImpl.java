@@ -108,16 +108,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 
    /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	public Decision createDecision() {
+   @Override
+   public Decision createDecision() {
       DecisionImpl decision = new DecisionImpl();
       return decision;
    }
 
-			/**
+   /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated

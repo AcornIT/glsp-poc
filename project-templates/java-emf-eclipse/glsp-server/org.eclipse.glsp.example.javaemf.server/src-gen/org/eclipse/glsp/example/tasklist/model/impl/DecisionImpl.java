@@ -23,22 +23,22 @@ import org.eclipse.glsp.example.tasklist.model.ModelPackage;
  * @generated
  */
 public class DecisionImpl extends IdentifiableImpl implements Decision {
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	protected DecisionImpl() {
+   protected DecisionImpl() {
       super();
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	protected EClass eStaticClass() {
+   @Override
+   protected EClass eStaticClass() {
       return ModelPackage.Literals.DECISION;
    }
 

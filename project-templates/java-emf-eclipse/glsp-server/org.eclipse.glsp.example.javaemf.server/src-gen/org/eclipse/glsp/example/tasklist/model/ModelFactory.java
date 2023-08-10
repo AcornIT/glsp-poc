@@ -59,13 +59,13 @@ public interface ModelFactory extends EFactory {
    /**
     * Returns a new object of class '<em>Decision</em>'.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @return a new object of class '<em>Decision</em>'.
     * @generated
     */
-	Decision createDecision();
+   Decision createDecision();
 
-			/**
+   /**
     * Returns the package supported by this factory.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->

@@ -53,6 +53,7 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          taskList.getDecisions().stream()
             .map(this::createTaskNodeDecision)
             .forEachOrdered(graph.getChildren()::add);
+
       }
    }
 
@@ -73,10 +74,7 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          .addCssClass("tasklist-edge")
          .sourceId(edge.getSource().getId())
          .targetId(edge.getTarget().getId())
-         .add(new GLabelBuilder(DefaultTypes.LABEL)
-            .text(edge.getName())
-            .id(edge.getId() + "_label")
-            .build());
+         .add(new GLabelBuilder(DefaultTypes.LABEL).text(edge.getName()).id(edge.getId() + "_label").build());
       applyEdgeData(edge, edgeBuilder);
       return edgeBuilder.build();
    }
@@ -89,7 +87,6 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
             .text(decision.getName())
             .id(decision.getId() + "_label").build())
          .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_LEFT, 5));
-
       applyShapeData(decision, taskNodeBuilder);
       return taskNodeBuilder.build();
    }

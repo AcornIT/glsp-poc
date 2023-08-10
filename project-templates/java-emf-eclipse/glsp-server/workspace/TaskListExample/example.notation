@@ -26,4 +26,7 @@
     <position x="250.35124610354825" y="247.41620141434237"/>
     <size width="60.0" height="25.0"/>
   </elements>
+  <elements xsi:type="notation:Edge" source="//@elements.0" target="//@elements.1">
+    <semanticElement elementId="084678e8-d535-4474-b130-77b805f942e6"/>
+  </elements>
 </notation:Diagram>

@@ -62,6 +62,7 @@ public interface ModelPackage extends EPackage {
     * <!-- end-user-doc -->
     * @generated
     */
+
    ModelPackage eINSTANCE = org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl.init();
 
    /**
@@ -157,15 +158,6 @@ public interface ModelPackage extends EPackage {
    int TASK_LIST__TRANSITIONS = IDENTIFIABLE_FEATURE_COUNT + 1;
 
    /**
-    * The feature id for the '<em><b>Decisions</b></em>' containment reference list.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @generated
-    * @ordered
-    */
-   int TASK_LIST__DECISIONS = IDENTIFIABLE_FEATURE_COUNT + 2;
-
-   /**
     * The number of structural features of the '<em>Task List</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -173,7 +165,7 @@ public interface ModelPackage extends EPackage {
     * @ordered
     */
 
-   int TASK_LIST_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 3;
+   int TASK_LIST_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 2;
 
    int TASK_LIST_DECISIONS = IDENTIFIABLE_FEATURE_COUNT + 3;
 
@@ -534,14 +526,6 @@ public interface ModelPackage extends EPackage {
        * @generated
        */
       EReference TASK_LIST__TRANSITIONS = eINSTANCE.getTaskList_Transitions();
-
-      /**
-       * The meta object literal for the '<em><b>Decisions</b></em>' containment reference list feature.
-       * <!-- begin-user-doc -->
-       * <!-- end-user-doc -->
-       * @generated
-       */
-      EReference TASK_LIST__DECISIONS = eINSTANCE.getTaskList_Decisions();
 
       EReference TASK_LIST_DECISIONS = eINSTANCE.getTaskList_Decisions();
 

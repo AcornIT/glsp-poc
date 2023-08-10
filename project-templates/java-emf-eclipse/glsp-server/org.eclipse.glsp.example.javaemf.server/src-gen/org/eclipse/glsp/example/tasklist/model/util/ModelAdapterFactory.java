@@ -174,18 +174,18 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
    /**
     * Creates a new adapter for an object of class '{@link org.eclipse.glsp.example.tasklist.model.Decision <em>Decision</em>}'.
     * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
     * @return the new adapter.
     * @see org.eclipse.glsp.example.tasklist.model.Decision
     * @generated
     */
-	public Adapter createDecisionAdapter() {
+   public Adapter createDecisionAdapter() {
       return null;
    }
 
-			/**
+   /**
     * Creates a new adapter for the default case.
     * <!-- begin-user-doc -->
     * This default implementation returns null.

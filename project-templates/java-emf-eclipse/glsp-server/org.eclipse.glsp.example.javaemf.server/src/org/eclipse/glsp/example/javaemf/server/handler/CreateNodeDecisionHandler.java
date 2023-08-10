@@ -64,19 +64,16 @@ public class CreateNodeDecisionHandler extends AbstractEMFCreateNodeOperationHan
       return Optional.of(createTaskAndShape(relativeLocation));
    }
 
-   @Override
-   public String getLabel() { return "Decision"; }
-
    protected Command createTaskAndShape(final Optional<GPoint> relativeLocation) {
       TaskList taskList = modelState.getSemanticModel(TaskList.class).orElseThrow();
       Diagram diagram = modelState.getNotationModel();
       EditingDomain editingDomain = modelState.getEditingDomain();
 
-      Decision newTask = createDecision();
+      Decision decision = createDecision();
       Command taskCommand = AddCommand.create(editingDomain, taskList,
-         ModelPackage.Literals.TASK_LIST_DECISIONS, newTask);
+         ModelPackage.Literals.TASK_LIST_DECISIONS, decision);
 
-      Shape shape = createShape(idGenerator.getOrCreateId(newTask), relativeLocation);
+      Shape shape = createShape(idGenerator.getOrCreateId(decision), relativeLocation);
       Command shapeCommand = AddCommand.create(editingDomain, diagram,
          NotationPackage.Literals.DIAGRAM__ELEMENTS, shape);
 
@@ -88,26 +85,26 @@ public class CreateNodeDecisionHandler extends AbstractEMFCreateNodeOperationHan
    }
 
    protected Decision createDecision() {
-      Decision newTask = ModelFactory.eINSTANCE.createDecision();
-      newTask.setId(UUID.randomUUID().toString());
-      setInitialName(newTask);
-      return newTask;
+      Decision newDecision = ModelFactory.eINSTANCE.createDecision();
+      newDecision.setId(UUID.randomUUID().toString());
+      setInitialName(newDecision);
+      return newDecision;
    }
 
-   protected void setInitialName(final Decision task) {
-      Function<Integer, String> nameProvider = i -> "Decision" + task.eClass().getName() + i;
+   protected void setInitialName(final Decision decision) {
+      Function<Integer, String> nameProvider = i -> decision.eClass().getName() + i;
       int nodeCounter = modelState.getIndex().getCounter(GraphPackage.Literals.GNODE, nameProvider);
-      task.setName(nameProvider.apply(nodeCounter));
+      decision.setName(nameProvider.apply(nodeCounter));
    }
 
    protected Shape createShape(final String elementId, final Optional<GPoint> relativeLocation) {
-      Shape newTask = NotationFactory.eINSTANCE.createShape();
-      newTask.setPosition(relativeLocation.orElse(GraphUtil.point(0, 0)));
-      newTask.setSize(GraphUtil.dimension(50, 30));
+      Shape newDecision = NotationFactory.eINSTANCE.createShape();
+      newDecision.setPosition(relativeLocation.orElse(GraphUtil.point(0, 0)));
+      newDecision.setSize(GraphUtil.dimension(50, 30));
       SemanticElementReference reference = NotationFactory.eINSTANCE.createSemanticElementReference();
       reference.setElementId(elementId);
-      newTask.setSemanticElement(reference);
-      return newTask;
+      newDecision.setSemanticElement(reference);
+      return newDecision;
    }
 
 }
