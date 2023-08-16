@@ -42,4 +42,6 @@ svg {
     position: absolute;
     font-size: 24px;
     visibility: visible;
+    stroke: deepskyblue;
+    stroke-width: 1px;
 }
