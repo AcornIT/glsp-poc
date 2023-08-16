@@ -34,6 +34,7 @@ public class TaskListDiagramConfiguration extends BaseDiagramConfiguration {
       return List.of(
          new EdgeTypeHint(TaskListModelTypes.TRANSITION, true, true, false, List.of(TaskListModelTypes.TASK),
             List.of(TaskListModelTypes.TASK)));
+
    }
 
 }

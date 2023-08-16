@@ -56,17 +56,6 @@ public interface TaskList extends Identifiable {
     */
    EList<Transition> getTransitions();
 
-   /**
-    * Returns the value of the '<em><b>Decisions</b></em>' containment reference list.
-    * The list contents are of type {@link org.eclipse.glsp.example.tasklist.model.Decision}.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    *
-    * @return the value of the '<em>Decisions</em>' containment reference list.
-    * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTaskList_Decisions()
-    * @model containment="true"
-    * @generated
-    */
    EList<Decision> getDecisions();
 
 } // TaskList

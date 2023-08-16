@@ -26,9 +26,11 @@ import org.eclipse.glsp.example.tasklist.model.Transition;
 import org.eclipse.glsp.graph.DefaultTypes;
 import org.eclipse.glsp.graph.GEdge;
 import org.eclipse.glsp.graph.GGraph;
+import org.eclipse.glsp.graph.GLabel;
 import org.eclipse.glsp.graph.GModelRoot;
 import org.eclipse.glsp.graph.GNode;
 import org.eclipse.glsp.graph.builder.impl.GEdgeBuilder;
+import org.eclipse.glsp.graph.builder.impl.GEdgePlacementBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLabelBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLayoutOptions;
 import org.eclipse.glsp.graph.builder.impl.GNodeBuilder;
@@ -50,10 +52,11 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          taskList.getTransitions().stream()
             .map(this::createEdge)
             .forEachOrdered(graph.getChildren()::add);
-         taskList.getDecisions().stream()
-            .map(this::createTaskNodeDecision)
-            .forEachOrdered(graph.getChildren()::add);
-
+         /*
+          * taskList.getDecisions().stream()
+          * .map(this::createTaskNodeDecision)
+          * .forEachOrdered(graph.getChildren()::add);
+          */
       }
    }
 
@@ -75,6 +78,15 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          .sourceId(edge.getSource().getId())
          .targetId(edge.getTarget().getId())
          .add(new GLabelBuilder(DefaultTypes.LABEL).text(edge.getName()).id(edge.getId() + "_label").build());
+
+      GLabel label = new GLabelBuilder()
+         .edgePlacement(new GEdgePlacementBuilder()
+            .side(GConstants.EdgeSide.TOP)
+            .position(0.5)
+            .build())
+         .build();
+
+      edgeBuilder.add(label);
       applyEdgeData(edge, edgeBuilder);
       return edgeBuilder.build();
    }

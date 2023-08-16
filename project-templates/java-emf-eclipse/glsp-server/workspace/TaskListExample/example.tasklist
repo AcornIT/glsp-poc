@@ -5,5 +5,5 @@
   <tasks id="7c68e6a2-1288-484c-ad01-454232adeb9f" name="NewTask2"/>
   <tasks id="4eec0256-329f-468b-887e-c769317fa19c" name="NewTask3"/>
   <tasks id="54b1cdfa-fa14-4aee-8413-57e68cc52c3e" name="NewTask4"/>
-  <transitions id="084678e8-d535-4474-b130-77b805f942e6" name="Transition 0" source="61bcc27a-3e93-4847-89e4-1d2433371b4b" target="8204461f-8451-46c7-a258-b9ffb976182e"/>
+  <transitions id="e16efafb-078e-44e8-b367-f820e9df36b7" name="Transition 0" source="61bcc27a-3e93-4847-89e4-1d2433371b4b" target="8204461f-8451-46c7-a258-b9ffb976182e"/>
 </example-model:TaskList>

@@ -2,4 +2,5 @@
 <example-model:TaskList xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:example-model="http://www.eclipse.org/glsp/examples/tasklist" id="root" name="Task List">
   <tasks id="f08228c4-2a84-4199-a5cf-7dd2e3b9b650" name="NewTask0"/>
   <tasks id="b529f599-fc7a-4c5c-bf15-51c9bacebe4f" name="NewTask1"/>
+  <transitions id="7ce9008c-b997-414a-868d-6baf9f90c4f8" name="Transition 0" source="f08228c4-2a84-4199-a5cf-7dd2e3b9b650" target="b529f599-fc7a-4c5c-bf15-51c9bacebe4f"/>
 </example-model:TaskList>

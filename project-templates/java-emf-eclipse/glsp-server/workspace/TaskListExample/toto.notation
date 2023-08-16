@@ -3,12 +3,15 @@
   <semanticElement elementId="root"/>
   <elements xsi:type="notation:Shape">
     <semanticElement elementId="f08228c4-2a84-4199-a5cf-7dd2e3b9b650"/>
-    <position x="151.0" y="84.0"/>
+    <position x="248.0" y="45.0"/>
     <size width="60.0" height="25.0"/>
   </elements>
   <elements xsi:type="notation:Shape">
     <semanticElement elementId="b529f599-fc7a-4c5c-bf15-51c9bacebe4f"/>
-    <position x="510.0" y="78.0"/>
+    <position x="440.0" y="53.0"/>
     <size width="60.0" height="25.0"/>
+  </elements>
+  <elements xsi:type="notation:Edge" source="//@elements.0" target="//@elements.1">
+    <semanticElement elementId="7ce9008c-b997-414a-868d-6baf9f90c4f8"/>
   </elements>
 </notation:Diagram>

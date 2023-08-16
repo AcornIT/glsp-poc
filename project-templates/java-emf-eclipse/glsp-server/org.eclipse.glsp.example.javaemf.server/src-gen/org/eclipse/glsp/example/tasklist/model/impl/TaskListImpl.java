@@ -60,13 +60,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
     */
    protected EList<Transition> transitions;
 
-   /**
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    *
-    * @generated
-    */
-
    protected EList<Decision> decisions;
 
    protected TaskListImpl() {
@@ -140,8 +133,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
             return getTasks();
          case ModelPackage.TASK_LIST__TRANSITIONS:
             return getTransitions();
-         case ModelPackage.TASK_LIST_DECISIONS:
-            return getDecisions();
       }
       return super.eGet(featureID, resolve, coreType);
    }
@@ -164,10 +155,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
             getTransitions().clear();
             getTransitions().addAll((Collection<? extends Transition>) newValue);
             return;
-         case ModelPackage.TASK_LIST_DECISIONS:
-            getDecisions().clear();
-            getDecisions().addAll((Collection<? extends Decision>) newValue);
-            return;
       }
       super.eSet(featureID, newValue);
    }
@@ -187,9 +174,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
          case ModelPackage.TASK_LIST__TRANSITIONS:
             getTransitions().clear();
             return;
-         case ModelPackage.TASK_LIST_DECISIONS:
-            getDecisions().clear();
-            return;
       }
       super.eUnset(featureID);
    }
@@ -207,8 +191,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
             return tasks != null && !tasks.isEmpty();
          case ModelPackage.TASK_LIST__TRANSITIONS:
             return transitions != null && !transitions.isEmpty();
-         case ModelPackage.TASK_LIST_DECISIONS:
-            return decisions != null && !decisions.isEmpty();
       }
       return super.eIsSet(featureID);
    }
