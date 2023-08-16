@@ -20,6 +20,7 @@ import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.glsp.example.javaemf.server.TaskListModelTypes;
+import org.eclipse.glsp.example.tasklist.model.Decision;
 import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
@@ -35,6 +36,7 @@ import org.eclipse.glsp.graph.builder.impl.GLabelBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLayoutOptions;
 import org.eclipse.glsp.graph.builder.impl.GNodeBuilder;
 import org.eclipse.glsp.graph.util.GConstants;
+import org.eclipse.glsp.graph.util.GraphUtil;
 import org.eclipse.glsp.server.emf.model.notation.Diagram;
 import org.eclipse.glsp.server.emf.notation.EMFNotationGModelFactory;
 
@@ -51,13 +53,11 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
             .forEachOrdered(graph.getChildren()::add);
          taskList.getTransitions().stream()
             .map(transition -> this.createTransitionEdge(graph, transition))
-            // .map(this::createEdge)
             .forEachOrdered(graph.getChildren()::add);
-         /*
-          * taskList.getDecisions().stream()
-          * .map(this::createTaskNodeDecision)
-          * .forEachOrdered(graph.getChildren()::add);
-          */
+         // taskList.getDecisions().stream()
+         // .map(this::createTaskNodeDecision)
+         // .forEachOrdered(graph.getChildren()::add);
+
       }
    }
 
@@ -66,7 +66,8 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          .id(idGenerator.getOrCreateId(task))
          .addCssClass("tasklist-node")
          .add(new GLabelBuilder(DefaultTypes.LABEL).text(task.getName()).id(task.getId() + "_label").build())
-         .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_LEFT, 5));
+         .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_LEFT, 5))
+         .layoutOptions(new GLayoutOptions().vAlign(GConstants.VAlign.TOP));
 
       applyShapeData(task, taskNodeBuilder);
       return taskNodeBuilder.build();
@@ -101,18 +102,17 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
       return eList.stream().filter(node -> elementId.equals(node.getId())).findFirst().orElse(null);
    }
 
-   /*
-    * protected GNode createTaskNodeDecision(final Decision decision) {
-    * GNodeBuilder taskNodeBuilder = new GNodeBuilder(TaskListModelTypes.DIAMOND)
-    * .id(idGenerator.getOrCreateId(decision))
-    * .addCssClass("decision-node")
-    * .add(new GLabelBuilder(DefaultTypes.LABEL)
-    * .text(decision.getName())
-    * .id(decision.getId() + "_label").build())
-    * .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_LEFT, 5));
-    * applyShapeData(decision, taskNodeBuilder);
-    * return taskNodeBuilder.build();
-    * }
-    */
+   protected GNode createTaskNodeDecision(final Decision decision) {
+      GNodeBuilder taskNodeBuilder = new GNodeBuilder(TaskListModelTypes.DIAMOND)
+         .id(idGenerator.getOrCreateId(decision))
+         .addCssClass("decision-node")
+         .size(GraphUtil.dimension(30, 30))
+         .add(new GLabelBuilder(DefaultTypes.LABEL)
+            .text(decision.getName())
+            .id(decision.getId() + "_label").build())
+         .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_TOP, 5));
+      applyShapeData(decision, taskNodeBuilder);
+      return taskNodeBuilder.build();
+   }
 
 }

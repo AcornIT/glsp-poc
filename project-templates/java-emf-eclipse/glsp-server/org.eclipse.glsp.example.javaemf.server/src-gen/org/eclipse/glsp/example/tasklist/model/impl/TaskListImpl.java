@@ -11,7 +11,6 @@
 package org.eclipse.glsp.example.tasklist.model.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -34,6 +33,7 @@ import org.eclipse.glsp.example.tasklist.model.Transition;
  * <ul>
  *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getTasks <em>Tasks</em>}</li>
  *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getTransitions <em>Transitions</em>}</li>
+ *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getDecisions <em>Decisions</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,8 +58,15 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
     */
    protected EList<Transition> transitions;
 
+   /**
+    * The cached value of the '{@link #getDecisions() <em>Decisions</em>}' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getDecisions()
+    * @generated
+    * @ordered
+    */
    protected EList<Decision> decisions;
-
    protected TaskListImpl() {
       super();
    }
@@ -100,6 +107,19 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
       return transitions;
    }
 
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
+   public EList<Decision> getDecisions() {
+      if (decisions == null) {
+         decisions = new EObjectContainmentEList<Decision>(Decision.class, this, ModelPackage.TASK_LIST__DECISIONS);
+      }
+      return decisions;
+   }
+
    @Override
    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
       final NotificationChain msgs) {
@@ -108,8 +128,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
             return ((InternalEList<?>) getTasks()).basicRemove(otherEnd, msgs);
          case ModelPackage.TASK_LIST__TRANSITIONS:
             return ((InternalEList<?>) getTransitions()).basicRemove(otherEnd, msgs);
-         case ModelPackage.TASK_LIST_DECISIONS:
-            return ((InternalEList<?>) getDecisions()).basicRemove(otherEnd, msgs);
       }
       return super.eInverseRemove(otherEnd, featureID, msgs);
    }
@@ -126,6 +144,8 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
             return getTasks();
          case ModelPackage.TASK_LIST__TRANSITIONS:
             return getTransitions();
+         case ModelPackage.TASK_LIST__DECISIONS:
+            return getDecisions();
       }
       return super.eGet(featureID, resolve, coreType);
    }
@@ -147,6 +167,10 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
             getTransitions().clear();
             getTransitions().addAll((Collection<? extends Transition>)newValue);
             return;
+         case ModelPackage.TASK_LIST__DECISIONS:
+            getDecisions().clear();
+            getDecisions().addAll((Collection<? extends Decision>)newValue);
+            return;
       }
       super.eSet(featureID, newValue);
    }
@@ -165,6 +189,9 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
          case ModelPackage.TASK_LIST__TRANSITIONS:
             getTransitions().clear();
             return;
+         case ModelPackage.TASK_LIST__DECISIONS:
+            getDecisions().clear();
+            return;
       }
       super.eUnset(featureID);
    }
@@ -181,16 +208,10 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
             return tasks != null && !tasks.isEmpty();
          case ModelPackage.TASK_LIST__TRANSITIONS:
             return transitions != null && !transitions.isEmpty();
+         case ModelPackage.TASK_LIST__DECISIONS:
+            return decisions != null && !decisions.isEmpty();
       }
       return super.eIsSet(featureID);
-   }
-
-   @Override
-   public EList<Decision> getDecisions() {
-      if (decisions == null) {
-         decisions = new EObjectContainmentEList<>(Decision.class, this, ModelPackage.TASK_LIST_DECISIONS);
-      }
-      return decisions;
    }
 
 } // TaskListImpl
