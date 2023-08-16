@@ -41,4 +41,5 @@ svg {
     outline-color: black;
     position: absolute;
     font-size: 24px;
+    visibility: visible;
 }

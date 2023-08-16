@@ -32,8 +32,8 @@ import org.eclipse.glsp.example.tasklist.model.Transition;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getTasks <em>Tasks</em>}</li>
- * <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getTransitions <em>Transitions</em>}</li>
+ *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getTransitions <em>Transitions</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,7 +43,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
     * The cached value of the '{@link #getTasks() <em>Tasks</em>}' containment reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @see #getTasks()
     * @generated
     * @ordered
@@ -53,7 +52,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
     * The cached value of the '{@link #getTransitions() <em>Transitions</em>}' containment reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @see #getTransitions()
     * @generated
     * @ordered
@@ -69,7 +67,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @Override
@@ -80,13 +77,12 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @Override
    public EList<Task> getTasks() {
       if (tasks == null) {
-         tasks = new EObjectContainmentEList<>(Task.class, this, ModelPackage.TASK_LIST__TASKS);
+         tasks = new EObjectContainmentEList<Task>(Task.class, this, ModelPackage.TASK_LIST__TASKS);
       }
       return tasks;
    }
@@ -94,14 +90,12 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @Override
    public EList<Transition> getTransitions() {
       if (transitions == null) {
-         transitions = new EObjectContainmentEList<>(Transition.class, this,
-            ModelPackage.TASK_LIST__TRANSITIONS);
+         transitions = new EObjectContainmentEList<Transition>(Transition.class, this, ModelPackage.TASK_LIST__TRANSITIONS);
       }
       return transitions;
    }
@@ -123,11 +117,10 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @Override
-   public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+   public Object eGet(int featureID, boolean resolve, boolean coreType) {
       switch (featureID) {
          case ModelPackage.TASK_LIST__TASKS:
             return getTasks();
@@ -140,20 +133,19 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @SuppressWarnings("unchecked")
    @Override
-   public void eSet(final int featureID, final Object newValue) {
+   public void eSet(int featureID, Object newValue) {
       switch (featureID) {
          case ModelPackage.TASK_LIST__TASKS:
             getTasks().clear();
-            getTasks().addAll((Collection<? extends Task>) newValue);
+            getTasks().addAll((Collection<? extends Task>)newValue);
             return;
          case ModelPackage.TASK_LIST__TRANSITIONS:
             getTransitions().clear();
-            getTransitions().addAll((Collection<? extends Transition>) newValue);
+            getTransitions().addAll((Collection<? extends Transition>)newValue);
             return;
       }
       super.eSet(featureID, newValue);
@@ -162,11 +154,10 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @Override
-   public void eUnset(final int featureID) {
+   public void eUnset(int featureID) {
       switch (featureID) {
          case ModelPackage.TASK_LIST__TASKS:
             getTasks().clear();
@@ -181,11 +172,10 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @generated
     */
    @Override
-   public boolean eIsSet(final int featureID) {
+   public boolean eIsSet(int featureID) {
       switch (featureID) {
          case ModelPackage.TASK_LIST__TASKS:
             return tasks != null && !tasks.isEmpty();

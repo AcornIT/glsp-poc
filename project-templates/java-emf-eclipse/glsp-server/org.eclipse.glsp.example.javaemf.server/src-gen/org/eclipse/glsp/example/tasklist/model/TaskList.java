@@ -21,8 +21,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.glsp.example.tasklist.model.TaskList#getTasks <em>Tasks</em>}</li>
- * <li>{@link org.eclipse.glsp.example.tasklist.model.TaskList#getTransitions <em>Transitions</em>}</li>
+ *   <li>{@link org.eclipse.glsp.example.tasklist.model.TaskList#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link org.eclipse.glsp.example.tasklist.model.TaskList#getTransitions <em>Transitions</em>}</li>
  * </ul>
  *
  * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTaskList()
@@ -35,7 +35,6 @@ public interface TaskList extends Identifiable {
     * The list contents are of type {@link org.eclipse.glsp.example.tasklist.model.Task}.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @return the value of the '<em>Tasks</em>' containment reference list.
     * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTaskList_Tasks()
     * @model containment="true"
@@ -48,7 +47,6 @@ public interface TaskList extends Identifiable {
     * The list contents are of type {@link org.eclipse.glsp.example.tasklist.model.Transition}.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    *
     * @return the value of the '<em>Transitions</em>' containment reference list.
     * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTaskList_Transitions()
     * @model containment="true"

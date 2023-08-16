@@ -18,6 +18,7 @@ package org.eclipse.glsp.example.javaemf.server;
 import java.util.List;
 
 import org.eclipse.glsp.server.diagram.BaseDiagramConfiguration;
+import org.eclipse.glsp.server.layout.ServerLayoutKind;
 import org.eclipse.glsp.server.types.EdgeTypeHint;
 import org.eclipse.glsp.server.types.ShapeTypeHint;
 
@@ -32,9 +33,11 @@ public class TaskListDiagramConfiguration extends BaseDiagramConfiguration {
    @Override
    public List<EdgeTypeHint> getEdgeTypeHints() {
       return List.of(
-         new EdgeTypeHint(TaskListModelTypes.TRANSITION, true, true, false, List.of(TaskListModelTypes.TASK),
+         new EdgeTypeHint(TaskListModelTypes.TRANSITION, false, true, true, List.of(TaskListModelTypes.TASK),
             List.of(TaskListModelTypes.TASK)));
-
    }
+
+   @Override
+   public ServerLayoutKind getLayoutKind() { return ServerLayoutKind.MANUAL; }
 
 }
