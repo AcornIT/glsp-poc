@@ -272,6 +272,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       taskListEClass = createEClass(TASK_LIST);
       createEReference(taskListEClass, TASK_LIST__TASKS);
       createEReference(taskListEClass, TASK_LIST__TRANSITIONS);
+      createEReference(taskListEClass, TASK_LIST__DECISIONS);
 
       taskEClass = createEClass(TASK);
 
@@ -323,6 +324,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       initEClass(taskListEClass, TaskList.class, "TaskList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEReference(getTaskList_Tasks(), this.getTask(), null, "tasks", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEReference(getTaskList_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getTaskList_Decisions(), this.getDecision(), null, "decisions", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

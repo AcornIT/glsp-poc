@@ -29,4 +29,7 @@
   <elements xsi:type="notation:Edge" source="//@elements.0" target="//@elements.1">
     <semanticElement elementId="e16efafb-078e-44e8-b367-f820e9df36b7"/>
   </elements>
+  <elements xsi:type="notation:Edge" source="//@elements.1" target="//@elements.4">
+    <semanticElement elementId="ab870a27-a700-47f8-90a9-f30b20812642"/>
+  </elements>
 </notation:Diagram>

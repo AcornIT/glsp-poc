@@ -67,6 +67,7 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
     * @ordered
     */
    protected EList<Decision> decisions;
+
    protected TaskListImpl() {
       super();
    }

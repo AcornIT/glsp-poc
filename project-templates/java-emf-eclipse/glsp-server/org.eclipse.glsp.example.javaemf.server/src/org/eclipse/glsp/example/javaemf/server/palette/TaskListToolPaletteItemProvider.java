@@ -54,5 +54,4 @@ public class TaskListToolPaletteItemProvider implements ToolPaletteItemProvider 
    private PaletteItem edge(final String elementTypeId, final String label) {
       return new PaletteItem(elementTypeId, label, new TriggerEdgeCreationAction(elementTypeId));
    }
-
 }

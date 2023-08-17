@@ -89,7 +89,6 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
             .id(transition.getId() + "_label")
             .edgePlacement(new GEdgePlacementBuilder()
                .side(GConstants.EdgeSide.TOP)
-               .position(0)
                .build())
             .build())
          .id(idGenerator.getOrCreateId(transition));
