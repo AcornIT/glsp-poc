@@ -36,8 +36,10 @@ public class TaskListToolPaletteItemProvider implements ToolPaletteItemProvider 
    private PaletteItem nodes() {
       PaletteItem createTask = node(TaskListModelTypes.TASK, "Task");
       PaletteItem createDecisionNode = node(TaskListModelTypes.DIAMOND, "Decision");
+      PaletteItem createContainer = node(TaskListModelTypes.COMPARTMENT, "Container");
       List<PaletteItem> nodes = Lists.newArrayList(createTask);
       nodes.add(createDecisionNode);
+      nodes.add(createContainer);
       return PaletteItem.createPaletteGroup("nodes", "Nodes", nodes, "symbol-property");
    }
 

@@ -92,6 +92,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
             return createTransitionAdapter();
          }
          @Override
+         public Adapter caseCompartment(Compartment object) {
+            return createCompartmentAdapter();
+         }
+         @Override
          public Adapter caseDecision(Decision object) {
             return createDecisionAdapter();
          }
@@ -168,6 +172,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
     * @generated
     */
    public Adapter createTransitionAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link org.eclipse.glsp.example.tasklist.model.Compartment <em>Compartment</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see org.eclipse.glsp.example.tasklist.model.Compartment
+    * @generated
+    */
+   public Adapter createCompartmentAdapter() {
       return null;
    }
 

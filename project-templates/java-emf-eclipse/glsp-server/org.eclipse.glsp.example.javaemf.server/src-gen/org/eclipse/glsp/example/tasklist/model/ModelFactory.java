@@ -57,6 +57,15 @@ public interface ModelFactory extends EFactory {
    Transition createTransition();
 
    /**
+    * Returns a new object of class '<em>Compartment</em>'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return a new object of class '<em>Compartment</em>'.
+    * @generated
+    */
+   Compartment createCompartment();
+
+   /**
     * Returns a new object of class '<em>Decision</em>'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->

@@ -1,21 +1,25 @@
 /**
  * Copyright (c) 2022 EclipseSource and others.
- * 
+ *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
  * https://www.eclipse.org/legal/epl-2.0, or the MIT License which is
  * available at https://opensource.org/licenses/MIT.
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0 OR MIT
  */
 package org.eclipse.glsp.example.tasklist.model.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.eclipse.glsp.example.tasklist.model.*;
+import org.eclipse.glsp.example.tasklist.model.Compartment;
+import org.eclipse.glsp.example.tasklist.model.Identifiable;
+import org.eclipse.glsp.example.tasklist.model.ModelPackage;
+import org.eclipse.glsp.example.tasklist.model.Task;
+import org.eclipse.glsp.example.tasklist.model.TaskList;
+import org.eclipse.glsp.example.tasklist.model.Transition;
 
 /**
  * <!-- begin-user-doc -->
@@ -101,6 +105,13 @@ public class ModelSwitch<T> extends Switch<T> {
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
+         case ModelPackage.COMPARTMENT: {
+            Compartment compartment = (Compartment)theEObject;
+            T result = caseCompartment(compartment);
+            if (result == null) result = caseIdentifiable(compartment);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
          case ModelPackage.DECISION: {
             Decision decision = (Decision)theEObject;
             T result = caseDecision(decision);
@@ -173,6 +184,21 @@ public class ModelSwitch<T> extends Switch<T> {
    }
 
    /**
+    * Returns the result of interpreting the object as an instance of '<em>Compartment</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Compartment</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T caseCompartment(Compartment object) {
+      return null;
+   }
+
+   /**
     * Returns the result of interpreting the object as an instance of '<em>Decision</em>'.
     * <!-- begin-user-doc -->
     * This implementation returns null;
@@ -203,4 +229,4 @@ public class ModelSwitch<T> extends Switch<T> {
       return null;
    }
 
-} //ModelSwitch
+} // ModelSwitch

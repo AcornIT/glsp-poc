@@ -32,4 +32,9 @@
   <elements xsi:type="notation:Edge" source="//@elements.1" target="//@elements.4">
     <semanticElement elementId="ab870a27-a700-47f8-90a9-f30b20812642"/>
   </elements>
+  <elements xsi:type="notation:Shape">
+    <semanticElement elementId="a90a66c5-a201-40b3-a9e5-5dd6743346ac"/>
+    <position x="494.2663931536471" y="191.70810070717118"/>
+    <size width="56.88059997558594" height="30.0"/>
+  </elements>
 </notation:Diagram>

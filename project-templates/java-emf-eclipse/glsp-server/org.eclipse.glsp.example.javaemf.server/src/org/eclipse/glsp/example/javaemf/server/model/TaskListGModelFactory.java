@@ -15,21 +15,27 @@
  ********************************************************************************/
 package org.eclipse.glsp.example.javaemf.server.model;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.glsp.example.javaemf.server.TaskListModelTypes;
+import org.eclipse.glsp.example.tasklist.model.Compartment;
 import org.eclipse.glsp.example.tasklist.model.Decision;
 import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
 import org.eclipse.glsp.graph.DefaultTypes;
+import org.eclipse.glsp.graph.GCompartment;
+import org.eclipse.glsp.graph.GDimension;
 import org.eclipse.glsp.graph.GEdge;
 import org.eclipse.glsp.graph.GGraph;
 import org.eclipse.glsp.graph.GModelElement;
 import org.eclipse.glsp.graph.GModelRoot;
 import org.eclipse.glsp.graph.GNode;
+import org.eclipse.glsp.graph.GPoint;
+import org.eclipse.glsp.graph.builder.impl.GCompartmentBuilder;
 import org.eclipse.glsp.graph.builder.impl.GEdgeBuilder;
 import org.eclipse.glsp.graph.builder.impl.GEdgePlacementBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLabelBuilder;
@@ -53,6 +59,9 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
             .forEachOrdered(graph.getChildren()::add);
          taskList.getTransitions().stream()
             .map(transition -> this.createTransitionEdge(graph, transition))
+            .forEachOrdered(graph.getChildren()::add);
+         taskList.getContainers().stream()
+            .map(this::createContainer)
             .forEachOrdered(graph.getChildren()::add);
          taskList.getDecisions().stream()
             .map(this::createTaskNodeDecision)
@@ -112,6 +121,34 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_TOP, 5));
       applyShapeData(decision, taskNodeBuilder);
       return taskNodeBuilder.build();
+   }
+
+   // Generic container used for element grouping
+   protected GCompartment createContainer(final Compartment container) {
+      GDimension containerPrefSize = GraphUtil.dimension(250, 125);
+      GPoint childPosition = GraphUtil.point(75, 35);
+      Map<String, Object> layoutOptions = new HashMap<>();
+      layoutOptions.put(GLayoutOptions.KEY_H_ALIGN, true);
+      layoutOptions.put(GLayoutOptions.KEY_PREF_WIDTH, containerPrefSize.getWidth());
+      layoutOptions.put(GLayoutOptions.KEY_PREF_HEIGHT, containerPrefSize.getHeight());
+
+      GCompartmentBuilder containerBuild = new GCompartmentBuilder(TaskListModelTypes.COMPARTMENT)
+         .id(idGenerator.getOrCreateId(container))
+         .addCssClass("container")
+         .size(GraphUtil.dimension(40, 45))
+         .add(new GLabelBuilder(DefaultTypes.LABEL)
+            .text(container.getName())
+            .id(container.getId()).build())
+         .layout(GConstants.Layout.FREEFORM)
+         .layoutOptions(layoutOptions)
+         .type("comp:structure")
+         .type(DefaultTypes.COMPARTMENT)
+         .add(new GNodeBuilder(DefaultTypes.NODE)
+            .position(childPosition)
+            .build());
+      GCompartment compartment = containerBuild.build();
+      System.out.println("Container");
+      return compartment;
    }
 
 }

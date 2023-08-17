@@ -20,15 +20,13 @@ import java.util.UUID;
 import java.util.function.Function;
 
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.glsp.example.javaemf.server.TaskListModelTypes;
-import org.eclipse.glsp.example.tasklist.model.Decision;
+import org.eclipse.glsp.example.tasklist.model.Compartment;
 import org.eclipse.glsp.example.tasklist.model.ModelFactory;
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
-import org.eclipse.glsp.graph.GModelElement;
 import org.eclipse.glsp.graph.GPoint;
 import org.eclipse.glsp.graph.GraphPackage;
 import org.eclipse.glsp.graph.util.GraphUtil;
@@ -36,7 +34,6 @@ import org.eclipse.glsp.server.emf.AbstractEMFCreateNodeOperationHandler;
 import org.eclipse.glsp.server.emf.EMFIdGenerator;
 import org.eclipse.glsp.server.emf.model.notation.Diagram;
 import org.eclipse.glsp.server.emf.model.notation.NotationFactory;
-import org.eclipse.glsp.server.emf.model.notation.NotationPackage;
 import org.eclipse.glsp.server.emf.model.notation.SemanticElementReference;
 import org.eclipse.glsp.server.emf.model.notation.Shape;
 import org.eclipse.glsp.server.emf.notation.EMFNotationModelState;
@@ -44,7 +41,7 @@ import org.eclipse.glsp.server.operations.CreateNodeOperation;
 
 import com.google.inject.Inject;
 
-public class CreateNodeDecisionHandler extends AbstractEMFCreateNodeOperationHandler {
+public class CreateContainerNodeHandler extends AbstractEMFCreateNodeOperationHandler {
 
    @Inject
    protected EMFNotationModelState modelState;
@@ -52,63 +49,53 @@ public class CreateNodeDecisionHandler extends AbstractEMFCreateNodeOperationHan
    @Inject
    protected EMFIdGenerator idGenerator;
 
-   public CreateNodeDecisionHandler() {
-      super(TaskListModelTypes.DIAMOND);
+   public CreateContainerNodeHandler() {
+      super(TaskListModelTypes.COMPARTMENT);
    }
 
    @Override
    public Optional<Command> createCommand(final CreateNodeOperation operation) {
-      GModelElement container = modelState.getIndex().get(operation.getContainerId()).orElseGet(modelState::getRoot);
-      Optional<GPoint> absoluteLocation = getLocation(operation);
-      Optional<GPoint> relativeLocation = getRelativeLocation(operation, absoluteLocation, container);
-      return Optional.of(createTaskAndShape(relativeLocation));
-      // return Optional.empty();
+
+      return Optional.empty();
    }
 
    @Override
-   public String getLabel() { return "Decision"; }
+   public String getLabel() { return "Compartment"; }
 
-   protected Command createTaskAndShape(final Optional<GPoint> relativeLocation) {
+   protected Command createContainerAndShape(final Optional<GPoint> relativeLocation) {
       TaskList taskList = modelState.getSemanticModel(TaskList.class).orElseThrow();
       Diagram diagram = modelState.getNotationModel();
       EditingDomain editingDomain = modelState.getEditingDomain();
 
-      Decision decision = createDecision();
-      Command taskCommand = AddCommand.create(editingDomain, taskList,
-         ModelPackage.Literals.TASK_LIST__DECISIONS, decision);
+      Compartment container = createCompartment();
+      Command containerCommand = AddCommand.create(editingDomain, taskList, ModelPackage.Literals.TASK_LIST__CONTAINERS,
+         container);
 
-      Shape shape = createShape(idGenerator.getOrCreateId(decision), relativeLocation);
-      Command shapeCommand = AddCommand.create(editingDomain, diagram,
-         NotationPackage.Literals.DIAGRAM__ELEMENTS, shape);
-
-      CompoundCommand compoundCommand = new CompoundCommand();
-      compoundCommand.append(taskCommand);
-      compoundCommand.append(shapeCommand);
-
-      return compoundCommand;
+      return null;
    }
 
-   protected Decision createDecision() {
-      Decision newDecision = ModelFactory.eINSTANCE.createDecision();
-      newDecision.setId(UUID.randomUUID().toString());
-      setInitialName(newDecision);
-      return newDecision;
+   protected Compartment createCompartment() {
+      Compartment newCompartment = ModelFactory.eINSTANCE.createCompartment();
+      newCompartment.setId(UUID.randomUUID().toString());
+      setInitialName(newCompartment);
+      return newCompartment;
    }
 
-   protected void setInitialName(final Decision decision) {
-      Function<Integer, String> nameProvider = i -> decision.eClass().getName() + i;
-      int nodeCounter = modelState.getIndex().getCounter(GraphPackage.Literals.GNODE, nameProvider);
-      decision.setName(nameProvider.apply(nodeCounter));
+   protected void setInitialName(final Compartment container) {
+      Function<Integer, String> nameProvider = i -> container.eClass().getName() + i;
+      int nodeCounter = modelState.getIndex().getCounter(GraphPackage.Literals.GCOMPARTMENT, nameProvider);
+      container.setName(nameProvider.apply(nodeCounter));
    }
 
    protected Shape createShape(final String elementId, final Optional<GPoint> relativeLocation) {
-      Shape newDecision = NotationFactory.eINSTANCE.createShape();
-      newDecision.setPosition(relativeLocation.orElse(GraphUtil.point(0, 0)));
-      newDecision.setSize(GraphUtil.dimension(50, 30));
+      Shape newContainer = NotationFactory.eINSTANCE.createShape();
+      newContainer.setPosition(relativeLocation.orElse(GraphUtil.point(0, 0)));
+      newContainer.setSize(GraphUtil.dimension(60, 25));
       SemanticElementReference reference = NotationFactory.eINSTANCE.createSemanticElementReference();
       reference.setElementId(elementId);
-      newDecision.setSemanticElement(reference);
-      return newDecision;
+      newContainer.setSemanticElement(reference);
+      return newContainer;
+
    }
 
 }

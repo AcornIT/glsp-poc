@@ -1,9 +1,9 @@
 /********************************************************************************
- * Copyright (c) 2022 EclipseSource and others.
+ * Copyright (c) 2020 EclipseSource and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
- * http://www.eclipse.org/legal/epl-2.0.
+ * https://www.eclipse.org/legal/epl-2.0.
  *
  * This Source Code may also be made available under the following Secondary
  * Licenses when the conditions for such availability set forth in the Eclipse
@@ -13,44 +13,8 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
+package org.eclipse.glsp.example.javaemf.server.handler;
 
-svg {
-    border-style: solid;
-    border-width: 1px;
-    border-color: #bbb;
-}
+public class CreateEdgeDecisionHandler {
 
-.sprotty-node {
-    fill: inherit;
-}
-
-.tasklist-node {
-    fill: plum;
-    opacity: 0.9;
-    filter: drop-shadow(2px 2px 4px gray);
-    width: 80px;
-    height: 60px;
-    cursor: pointer;
-}
-
-.decision-node {
-    fill: cadetblue;
-    width: 80px;
-    height: 100;
-    cursor: pointer;
-}
-
-.tasklist-edge {
-    outline-color: black;
-    position: absolute;
-    font-size: 24px;
-    visibility: visible;
-    stroke: deepskyblue;
-    stroke-width: 1px;
-}
-
-.container {
-    fill: burlywood;
-    width: 100 px;
-    height: 100px;
 }

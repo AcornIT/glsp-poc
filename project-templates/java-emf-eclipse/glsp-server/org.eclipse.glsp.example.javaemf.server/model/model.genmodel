@@ -17,6 +17,7 @@
     <genClasses ecoreClass="model.ecore#//TaskList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//TaskList/tasks"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//TaskList/transitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//TaskList/containers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//TaskList/decisions"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Task"/>
@@ -24,6 +25,7 @@
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Transition/source"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Transition/target"/>
     </genClasses>
+    <genClasses ecoreClass="model.ecore#//Compartment"/>
     <genClasses ecoreClass="model.ecore#//Decision"/>
   </genPackages>
 </genmodel:GenModel>

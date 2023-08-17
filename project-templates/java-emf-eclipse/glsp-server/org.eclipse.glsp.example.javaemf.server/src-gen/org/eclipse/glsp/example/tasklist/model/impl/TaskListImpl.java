@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.glsp.example.tasklist.model.Compartment;
 import org.eclipse.glsp.example.tasklist.model.Decision;
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
 import org.eclipse.glsp.example.tasklist.model.Task;
@@ -33,6 +34,7 @@ import org.eclipse.glsp.example.tasklist.model.Transition;
  * <ul>
  *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getTasks <em>Tasks</em>}</li>
  *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getTransitions <em>Transitions</em>}</li>
+ *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getContainers <em>Containers</em>}</li>
  *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getDecisions <em>Decisions</em>}</li>
  * </ul>
  *
@@ -57,6 +59,16 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
     * @ordered
     */
    protected EList<Transition> transitions;
+
+   /**
+    * The cached value of the '{@link #getContainers() <em>Containers</em>}' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getContainers()
+    * @generated
+    * @ordered
+    */
+   protected EList<Compartment> containers;
 
    /**
     * The cached value of the '{@link #getDecisions() <em>Decisions</em>}' containment reference list.
@@ -114,6 +126,19 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
     * @generated
     */
    @Override
+   public EList<Compartment> getContainers() {
+      if (containers == null) {
+         containers = new EObjectContainmentEList<Compartment>(Compartment.class, this, ModelPackage.TASK_LIST__CONTAINERS);
+      }
+      return containers;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
    public EList<Decision> getDecisions() {
       if (decisions == null) {
          decisions = new EObjectContainmentEList<Decision>(Decision.class, this, ModelPackage.TASK_LIST__DECISIONS);
@@ -145,6 +170,8 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
             return getTasks();
          case ModelPackage.TASK_LIST__TRANSITIONS:
             return getTransitions();
+         case ModelPackage.TASK_LIST__CONTAINERS:
+            return getContainers();
          case ModelPackage.TASK_LIST__DECISIONS:
             return getDecisions();
       }
@@ -168,6 +195,10 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
             getTransitions().clear();
             getTransitions().addAll((Collection<? extends Transition>)newValue);
             return;
+         case ModelPackage.TASK_LIST__CONTAINERS:
+            getContainers().clear();
+            getContainers().addAll((Collection<? extends Compartment>)newValue);
+            return;
          case ModelPackage.TASK_LIST__DECISIONS:
             getDecisions().clear();
             getDecisions().addAll((Collection<? extends Decision>)newValue);
@@ -190,6 +221,9 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
          case ModelPackage.TASK_LIST__TRANSITIONS:
             getTransitions().clear();
             return;
+         case ModelPackage.TASK_LIST__CONTAINERS:
+            getContainers().clear();
+            return;
          case ModelPackage.TASK_LIST__DECISIONS:
             getDecisions().clear();
             return;
@@ -209,6 +243,8 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
             return tasks != null && !tasks.isEmpty();
          case ModelPackage.TASK_LIST__TRANSITIONS:
             return transitions != null && !transitions.isEmpty();
+         case ModelPackage.TASK_LIST__CONTAINERS:
+            return containers != null && !containers.isEmpty();
          case ModelPackage.TASK_LIST__DECISIONS:
             return decisions != null && !decisions.isEmpty();
       }

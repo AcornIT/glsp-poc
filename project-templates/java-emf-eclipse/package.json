@@ -1,11 +1,16 @@
 {
-    "private":"true",
-    "name":"root",
-    "license": "(EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0)",
-    "scripts": {
-        "prepare":"yarn build",
-        "build":"yarn build:client && yarn build:server",
-        "build:client":"yarn --cwd glsp-client install",
-        "build:server":"cd glsp-server && mvn clean verify"
-    }
+  "private": "true",
+  "name": "root",
+  "license": "(EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0)",
+  "scripts": {
+    "prepare": "yarn build",
+    "build": "yarn build:client && yarn build:server",
+    "build:client": "yarn --cwd glsp-client install",
+    "build:server": "cd glsp-server && mvn clean verify"
+  },
+  "description": "This folder contains a simple _project template_ to get you started quickly for your diagram editor implementation based on [GLSP](https://github.com/eclipse-glsp/glsp).\r It provides the initial setup of the package architecture and environment for a GLSP diagram editor that uses ...",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": ""
 }

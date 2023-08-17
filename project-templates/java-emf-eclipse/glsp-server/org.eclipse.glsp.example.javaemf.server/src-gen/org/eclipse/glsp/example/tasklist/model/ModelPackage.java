@@ -158,13 +158,22 @@ public interface ModelPackage extends EPackage {
    int TASK_LIST__TRANSITIONS = IDENTIFIABLE_FEATURE_COUNT + 1;
 
    /**
+    * The feature id for the '<em><b>Containers</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int TASK_LIST__CONTAINERS = IDENTIFIABLE_FEATURE_COUNT + 2;
+
+   /**
     * The feature id for the '<em><b>Decisions</b></em>' containment reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-   int TASK_LIST__DECISIONS = IDENTIFIABLE_FEATURE_COUNT + 2;
+   int TASK_LIST__DECISIONS = IDENTIFIABLE_FEATURE_COUNT + 3;
 
    /**
     * The number of structural features of the '<em>Task List</em>' class.
@@ -174,9 +183,7 @@ public interface ModelPackage extends EPackage {
     * @ordered
     */
 
-   int TASK_LIST_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 3;
-
-   int TASK_LIST_DECISIONS = IDENTIFIABLE_FEATURE_COUNT + 3;
+   int TASK_LIST_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 4;
 
    /**
     * The number of operations of the '<em>Task List</em>' class.
@@ -298,6 +305,52 @@ public interface ModelPackage extends EPackage {
    int TRANSITION_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
 
    /**
+    * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.CompartmentImpl <em>Compartment</em>}' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see org.eclipse.glsp.example.tasklist.model.impl.CompartmentImpl
+    * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getCompartment()
+    * @generated
+    */
+   int COMPARTMENT = 4;
+
+   /**
+    * The feature id for the '<em><b>Id</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int COMPARTMENT__ID = IDENTIFIABLE__ID;
+
+   /**
+    * The feature id for the '<em><b>Name</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int COMPARTMENT__NAME = IDENTIFIABLE__NAME;
+
+   /**
+    * The number of structural features of the '<em>Compartment</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int COMPARTMENT_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 0;
+
+   /**
+    * The number of operations of the '<em>Compartment</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int COMPARTMENT_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
+
+   /**
     * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.DecisionImpl <em>Decision</em>}' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -305,7 +358,7 @@ public interface ModelPackage extends EPackage {
     * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getDecision()
     * @generated
     */
-   int DECISION = 4;
+   int DECISION = 5;
 
    /**
     * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -407,6 +460,26 @@ public interface ModelPackage extends EPackage {
     */
    EReference getTaskList_Transitions();
 
+   /**
+    * Returns the meta object for the containment reference list '{@link org.eclipse.glsp.example.tasklist.model.TaskList#getContainers <em>Containers</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the containment reference list '<em>Containers</em>'.
+    * @see org.eclipse.glsp.example.tasklist.model.TaskList#getContainers()
+    * @see #getTaskList()
+    * @generated
+    */
+   EReference getTaskList_Containers();
+
+   /**
+    * Returns the meta object for the containment reference list '{@link org.eclipse.glsp.example.tasklist.model.TaskList#getDecisions <em>Decisions</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the containment reference list '<em>Decisions</em>'.
+    * @see org.eclipse.glsp.example.tasklist.model.TaskList#getDecisions()
+    * @see #getTaskList()
+    * @generated
+    */
    EReference getTaskList_Decisions();
 
    /**
@@ -450,6 +523,16 @@ public interface ModelPackage extends EPackage {
     * @generated
     */
    EReference getTransition_Target();
+
+   /**
+    * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Compartment <em>Compartment</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for class '<em>Compartment</em>'.
+    * @see org.eclipse.glsp.example.tasklist.model.Compartment
+    * @generated
+    */
+   EClass getCompartment();
 
    /**
     * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Decision <em>Decision</em>}'.
@@ -537,14 +620,20 @@ public interface ModelPackage extends EPackage {
       EReference TASK_LIST__TRANSITIONS = eINSTANCE.getTaskList_Transitions();
 
       /**
+       * The meta object literal for the '<em><b>Containers</b></em>' containment reference list feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EReference TASK_LIST__CONTAINERS = eINSTANCE.getTaskList_Containers();
+
+      /**
        * The meta object literal for the '<em><b>Decisions</b></em>' containment reference list feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
        * @generated
        */
       EReference TASK_LIST__DECISIONS = eINSTANCE.getTaskList_Decisions();
-
-      EReference TASK_LIST_DECISIONS = eINSTANCE.getTaskList_Decisions();
 
       /**
        * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TaskImpl <em>Task</em>}' class.
@@ -581,6 +670,16 @@ public interface ModelPackage extends EPackage {
        * @generated
        */
       EReference TRANSITION__TARGET = eINSTANCE.getTransition_Target();
+
+      /**
+       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.CompartmentImpl <em>Compartment</em>}' class.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @see org.eclipse.glsp.example.tasklist.model.impl.CompartmentImpl
+       * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getCompartment()
+       * @generated
+       */
+      EClass COMPARTMENT = eINSTANCE.getCompartment();
 
       /**
        * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.DecisionImpl <em>Decision</em>}' class.

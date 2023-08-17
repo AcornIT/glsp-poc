@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.glsp.example.tasklist.model.Compartment;
 import org.eclipse.glsp.example.tasklist.model.Decision;
 import org.eclipse.glsp.example.tasklist.model.Identifiable;
 import org.eclipse.glsp.example.tasklist.model.ModelFactory;
@@ -57,6 +58,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
     * @generated
     */
    private EClass transitionEClass = null;
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   private EClass compartmentEClass = null;
 
    /**
     * <!-- begin-user-doc -->
@@ -192,6 +200,26 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
     * @generated
     */
    @Override
+   public EReference getTaskList_Containers() {
+      return (EReference)taskListEClass.getEStructuralFeatures().get(2);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
+   public EReference getTaskList_Decisions() {
+      return (EReference)taskListEClass.getEStructuralFeatures().get(3);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
    public EClass getTask() {
       return taskEClass;
    }
@@ -224,6 +252,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
    @Override
    public EReference getTransition_Target() {
       return (EReference)transitionEClass.getEStructuralFeatures().get(1);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
+   public EClass getCompartment() {
+      return compartmentEClass;
    }
 
    /**
@@ -272,6 +310,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       taskListEClass = createEClass(TASK_LIST);
       createEReference(taskListEClass, TASK_LIST__TASKS);
       createEReference(taskListEClass, TASK_LIST__TRANSITIONS);
+      createEReference(taskListEClass, TASK_LIST__CONTAINERS);
       createEReference(taskListEClass, TASK_LIST__DECISIONS);
 
       taskEClass = createEClass(TASK);
@@ -279,6 +318,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       transitionEClass = createEClass(TRANSITION);
       createEReference(transitionEClass, TRANSITION__SOURCE);
       createEReference(transitionEClass, TRANSITION__TARGET);
+
+      compartmentEClass = createEClass(COMPARTMENT);
 
       decisionEClass = createEClass(DECISION);
    }
@@ -314,6 +355,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       taskListEClass.getESuperTypes().add(this.getIdentifiable());
       taskEClass.getESuperTypes().add(this.getIdentifiable());
       transitionEClass.getESuperTypes().add(this.getIdentifiable());
+      compartmentEClass.getESuperTypes().add(this.getIdentifiable());
       decisionEClass.getESuperTypes().add(this.getIdentifiable());
 
       // Initialize classes, features, and operations; add parameters
@@ -324,6 +366,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       initEClass(taskListEClass, TaskList.class, "TaskList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEReference(getTaskList_Tasks(), this.getTask(), null, "tasks", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEReference(getTaskList_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getTaskList_Containers(), this.getCompartment(), null, "containers", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEReference(getTaskList_Decisions(), this.getDecision(), null, "decisions", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -332,15 +375,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       initEReference(getTransition_Source(), this.getTask(), null, "source", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEReference(getTransition_Target(), this.getTask(), null, "target", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+      initEClass(compartmentEClass, Compartment.class, "Compartment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
       initEClass(decisionEClass, Decision.class, "Decision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
       // Create resource
       createResource(eNS_URI);
-   }
-
-   @Override
-   public EReference getTaskList_Decisions() { // TODO Auto-generated method stub
-      return null;
    }
 
 } // ModelPackageImpl
