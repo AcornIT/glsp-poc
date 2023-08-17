@@ -64,6 +64,9 @@ public class CreateNodeDecisionHandler extends AbstractEMFCreateNodeOperationHan
       return Optional.of(createTaskAndShape(relativeLocation));
    }
 
+   @Override
+   public String getLabel() { return "Decision"; }
+
    protected Command createTaskAndShape(final Optional<GPoint> relativeLocation) {
       TaskList taskList = modelState.getSemanticModel(TaskList.class).orElseThrow();
       Diagram diagram = modelState.getNotationModel();

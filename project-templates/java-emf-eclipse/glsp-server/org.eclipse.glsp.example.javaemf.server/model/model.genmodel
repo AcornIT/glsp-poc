@@ -17,6 +17,7 @@
     <genClasses ecoreClass="model.ecore#//TaskList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//TaskList/tasks"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//TaskList/transitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//TaskList/decisions"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Task"/>
     <genClasses ecoreClass="model.ecore#//Transition">

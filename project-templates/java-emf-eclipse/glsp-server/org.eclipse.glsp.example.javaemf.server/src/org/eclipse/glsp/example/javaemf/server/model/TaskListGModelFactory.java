@@ -54,9 +54,9 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          taskList.getTransitions().stream()
             .map(transition -> this.createTransitionEdge(graph, transition))
             .forEachOrdered(graph.getChildren()::add);
-         // taskList.getDecisions().stream()
-         // .map(this::createTaskNodeDecision)
-         // .forEachOrdered(graph.getChildren()::add);
+         taskList.getDecisions().stream()
+            .map(this::createTaskNodeDecision)
+            .forEachOrdered(graph.getChildren()::add);
 
       }
    }

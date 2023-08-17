@@ -15,6 +15,7 @@
  ********************************************************************************/
 package org.eclipse.glsp.example.javaemf.server;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.glsp.server.diagram.BaseDiagramConfiguration;
@@ -27,7 +28,10 @@ public class TaskListDiagramConfiguration extends BaseDiagramConfiguration {
    @Override
    public List<ShapeTypeHint> getShapeTypeHints() {
       // tasks can be moved, deleted and resized
-      return List.of(new ShapeTypeHint(TaskListModelTypes.TASK, true, true, true, false));
+      List<ShapeTypeHint> nodeHints = new ArrayList<>();
+      nodeHints.add(new ShapeTypeHint(TaskListModelTypes.TASK, true, true, true, false));
+      nodeHints.add(new ShapeTypeHint(TaskListModelTypes.DIAMOND, true, true, true, false));
+      return nodeHints;
    }
 
    @Override

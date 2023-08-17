@@ -35,6 +35,9 @@ svg {
 
 .decision-node {
     fill: cadetblue;
+    width: 80px;
+    height: 100;
+    cursor: pointer;
 }
 
 .tasklist-edge {
