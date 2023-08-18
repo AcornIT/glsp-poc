@@ -15,7 +15,6 @@
  ********************************************************************************/
 package org.eclipse.glsp.example.javaemf.server.model;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
@@ -29,7 +28,6 @@ import org.eclipse.glsp.example.tasklist.model.Transition;
 import org.eclipse.glsp.example.tasklist.model.TransitionDecision;
 import org.eclipse.glsp.graph.DefaultTypes;
 import org.eclipse.glsp.graph.GCompartment;
-import org.eclipse.glsp.graph.GDimension;
 import org.eclipse.glsp.graph.GEdge;
 import org.eclipse.glsp.graph.GGraph;
 import org.eclipse.glsp.graph.GModelElement;
@@ -153,20 +151,13 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
 
    // Generic container used for element grouping
    protected GCompartment createContainer(final Compartment container) {
-
-      GDimension containerPrefSize = GraphUtil.dimension(250, 125);
-      GPoint childPosition = GraphUtil.point(75, 35);
-      Map<String, Object> layoutOptions = new HashMap<>();
-      layoutOptions.put(GLayoutOptions.KEY_H_ALIGN, true);
-      layoutOptions.put(GLayoutOptions.KEY_PREF_WIDTH, containerPrefSize.getWidth());
-      layoutOptions.put(GLayoutOptions.KEY_PREF_HEIGHT, containerPrefSize.getHeight());
-
+      GPoint childPosition = GraphUtil.point(120, 135);
       GCompartmentBuilder taskNodeBuilder = new GCompartmentBuilder(TaskListModelTypes.COMPARTMENT)
          .id(idGenerator.getOrCreateId(container))
          .addCssClass("container")
-         .size(GraphUtil.dimension(60, 60))
-         .type(DefaultTypes.COMPARTMENT)
-         .layoutOptions(layoutOptions)
+         .size(GraphUtil.dimension(250, 260))
+         .type(DefaultTypes.NODE_RECTANGLE)
+         // .layoutOptions(layoutOptions)
          .add(new GNodeBuilder(DefaultTypes.NODE)
             .position(childPosition)
             .build())
@@ -175,7 +166,6 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
             .id(container.getId() + "_label").build())
          .layout(GConstants.Layout.FREEFORM);
       return taskNodeBuilder.build();
-
    }
 
 }

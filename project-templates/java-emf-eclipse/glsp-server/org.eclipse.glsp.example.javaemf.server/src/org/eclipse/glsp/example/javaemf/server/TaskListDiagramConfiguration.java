@@ -49,6 +49,6 @@ public class TaskListDiagramConfiguration extends BaseDiagramConfiguration {
    }
 
    @Override
-   public ServerLayoutKind getLayoutKind() { return ServerLayoutKind.MANUAL; }
+   public ServerLayoutKind getLayoutKind() { return ServerLayoutKind.AUTOMATIC; }
 
 }

@@ -24,5 +24,6 @@ public final class TaskListModelTypes {
    public static final String TRANSITION = DefaultTypes.EDGE;
    public static final String DIAMOND = DefaultTypes.NODE_DIAMOND;
    public static final String COMPARTMENT = DefaultTypes.COMPARTMENT;
+   public static final String RECTANGLE = DefaultTypes.NODE_RECTANGLE;
 
 }

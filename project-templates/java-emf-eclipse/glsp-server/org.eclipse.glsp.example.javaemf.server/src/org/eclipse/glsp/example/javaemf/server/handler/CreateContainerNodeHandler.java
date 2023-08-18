@@ -105,7 +105,7 @@ public class CreateContainerNodeHandler extends AbstractEMFCreateNodeOperationHa
    protected Shape createShape(final String elementId, final Optional<GPoint> relativeLocation) {
       Shape newContainer = NotationFactory.eINSTANCE.createShape();
       newContainer.setPosition(relativeLocation.orElse(GraphUtil.point(0, 0)));
-      newContainer.setSize(GraphUtil.dimension(60, 25));
+      newContainer.setSize(GraphUtil.dimension(100, 100));
       SemanticElementReference reference = NotationFactory.eINSTANCE.createSemanticElementReference();
       reference.setElementId(elementId);
       newContainer.setSemanticElement(reference);
