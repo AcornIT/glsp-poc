@@ -26,6 +26,7 @@ import org.eclipse.glsp.example.tasklist.model.Decision;
 import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
+import org.eclipse.glsp.example.tasklist.model.TransitionDecision;
 import org.eclipse.glsp.graph.DefaultTypes;
 import org.eclipse.glsp.graph.GCompartment;
 import org.eclipse.glsp.graph.GDimension;
@@ -66,6 +67,9 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          taskList.getDecisions().stream()
             .map(this::createTaskNodeDecision)
             .forEachOrdered(graph.getChildren()::add);
+         // taskList.getTransitionsDecisions().stream()
+         // .map(transition -> this.createTransitionEdgeDecision(graph, transition))
+         // .forEachOrdered(graph.getChildren()::add);
 
       }
    }
@@ -106,6 +110,30 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
       return builder.build();
    }
 
+   protected GEdge createTransitionEdgeDecision(final GGraph graph, final TransitionDecision transition) {
+      String sourceId = transition.getSource().getId();
+      String targetId = transition.getTarget().getId();
+
+      GModelElement sourceNode = findGNodeById(graph.getChildren(), sourceId);
+      GModelElement targetNode = findGNodeById(graph.getChildren(), targetId);
+
+      GEdgeBuilder builder = new GEdgeBuilder(TaskListModelTypes.TRANSITION)
+         .source(sourceNode)
+         .target(targetNode)
+         .addCssClass("tasklist-edge")
+         .add(new GLabelBuilder(DefaultTypes.LABEL)
+            .text(transition.getName())
+            .id(transition.getId() + "_label")
+            .edgePlacement(new GEdgePlacementBuilder()
+               .side(GConstants.EdgeSide.TOP)
+               .build())
+            .build())
+         .id(idGenerator.getOrCreateId(transition));
+
+      applyEdgeData(transition, builder);
+      return builder.build();
+   }
+
    protected GModelElement findGNodeById(final EList<GModelElement> eList, final String elementId) {
       return eList.stream().filter(node -> elementId.equals(node.getId())).findFirst().orElse(null);
    }
@@ -114,7 +142,7 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
       GNodeBuilder taskNodeBuilder = new GNodeBuilder(TaskListModelTypes.DIAMOND)
          .id(idGenerator.getOrCreateId(decision))
          .addCssClass("decision-node")
-         .size(GraphUtil.dimension(30, 30))
+         .size(GraphUtil.dimension(60, 60))
          .add(new GLabelBuilder(DefaultTypes.LABEL)
             .text(decision.getName())
             .id(decision.getId() + "_label").build())
@@ -125,6 +153,7 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
 
    // Generic container used for element grouping
    protected GCompartment createContainer(final Compartment container) {
+
       GDimension containerPrefSize = GraphUtil.dimension(250, 125);
       GPoint childPosition = GraphUtil.point(75, 35);
       Map<String, Object> layoutOptions = new HashMap<>();
@@ -132,23 +161,21 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
       layoutOptions.put(GLayoutOptions.KEY_PREF_WIDTH, containerPrefSize.getWidth());
       layoutOptions.put(GLayoutOptions.KEY_PREF_HEIGHT, containerPrefSize.getHeight());
 
-      GCompartmentBuilder containerBuild = new GCompartmentBuilder(TaskListModelTypes.COMPARTMENT)
+      GCompartmentBuilder taskNodeBuilder = new GCompartmentBuilder(TaskListModelTypes.COMPARTMENT)
          .id(idGenerator.getOrCreateId(container))
          .addCssClass("container")
-         .size(GraphUtil.dimension(40, 45))
-         .add(new GLabelBuilder(DefaultTypes.LABEL)
-            .text(container.getName())
-            .id(container.getId()).build())
-         .layout(GConstants.Layout.FREEFORM)
-         .layoutOptions(layoutOptions)
-         .type("comp:structure")
+         .size(GraphUtil.dimension(60, 60))
          .type(DefaultTypes.COMPARTMENT)
+         .layoutOptions(layoutOptions)
          .add(new GNodeBuilder(DefaultTypes.NODE)
             .position(childPosition)
-            .build());
-      GCompartment compartment = containerBuild.build();
-      System.out.println("Container");
-      return compartment;
+            .build())
+         .add(new GLabelBuilder(DefaultTypes.LABEL)
+            .text(container.getName())
+            .id(container.getId() + "_label").build())
+         .layout(GConstants.Layout.FREEFORM);
+      return taskNodeBuilder.build();
+
    }
 
 }

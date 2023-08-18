@@ -16,6 +16,8 @@
         eType="#//Compartment" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="decisions" upperBound="-1"
         eType="#//Decision" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitionsDecisions" upperBound="-1"
+        eType="#//TransitionDecision" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Identifiable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//Identifiable">
@@ -26,4 +28,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Compartment" eSuperTypes="#//Identifiable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Decision" eSuperTypes="#//Identifiable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TransitionDecision" eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" ordered="false"
+        lowerBound="1" eType="#//Decision"/>
+  </eClassifiers>
 </ecore:EPackage>

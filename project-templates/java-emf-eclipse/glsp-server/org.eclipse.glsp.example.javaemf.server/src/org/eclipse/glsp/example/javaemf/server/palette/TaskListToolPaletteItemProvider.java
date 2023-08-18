@@ -45,7 +45,9 @@ public class TaskListToolPaletteItemProvider implements ToolPaletteItemProvider 
 
    private PaletteItem edges() {
       PaletteItem createEdge = edge(TaskListModelTypes.TRANSITION, "Edge");
+      PaletteItem createEdgeDecision = edge(TaskListModelTypes.TRANSITION, "Edge Decision");
       List<PaletteItem> nodes = Lists.newArrayList(createEdge);
+      nodes.add(createEdgeDecision);
       return PaletteItem.createPaletteGroup("nodes", "Edge", nodes, "symbol-property");
    }
 

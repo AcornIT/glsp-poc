@@ -75,6 +75,15 @@ public interface ModelFactory extends EFactory {
    Decision createDecision();
 
    /**
+    * Returns a new object of class '<em>Transition Decision</em>'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return a new object of class '<em>Transition Decision</em>'.
+    * @generated
+    */
+   TransitionDecision createTransitionDecision();
+
+   /**
     * Returns the package supported by this factory.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->

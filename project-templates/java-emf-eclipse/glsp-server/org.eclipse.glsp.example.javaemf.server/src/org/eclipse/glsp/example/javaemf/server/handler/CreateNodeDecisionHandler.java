@@ -104,7 +104,7 @@ public class CreateNodeDecisionHandler extends AbstractEMFCreateNodeOperationHan
    protected Shape createShape(final String elementId, final Optional<GPoint> relativeLocation) {
       Shape newDecision = NotationFactory.eINSTANCE.createShape();
       newDecision.setPosition(relativeLocation.orElse(GraphUtil.point(0, 0)));
-      newDecision.setSize(GraphUtil.dimension(50, 30));
+      newDecision.setSize(GraphUtil.dimension(70, 40));
       SemanticElementReference reference = NotationFactory.eINSTANCE.createSemanticElementReference();
       reference.setElementId(elementId);
       newDecision.setSemanticElement(reference);

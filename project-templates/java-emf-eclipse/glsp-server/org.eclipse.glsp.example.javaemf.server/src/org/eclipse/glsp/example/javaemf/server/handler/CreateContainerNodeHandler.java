@@ -20,6 +20,7 @@ import java.util.UUID;
 import java.util.function.Function;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.glsp.example.javaemf.server.TaskListModelTypes;
@@ -27,6 +28,7 @@ import org.eclipse.glsp.example.tasklist.model.Compartment;
 import org.eclipse.glsp.example.tasklist.model.ModelFactory;
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
+import org.eclipse.glsp.graph.GModelElement;
 import org.eclipse.glsp.graph.GPoint;
 import org.eclipse.glsp.graph.GraphPackage;
 import org.eclipse.glsp.graph.util.GraphUtil;
@@ -34,6 +36,7 @@ import org.eclipse.glsp.server.emf.AbstractEMFCreateNodeOperationHandler;
 import org.eclipse.glsp.server.emf.EMFIdGenerator;
 import org.eclipse.glsp.server.emf.model.notation.Diagram;
 import org.eclipse.glsp.server.emf.model.notation.NotationFactory;
+import org.eclipse.glsp.server.emf.model.notation.NotationPackage;
 import org.eclipse.glsp.server.emf.model.notation.SemanticElementReference;
 import org.eclipse.glsp.server.emf.model.notation.Shape;
 import org.eclipse.glsp.server.emf.notation.EMFNotationModelState;
@@ -55,8 +58,10 @@ public class CreateContainerNodeHandler extends AbstractEMFCreateNodeOperationHa
 
    @Override
    public Optional<Command> createCommand(final CreateNodeOperation operation) {
-
-      return Optional.empty();
+      GModelElement container = modelState.getIndex().get(operation.getContainerId()).orElseGet(modelState::getRoot);
+      Optional<GPoint> absoluteLocation = getLocation(operation);
+      Optional<GPoint> relativeLocation = getRelativeLocation(operation, absoluteLocation, container);
+      return Optional.of(createContainerAndShape(relativeLocation));
    }
 
    @Override
@@ -68,10 +73,20 @@ public class CreateContainerNodeHandler extends AbstractEMFCreateNodeOperationHa
       EditingDomain editingDomain = modelState.getEditingDomain();
 
       Compartment container = createCompartment();
-      Command containerCommand = AddCommand.create(editingDomain, taskList, ModelPackage.Literals.TASK_LIST__CONTAINERS,
-         container);
+      Command containerCommand = AddCommand.create(editingDomain, taskList,
+         ModelPackage.Literals.TASK_LIST__CONTAINERS, container);
 
-      return null;
+      Shape shape = createShape(idGenerator.getOrCreateId(container), relativeLocation);
+      // se creeaza o comanda pt a adauga noua forma in lista de elemente a diagramelor
+      Command shapeCommand = AddCommand.create(editingDomain, diagram,
+         NotationPackage.Literals.DIAGRAM__ELEMENTS, shape);
+
+      // comanda compusa: comenzi de adaugare pt sarcina si pt forma
+      CompoundCommand compoundCommand = new CompoundCommand();
+      compoundCommand.append(containerCommand);
+      compoundCommand.append(shapeCommand);
+
+      return compoundCommand;
    }
 
    protected Compartment createCompartment() {

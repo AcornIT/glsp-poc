@@ -23,6 +23,7 @@ import org.eclipse.glsp.example.tasklist.model.ModelPackage;
 import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
+import org.eclipse.glsp.example.tasklist.model.TransitionDecision;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,6 +73,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
     * @generated
     */
    private EClass decisionEClass = null;
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   private EClass transitionDecisionEClass = null;
 
    /**
     * Creates an instance of the model <b>Package</b>, registered with
@@ -220,6 +228,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
     * @generated
     */
    @Override
+   public EReference getTaskList_TransitionsDecisions() {
+      return (EReference)taskListEClass.getEStructuralFeatures().get(4);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
    public EClass getTask() {
       return taskEClass;
    }
@@ -280,6 +298,36 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
     * @generated
     */
    @Override
+   public EClass getTransitionDecision() {
+      return transitionDecisionEClass;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
+   public EReference getTransitionDecision_Source() {
+      return (EReference)transitionDecisionEClass.getEStructuralFeatures().get(0);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
+   public EReference getTransitionDecision_Target() {
+      return (EReference)transitionDecisionEClass.getEStructuralFeatures().get(1);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
    public ModelFactory getModelFactory() {
       return (ModelFactory)getEFactoryInstance();
    }
@@ -312,6 +360,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       createEReference(taskListEClass, TASK_LIST__TRANSITIONS);
       createEReference(taskListEClass, TASK_LIST__CONTAINERS);
       createEReference(taskListEClass, TASK_LIST__DECISIONS);
+      createEReference(taskListEClass, TASK_LIST__TRANSITIONS_DECISIONS);
 
       taskEClass = createEClass(TASK);
 
@@ -322,6 +371,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       compartmentEClass = createEClass(COMPARTMENT);
 
       decisionEClass = createEClass(DECISION);
+
+      transitionDecisionEClass = createEClass(TRANSITION_DECISION);
+      createEReference(transitionDecisionEClass, TRANSITION_DECISION__SOURCE);
+      createEReference(transitionDecisionEClass, TRANSITION_DECISION__TARGET);
    }
 
    /**
@@ -357,6 +410,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       transitionEClass.getESuperTypes().add(this.getIdentifiable());
       compartmentEClass.getESuperTypes().add(this.getIdentifiable());
       decisionEClass.getESuperTypes().add(this.getIdentifiable());
+      transitionDecisionEClass.getESuperTypes().add(this.getIdentifiable());
 
       // Initialize classes, features, and operations; add parameters
       initEClass(identifiableEClass, Identifiable.class, "Identifiable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -368,6 +422,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       initEReference(getTaskList_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEReference(getTaskList_Containers(), this.getCompartment(), null, "containers", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEReference(getTaskList_Decisions(), this.getDecision(), null, "decisions", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getTaskList_TransitionsDecisions(), this.getTransitionDecision(), null, "transitionsDecisions", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -378,6 +433,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       initEClass(compartmentEClass, Compartment.class, "Compartment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
       initEClass(decisionEClass, Decision.class, "Decision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+      initEClass(transitionDecisionEClass, TransitionDecision.class, "TransitionDecision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEReference(getTransitionDecision_Source(), this.getTask(), null, "source", null, 1, 1, TransitionDecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getTransitionDecision_Target(), this.getDecision(), null, "target", null, 1, 1, TransitionDecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
       // Create resource
       createResource(eNS_URI);
