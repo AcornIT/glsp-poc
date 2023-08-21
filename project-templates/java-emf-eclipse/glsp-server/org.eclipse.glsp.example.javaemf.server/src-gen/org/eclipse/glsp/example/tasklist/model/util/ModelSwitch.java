@@ -115,6 +115,7 @@ public class ModelSwitch<T> extends Switch<T> {
          case ModelPackage.DECISION: {
             Decision decision = (Decision)theEObject;
             T result = caseDecision(decision);
+            if (result == null) result = caseTask(decision);
             if (result == null) result = caseIdentifiable(decision);
             if (result == null) result = defaultCase(theEObject);
             return result;

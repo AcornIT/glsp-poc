@@ -409,7 +409,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       taskEClass.getESuperTypes().add(this.getIdentifiable());
       transitionEClass.getESuperTypes().add(this.getIdentifiable());
       compartmentEClass.getESuperTypes().add(this.getIdentifiable());
-      decisionEClass.getESuperTypes().add(this.getIdentifiable());
+      decisionEClass.getESuperTypes().add(this.getTask());
       transitionDecisionEClass.getESuperTypes().add(this.getIdentifiable());
 
       // Initialize classes, features, and operations; add parameters

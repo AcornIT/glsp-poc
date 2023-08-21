@@ -376,7 +376,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int DECISION__ID = IDENTIFIABLE__ID;
+   int DECISION__ID = TASK__ID;
 
    /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -385,7 +385,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int DECISION__NAME = IDENTIFIABLE__NAME;
+   int DECISION__NAME = TASK__NAME;
 
    /**
     * The number of structural features of the '<em>Decision</em>' class.
@@ -394,7 +394,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int DECISION_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 0;
+   int DECISION_FEATURE_COUNT = TASK_FEATURE_COUNT + 0;
 
    /**
     * The number of operations of the '<em>Decision</em>' class.
@@ -403,7 +403,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int DECISION_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
+   int DECISION_OPERATION_COUNT = TASK_OPERATION_COUNT + 0;
 
    /**
     * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TransitionDecisionImpl <em>Transition Decision</em>}' class.

@@ -51,7 +51,7 @@ svg {
 
 .container {
     fill: burlywood;
-    width: 100 px;
-    height: 100px;
     cursor: pointer;
+    position: absolute;
+    stroke: burlywood;
 }

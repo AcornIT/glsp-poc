@@ -52,8 +52,16 @@
     <semanticElement elementId="25ecddfe-305c-401c-a82e-a15938b49511"/>
   </elements>
   <elements xsi:type="notation:Shape">
-    <semanticElement elementId="f96963e8-b2b1-42e8-902a-e533ca0dce0f"/>
-    <position x="-262.18384224931617" y="-50.291899292828816"/>
+    <semanticElement elementId="cbbb3fca-7323-43b2-954c-289c0ff11e50"/>
+    <position x="691.0" y="-39.0"/>
+    <size width="75.0" height="35.0"/>
+  </elements>
+  <elements xsi:type="notation:Edge" source="//@elements.10" target="//@elements.7">
+    <semanticElement elementId="bac9dc94-b1f3-412c-8e32-97a36c63020a"/>
+  </elements>
+  <elements xsi:type="notation:Shape">
+    <semanticElement elementId="6ed662af-9ed8-4c21-9fc9-0877c41b7d1b"/>
+    <position x="717.8161577506838" y="163.70810070717118"/>
     <size width="60.0" height="25.0"/>
   </elements>
 </notation:Diagram>
