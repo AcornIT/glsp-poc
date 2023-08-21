@@ -58,7 +58,7 @@ public class CreateEdgeDecisionHandler extends AbstractEMFCreateEdgeOperationHan
    }
 
    @Override
-   public String getLabel() { return "Transition"; }
+   public String getLabel() { return "TransitionDecision"; }
 
    @Override
    public Optional<Command> createCommand(final CreateEdgeOperation operation) {

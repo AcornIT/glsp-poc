@@ -41,11 +41,6 @@ public class TaskListDiagramConfiguration extends BaseDiagramConfiguration {
       edgeHints.add(new EdgeTypeHint(TaskListModelTypes.TRANSITION, false, true, true,
          List.of(TaskListModelTypes.TASK, TaskListModelTypes.DIAMOND),
          List.of(TaskListModelTypes.TASK, TaskListModelTypes.DIAMOND)));
-      // edgeHints.add(new EdgeTypeHint(TaskListModelTypes.TRANSITION, false, true, true,
-      // List.of(TaskListModelTypes.TASK), List.of(TaskListModelTypes.DIAMOND)));
-      // edgeHints
-      // .add(new EdgeTypeHint(TaskListModelTypes.TRANSITION, false, true, true, List.of(TaskListModelTypes.DIAMOND),
-      // List.of(TaskListModelTypes.TASK)));
       return edgeHints;
    }
 
