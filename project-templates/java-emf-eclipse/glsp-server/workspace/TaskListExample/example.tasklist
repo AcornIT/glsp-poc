@@ -5,13 +5,15 @@
   <tasks id="7c68e6a2-1288-484c-ad01-454232adeb9f" name="NewTask2"/>
   <tasks id="4eec0256-329f-468b-887e-c769317fa19c" name="NewTask3"/>
   <tasks id="54b1cdfa-fa14-4aee-8413-57e68cc52c3e" name="NewTask4"/>
-  <tasks id="780ea9be-1ec1-4d38-aef5-295e7ba07ac5" name="NewTask6"/>
-  <tasks id="6ed662af-9ed8-4c21-9fc9-0877c41b7d1b" name="NewTask8"/>
+  <tasks id="2d822e57-2146-4479-b6da-6b18701c2e9e" name="NewTask7"/>
+  <tasks id="11a8c4cb-6b4d-4a9e-ae52-092c0ffe9067" name="NewTask8"/>
   <transitions id="e16efafb-078e-44e8-b367-f820e9df36b7" name="Transition 0" source="61bcc27a-3e93-4847-89e4-1d2433371b4b" target="8204461f-8451-46c7-a258-b9ffb976182e"/>
   <transitions id="ab870a27-a700-47f8-90a9-f30b20812642" name="Transition 1" source="8204461f-8451-46c7-a258-b9ffb976182e" target="54b1cdfa-fa14-4aee-8413-57e68cc52c3e"/>
   <transitions id="77902942-1774-4d02-8f61-78d0800e9d72" name="Transition 2" source="7c68e6a2-1288-484c-ad01-454232adeb9f" target="4eec0256-329f-468b-887e-c769317fa19c"/>
   <transitions id="31b9e5b6-4778-48a9-8e87-3a6508d7e7b2" name="Transition 3" source="7c68e6a2-1288-484c-ad01-454232adeb9f" target="54b1cdfa-fa14-4aee-8413-57e68cc52c3e"/>
-  <transitions id="25ecddfe-305c-401c-a82e-a15938b49511" name="Transition 4" source="4eec0256-329f-468b-887e-c769317fa19c" target="780ea9be-1ec1-4d38-aef5-295e7ba07ac5"/>
+  <transitions id="65871733-06cd-4cc5-aee1-bd863e512f6b" name="Transition 4" source="4eec0256-329f-468b-887e-c769317fa19c" target="a90a66c5-a201-40b3-a9e5-5dd6743346ac"/>
+  <transitions id="ca7de08e-a202-4e13-8830-59b54ad1d926" name="Transition 5" source="a90a66c5-a201-40b3-a9e5-5dd6743346ac" target="11a8c4cb-6b4d-4a9e-ae52-092c0ffe9067"/>
+  <transitions id="94fef377-e474-482f-b819-8d965d1adcd1" name="Transition 6" source="a90a66c5-a201-40b3-a9e5-5dd6743346ac" target="2d822e57-2146-4479-b6da-6b18701c2e9e"/>
   <containers id="cbbb3fca-7323-43b2-954c-289c0ff11e50" name="Compartment 0"/>
   <decisions id="a90a66c5-a201-40b3-a9e5-5dd6743346ac" name="Decision5"/>
 </example-model:TaskList>

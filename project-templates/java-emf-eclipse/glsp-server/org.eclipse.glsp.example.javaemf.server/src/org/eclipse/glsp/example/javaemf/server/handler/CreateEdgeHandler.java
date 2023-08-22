@@ -30,7 +30,6 @@ import org.eclipse.glsp.example.tasklist.model.ModelPackage;
 import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
-import org.eclipse.glsp.example.tasklist.model.TransitionDecision;
 import org.eclipse.glsp.graph.GModelElement;
 import org.eclipse.glsp.graph.GraphPackage;
 import org.eclipse.glsp.server.emf.AbstractEMFCreateEdgeOperationHandler;
@@ -63,17 +62,16 @@ public class CreateEdgeHandler extends AbstractEMFCreateEdgeOperationHandler {
       GModelElement source = modelState.getIndex().get(operation.getSourceElementId()).orElseThrow();
       GModelElement target = modelState.getIndex().get(operation.getTargetElementId()).orElseThrow();
 
-      /*
-       * if (source instanceof Task && target instanceof Task) {
-       * return Optional.of(createTaskAndEdge(source, target));
-       * } else if (source instanceof Task && target instanceof Decision) {
-       * return Optional.of(createTaskAndEdgeDecision(source, target));
-       * }
-       * return Optional.empty();
-       */
+      if (source.getType().equals("node") && target.getType().equals("node")) {
+         return Optional.of(createTaskAndEdge(source, target));
+      } else if (source.getType().equals("node") && target.getType().equals("node:diamond")) {
+         return Optional.of(createTaskAndEdgeDecision(source, target));
 
-      return Optional.of(createTaskAndEdge(source, target));
-
+      } else if (source.getType().equals("node:diamond") && target.getType().equals("node")) {
+         return Optional.of(createEdgeDecision(source, target));
+      } else {
+         return Optional.empty();
+      }
    }
 
    @Override
@@ -90,6 +88,7 @@ public class CreateEdgeHandler extends AbstractEMFCreateEdgeOperationHandler {
          .orElseThrow();
 
       Transition newTransition = createTransition(sourceTask, targetTask);
+
       Command transitionCommand = AddCommand.create(editingDomain, taskList,
          ModelPackage.Literals.TASK_LIST__TRANSITIONS, newTransition);
 
@@ -134,9 +133,9 @@ public class CreateEdgeHandler extends AbstractEMFCreateEdgeOperationHandler {
       Decision targetDecision = taskList.getDecisions().stream().filter(t -> t.getId().equals(target.getId())).findAny()
          .orElseThrow();
 
-      TransitionDecision newTransition = createTransitionD(sourceTask, targetDecision);
+      Transition newTransition = createTransition(sourceTask, targetDecision);
       Command transitionCommand = AddCommand.create(editingDomain, taskList,
-         ModelPackage.Literals.TASK_LIST__TRANSITIONS_DECISIONS, newTransition);
+         ModelPackage.Literals.TASK_LIST__TRANSITIONS, newTransition);
 
       Shape sourceShape = (Shape) diagram.getElements().stream()
          .filter(ne -> ne.getSemanticElement().getElementId().equals(source.getId())).findAny().orElseThrow();
@@ -153,19 +152,33 @@ public class CreateEdgeHandler extends AbstractEMFCreateEdgeOperationHandler {
       return compoundCommand;
    }
 
-   protected TransitionDecision createTransitionD(final Task source, final Decision target) {
-      TransitionDecision newTransition = ModelFactory.eINSTANCE.createTransitionDecision();
-      newTransition.setId(UUID.randomUUID().toString());
-      newTransition.setSource(source);
-      newTransition.setTarget(target);
-      setInitialNameD(newTransition);
-      return newTransition;
-   }
+   public Command createEdgeDecision(final GModelElement source, final GModelElement target) {
+      TaskList taskList = modelState.getSemanticModel(TaskList.class).orElseThrow();
+      Diagram diagram = modelState.getNotationModel();
+      EditingDomain editingDomain = modelState.getEditingDomain();
 
-   protected void setInitialNameD(final TransitionDecision transition) {
-      Function<Integer, String> nameProvider = i -> transition.eClass().getName() + " " + i;
-      int edgeCounter = modelState.getIndex().getCounter(GraphPackage.Literals.GEDGE, nameProvider);
-      transition.setName(nameProvider.apply(edgeCounter));
+      Decision sourceDecision = taskList.getDecisions().stream().filter(t -> t.getId().equals(source.getId())).findAny()
+         .orElseThrow();
+      Task targetTask = taskList.getTasks().stream().filter(t -> t.getId().equals(target.getId())).findAny()
+         .orElseThrow();
+
+      Transition newTransition = createTransition(sourceDecision, targetTask);
+      Command transitionCommand = AddCommand.create(editingDomain, taskList,
+         ModelPackage.Literals.TASK_LIST__TRANSITIONS, newTransition);
+
+      Shape sourceShape = (Shape) diagram.getElements().stream()
+         .filter(ne -> ne.getSemanticElement().getElementId().equals(source.getId())).findAny().orElseThrow();
+      Shape targetShape = (Shape) diagram.getElements().stream()
+         .filter(ne -> ne.getSemanticElement().getElementId().equals(target.getId())).findAny().orElseThrow();
+
+      Edge edge = createEdge(idGenerator.getOrCreateId(newTransition), sourceShape, targetShape);
+      Command edgeCommand = AddCommand.create(editingDomain, diagram,
+         NotationPackage.Literals.DIAGRAM__ELEMENTS, edge);
+
+      CompoundCommand compoundCommand = new CompoundCommand();
+      compoundCommand.append(transitionCommand);
+      compoundCommand.append(edgeCommand);
+      return compoundCommand;
    }
 
    protected Edge createEdge(final String elementId, final Shape source, final Shape target) {

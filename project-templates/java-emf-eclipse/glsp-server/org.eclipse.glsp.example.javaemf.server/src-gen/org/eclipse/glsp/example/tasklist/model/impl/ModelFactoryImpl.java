@@ -69,7 +69,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
          case ModelPackage.TRANSITION: return createTransition();
          case ModelPackage.COMPARTMENT: return createCompartment();
          case ModelPackage.DECISION: return createDecision();
-         case ModelPackage.TRANSITION_DECISION: return createTransitionDecision();
          default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
       }
@@ -128,17 +127,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
    public Decision createDecision() {
       DecisionImpl decision = new DecisionImpl();
       return decision;
-   }
-
-   /**
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @generated
-    */
-   @Override
-   public TransitionDecision createTransitionDecision() {
-      TransitionDecisionImpl transitionDecision = new TransitionDecisionImpl();
-      return transitionDecision;
    }
 
    /**

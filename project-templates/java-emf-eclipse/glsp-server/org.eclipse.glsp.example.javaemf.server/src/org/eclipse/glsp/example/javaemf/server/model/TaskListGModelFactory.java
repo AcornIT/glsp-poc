@@ -26,7 +26,6 @@ import org.eclipse.glsp.example.tasklist.model.Decision;
 import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
-import org.eclipse.glsp.example.tasklist.model.TransitionDecision;
 import org.eclipse.glsp.graph.DefaultTypes;
 import org.eclipse.glsp.graph.GCompartment;
 import org.eclipse.glsp.graph.GDimension;
@@ -38,7 +37,6 @@ import org.eclipse.glsp.graph.GNode;
 import org.eclipse.glsp.graph.GPoint;
 import org.eclipse.glsp.graph.builder.impl.GCompartmentBuilder;
 import org.eclipse.glsp.graph.builder.impl.GEdgeBuilder;
-import org.eclipse.glsp.graph.builder.impl.GEdgePlacementBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLabelBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLayoutOptions;
 import org.eclipse.glsp.graph.builder.impl.GNodeBuilder;
@@ -59,16 +57,13 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
             .map(this::createTaskNode)
             .forEachOrdered(graph.getChildren()::add);
          taskList.getTransitions().stream()
-            .map(transition -> this.createTransitionEdge(graph, transition))
+            .map(this::createTransitionEdge)
             .forEachOrdered(graph.getChildren()::add);
          taskList.getContainers().stream()
             .map(this::createContainer)
             .forEachOrdered(graph.getChildren()::add);
          taskList.getDecisions().stream()
             .map(this::createTaskNodeDecision)
-            .forEachOrdered(graph.getChildren()::add);
-         taskList.getTransitionsDecisions().stream()
-            .map(transition -> this.createTransitionEdgeDecision(graph, transition))
             .forEachOrdered(graph.getChildren()::add);
       }
    }
@@ -85,56 +80,21 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
       return taskNodeBuilder.build();
    }
 
-   protected GEdge createTransitionEdge(final GGraph graph, final Transition transition) {
-      String sourceId = transition.getSource().getId();
-      String targetId = transition.getTarget().getId();
-
-      GModelElement sourceNode = findGNodeById(graph.getChildren(), sourceId);
-      GModelElement targetNode = findGNodeById(graph.getChildren(), targetId);
-
-      GEdgeBuilder builder = new GEdgeBuilder(TaskListModelTypes.TRANSITION)
-         .source(sourceNode)
-         .target(targetNode)
-         .addCssClass("tasklist-edge")
-         .add(new GLabelBuilder(DefaultTypes.LABEL)
-            .text(transition.getName())
-            .id(transition.getId() + "_label")
-            .edgePlacement(new GEdgePlacementBuilder()
-               .side(GConstants.EdgeSide.TOP)
-               .build())
-            .build())
-         .id(idGenerator.getOrCreateId(transition));
-
-      applyEdgeData(transition, builder);
-      return builder.build();
-   }
-
-   protected GEdge createTransitionEdgeDecision(final GGraph graph, final TransitionDecision transition) {
-      String sourceId = transition.getSource().getId();
-      String targetId = transition.getTarget().getId();
-
-      GModelElement sourceNode = findGNodeById(graph.getChildren(), sourceId);
-      GModelElement targetNode = findGNodeById(graph.getChildren(), targetId);
-
-      GEdgeBuilder builder = new GEdgeBuilder(TaskListModelTypes.TRANSITION)
-         .source(sourceNode)
-         .target(targetNode)
-         .addCssClass("tasklist-edge")
-         .add(new GLabelBuilder(DefaultTypes.LABEL)
-            .text(transition.getName())
-            .id(transition.getId() + "_label")
-            .edgePlacement(new GEdgePlacementBuilder()
-               .side(GConstants.EdgeSide.TOP)
-               .build())
-            .build())
-         .id(idGenerator.getOrCreateId(transition));
-
-      applyEdgeData(transition, builder);
-      return builder.build();
-   }
-
    protected GModelElement findGNodeById(final EList<GModelElement> eList, final String elementId) {
       return eList.stream().filter(node -> elementId.equals(node.getId())).findFirst().orElse(null);
+   }
+
+   protected GEdge createTransitionEdge(final Transition transition) {
+      GEdgeBuilder transitionEdgeBuilder = new GEdgeBuilder(TaskListModelTypes.TRANSITION)
+         .id(idGenerator.getOrCreateId(transition))
+         .addCssClass("tasklist-edge")
+         .sourceId(transition.getSource().getId())
+         .targetId(transition.getTarget().getId())
+         .add(new GLabelBuilder(DefaultTypes.LABEL)
+            .text(transition.getName()).id(transition.getId() + "_label").build());
+
+      applyEdgeData(transition, transitionEdgeBuilder);
+      return transitionEdgeBuilder.build();
    }
 
    protected GNode createTaskNodeDecision(final Decision decision) {

@@ -23,7 +23,6 @@ import org.eclipse.glsp.example.tasklist.model.ModelPackage;
 import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
-import org.eclipse.glsp.example.tasklist.model.TransitionDecision;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +36,6 @@ import org.eclipse.glsp.example.tasklist.model.TransitionDecision;
  *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getTransitions <em>Transitions</em>}</li>
  *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getContainers <em>Containers</em>}</li>
  *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getDecisions <em>Decisions</em>}</li>
- *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getTransitionsDecisions <em>Transitions Decisions</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,16 +79,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
     * @ordered
     */
    protected EList<Decision> decisions;
-
-   /**
-    * The cached value of the '{@link #getTransitionsDecisions() <em>Transitions Decisions</em>}' containment reference list.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @see #getTransitionsDecisions()
-    * @generated
-    * @ordered
-    */
-   protected EList<TransitionDecision> transitionsDecisions;
 
    protected TaskListImpl() {
       super();
@@ -158,19 +146,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
       return decisions;
    }
 
-   /**
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @generated
-    */
-   @Override
-   public EList<TransitionDecision> getTransitionsDecisions() {
-      if (transitionsDecisions == null) {
-         transitionsDecisions = new EObjectContainmentEList<TransitionDecision>(TransitionDecision.class, this, ModelPackage.TASK_LIST__TRANSITIONS_DECISIONS);
-      }
-      return transitionsDecisions;
-   }
-
    @Override
    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
       final NotificationChain msgs) {
@@ -199,8 +174,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
             return getContainers();
          case ModelPackage.TASK_LIST__DECISIONS:
             return getDecisions();
-         case ModelPackage.TASK_LIST__TRANSITIONS_DECISIONS:
-            return getTransitionsDecisions();
       }
       return super.eGet(featureID, resolve, coreType);
    }
@@ -230,10 +203,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
             getDecisions().clear();
             getDecisions().addAll((Collection<? extends Decision>)newValue);
             return;
-         case ModelPackage.TASK_LIST__TRANSITIONS_DECISIONS:
-            getTransitionsDecisions().clear();
-            getTransitionsDecisions().addAll((Collection<? extends TransitionDecision>)newValue);
-            return;
       }
       super.eSet(featureID, newValue);
    }
@@ -258,9 +227,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
          case ModelPackage.TASK_LIST__DECISIONS:
             getDecisions().clear();
             return;
-         case ModelPackage.TASK_LIST__TRANSITIONS_DECISIONS:
-            getTransitionsDecisions().clear();
-            return;
       }
       super.eUnset(featureID);
    }
@@ -281,8 +247,6 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
             return containers != null && !containers.isEmpty();
          case ModelPackage.TASK_LIST__DECISIONS:
             return decisions != null && !decisions.isEmpty();
-         case ModelPackage.TASK_LIST__TRANSITIONS_DECISIONS:
-            return transitionsDecisions != null && !transitionsDecisions.isEmpty();
       }
       return super.eIsSet(featureID);
    }

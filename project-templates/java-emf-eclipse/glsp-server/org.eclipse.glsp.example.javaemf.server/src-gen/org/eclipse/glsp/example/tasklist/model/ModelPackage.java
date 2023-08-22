@@ -176,15 +176,6 @@ public interface ModelPackage extends EPackage {
    int TASK_LIST__DECISIONS = IDENTIFIABLE_FEATURE_COUNT + 3;
 
    /**
-    * The feature id for the '<em><b>Transitions Decisions</b></em>' containment reference list.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @generated
-    * @ordered
-    */
-   int TASK_LIST__TRANSITIONS_DECISIONS = IDENTIFIABLE_FEATURE_COUNT + 4;
-
-   /**
     * The number of structural features of the '<em>Task List</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -192,7 +183,7 @@ public interface ModelPackage extends EPackage {
     * @ordered
     */
 
-   int TASK_LIST_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 5;
+   int TASK_LIST_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 4;
 
    /**
     * The number of operations of the '<em>Task List</em>' class.
@@ -406,70 +397,6 @@ public interface ModelPackage extends EPackage {
    int DECISION_OPERATION_COUNT = TASK_OPERATION_COUNT + 0;
 
    /**
-    * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TransitionDecisionImpl <em>Transition Decision</em>}' class.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @see org.eclipse.glsp.example.tasklist.model.impl.TransitionDecisionImpl
-    * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getTransitionDecision()
-    * @generated
-    */
-   int TRANSITION_DECISION = 6;
-
-   /**
-    * The feature id for the '<em><b>Id</b></em>' attribute.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @generated
-    * @ordered
-    */
-   int TRANSITION_DECISION__ID = IDENTIFIABLE__ID;
-
-   /**
-    * The feature id for the '<em><b>Name</b></em>' attribute.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @generated
-    * @ordered
-    */
-   int TRANSITION_DECISION__NAME = IDENTIFIABLE__NAME;
-
-   /**
-    * The feature id for the '<em><b>Source</b></em>' reference.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @generated
-    * @ordered
-    */
-   int TRANSITION_DECISION__SOURCE = IDENTIFIABLE_FEATURE_COUNT + 0;
-
-   /**
-    * The feature id for the '<em><b>Target</b></em>' reference.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @generated
-    * @ordered
-    */
-   int TRANSITION_DECISION__TARGET = IDENTIFIABLE_FEATURE_COUNT + 1;
-
-   /**
-    * The number of structural features of the '<em>Transition Decision</em>' class.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @generated
-    * @ordered
-    */
-   int TRANSITION_DECISION_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 2;
-
-   /**
-    * The number of operations of the '<em>Transition Decision</em>' class.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @generated
-    * @ordered
-    */
-   int TRANSITION_DECISION_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
-
-   /**
     * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Identifiable <em>Identifiable</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -556,17 +483,6 @@ public interface ModelPackage extends EPackage {
    EReference getTaskList_Decisions();
 
    /**
-    * Returns the meta object for the containment reference list '{@link org.eclipse.glsp.example.tasklist.model.TaskList#getTransitionsDecisions <em>Transitions Decisions</em>}'.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @return the meta object for the containment reference list '<em>Transitions Decisions</em>'.
-    * @see org.eclipse.glsp.example.tasklist.model.TaskList#getTransitionsDecisions()
-    * @see #getTaskList()
-    * @generated
-    */
-   EReference getTaskList_TransitionsDecisions();
-
-   /**
     * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Task <em>Task</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -627,38 +543,6 @@ public interface ModelPackage extends EPackage {
     * @generated
     */
    EClass getDecision();
-
-   /**
-    * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.TransitionDecision <em>Transition Decision</em>}'.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @return the meta object for class '<em>Transition Decision</em>'.
-    * @see org.eclipse.glsp.example.tasklist.model.TransitionDecision
-    * @generated
-    */
-   EClass getTransitionDecision();
-
-   /**
-    * Returns the meta object for the reference '{@link org.eclipse.glsp.example.tasklist.model.TransitionDecision#getSource <em>Source</em>}'.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @return the meta object for the reference '<em>Source</em>'.
-    * @see org.eclipse.glsp.example.tasklist.model.TransitionDecision#getSource()
-    * @see #getTransitionDecision()
-    * @generated
-    */
-   EReference getTransitionDecision_Source();
-
-   /**
-    * Returns the meta object for the reference '{@link org.eclipse.glsp.example.tasklist.model.TransitionDecision#getTarget <em>Target</em>}'.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @return the meta object for the reference '<em>Target</em>'.
-    * @see org.eclipse.glsp.example.tasklist.model.TransitionDecision#getTarget()
-    * @see #getTransitionDecision()
-    * @generated
-    */
-   EReference getTransitionDecision_Target();
 
    /**
     * Returns the factory that creates the instances of the model.
@@ -752,14 +636,6 @@ public interface ModelPackage extends EPackage {
       EReference TASK_LIST__DECISIONS = eINSTANCE.getTaskList_Decisions();
 
       /**
-       * The meta object literal for the '<em><b>Transitions Decisions</b></em>' containment reference list feature.
-       * <!-- begin-user-doc -->
-       * <!-- end-user-doc -->
-       * @generated
-       */
-      EReference TASK_LIST__TRANSITIONS_DECISIONS = eINSTANCE.getTaskList_TransitionsDecisions();
-
-      /**
        * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TaskImpl <em>Task</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
@@ -814,32 +690,6 @@ public interface ModelPackage extends EPackage {
        * @generated
        */
       EClass DECISION = eINSTANCE.getDecision();
-
-      /**
-       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TransitionDecisionImpl <em>Transition Decision</em>}' class.
-       * <!-- begin-user-doc -->
-       * <!-- end-user-doc -->
-       * @see org.eclipse.glsp.example.tasklist.model.impl.TransitionDecisionImpl
-       * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getTransitionDecision()
-       * @generated
-       */
-      EClass TRANSITION_DECISION = eINSTANCE.getTransitionDecision();
-
-      /**
-       * The meta object literal for the '<em><b>Source</b></em>' reference feature.
-       * <!-- begin-user-doc -->
-       * <!-- end-user-doc -->
-       * @generated
-       */
-      EReference TRANSITION_DECISION__SOURCE = eINSTANCE.getTransitionDecision_Source();
-
-      /**
-       * The meta object literal for the '<em><b>Target</b></em>' reference feature.
-       * <!-- begin-user-doc -->
-       * <!-- end-user-doc -->
-       * @generated
-       */
-      EReference TRANSITION_DECISION__TARGET = eINSTANCE.getTransitionDecision_Target();
 
    }
 
