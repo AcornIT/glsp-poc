@@ -66,7 +66,6 @@ public class CreateEdgeHandler extends AbstractEMFCreateEdgeOperationHandler {
          return Optional.of(createTaskAndEdge(source, target));
       } else if (source.getType().equals("node") && target.getType().equals("node:diamond")) {
          return Optional.of(createTaskAndEdgeDecision(source, target));
-
       } else if (source.getType().equals("node:diamond") && target.getType().equals("node")) {
          return Optional.of(createEdgeDecision(source, target));
       } else {

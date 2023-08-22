@@ -112,7 +112,6 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
 
    // Generic container used for element grouping
    protected GCompartment createContainer(final Compartment container) {
-
       GDimension containerPrefSize = GraphUtil.dimension(250, 125);
       GPoint childPosition = GraphUtil.point(75, 35);
       Map<String, Object> layoutOptions = new HashMap<>();
