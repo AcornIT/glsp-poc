@@ -37,6 +37,7 @@ import org.eclipse.glsp.graph.GNode;
 import org.eclipse.glsp.graph.GPoint;
 import org.eclipse.glsp.graph.builder.impl.GCompartmentBuilder;
 import org.eclipse.glsp.graph.builder.impl.GEdgeBuilder;
+import org.eclipse.glsp.graph.builder.impl.GEdgePlacementBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLabelBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLayoutOptions;
 import org.eclipse.glsp.graph.builder.impl.GNodeBuilder;
@@ -91,7 +92,12 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          .sourceId(transition.getSource().getId())
          .targetId(transition.getTarget().getId())
          .add(new GLabelBuilder(DefaultTypes.LABEL)
-            .text(transition.getName()).id(transition.getId() + "_label").build());
+            .text(transition.getName())
+            .id(transition.getId() + "_label")
+            .edgePlacement(new GEdgePlacementBuilder()
+               .side(GConstants.EdgeSide.TOP)
+               .build())
+            .build());
 
       applyEdgeData(transition, transitionEdgeBuilder);
       return transitionEdgeBuilder.build();

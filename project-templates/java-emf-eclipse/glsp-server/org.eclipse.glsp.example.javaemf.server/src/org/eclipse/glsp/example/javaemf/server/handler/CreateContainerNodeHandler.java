@@ -77,11 +77,9 @@ public class CreateContainerNodeHandler extends AbstractEMFCreateNodeOperationHa
          ModelPackage.Literals.TASK_LIST__CONTAINERS, container);
 
       Shape shape = createShape(idGenerator.getOrCreateId(container), relativeLocation);
-      // se creeaza o comanda pt a adauga noua forma in lista de elemente a diagramelor
       Command shapeCommand = AddCommand.create(editingDomain, diagram,
          NotationPackage.Literals.DIAGRAM__ELEMENTS, shape);
 
-      // comanda compusa: comenzi de adaugare pt sarcina si pt forma
       CompoundCommand compoundCommand = new CompoundCommand();
       compoundCommand.append(containerCommand);
       compoundCommand.append(shapeCommand);
@@ -97,7 +95,7 @@ public class CreateContainerNodeHandler extends AbstractEMFCreateNodeOperationHa
    }
 
    protected void setInitialName(final Compartment container) {
-      Function<Integer, String> nameProvider = i -> container.eClass().getName() + i;
+      Function<Integer, String> nameProvider = i -> container.eClass().getName() + " " + i;
       int nodeCounter = modelState.getIndex().getCounter(GraphPackage.Literals.GCOMPARTMENT, nameProvider);
       container.setName(nameProvider.apply(nodeCounter));
    }

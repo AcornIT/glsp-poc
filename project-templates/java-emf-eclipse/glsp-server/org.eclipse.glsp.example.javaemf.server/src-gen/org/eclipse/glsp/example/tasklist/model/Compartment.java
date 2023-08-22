@@ -21,5 +21,5 @@ package org.eclipse.glsp.example.tasklist.model;
  * @model
  * @generated
  */
-public interface Compartment extends Identifiable {
+public interface Compartment extends Task {
 } // Compartment

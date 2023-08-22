@@ -321,7 +321,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int COMPARTMENT__ID = IDENTIFIABLE__ID;
+   int COMPARTMENT__ID = TASK__ID;
 
    /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -330,7 +330,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int COMPARTMENT__NAME = IDENTIFIABLE__NAME;
+   int COMPARTMENT__NAME = TASK__NAME;
 
    /**
     * The number of structural features of the '<em>Compartment</em>' class.
@@ -339,7 +339,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int COMPARTMENT_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 0;
+   int COMPARTMENT_FEATURE_COUNT = TASK_FEATURE_COUNT + 0;
 
    /**
     * The number of operations of the '<em>Compartment</em>' class.
@@ -348,7 +348,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int COMPARTMENT_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
+   int COMPARTMENT_OPERATION_COUNT = TASK_OPERATION_COUNT + 0;
 
    /**
     * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.DecisionImpl <em>Decision</em>}' class.
