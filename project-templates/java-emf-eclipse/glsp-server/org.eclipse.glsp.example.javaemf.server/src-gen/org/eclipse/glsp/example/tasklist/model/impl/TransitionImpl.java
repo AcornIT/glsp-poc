@@ -14,8 +14,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.glsp.example.tasklist.model.Connectable;
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
-import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.Transition;
 
 /**
@@ -41,7 +41,7 @@ public class TransitionImpl extends IdentifiableImpl implements Transition {
     * @generated
     * @ordered
     */
-   protected Task source;
+   protected Connectable source;
 
    /**
     * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
@@ -51,7 +51,7 @@ public class TransitionImpl extends IdentifiableImpl implements Transition {
     * @generated
     * @ordered
     */
-   protected Task target;
+   protected Connectable target;
 
    /**
     * <!-- begin-user-doc -->
@@ -78,10 +78,10 @@ public class TransitionImpl extends IdentifiableImpl implements Transition {
     * @generated
     */
    @Override
-   public Task getSource() {
+   public Connectable getSource() {
       if (source != null && source.eIsProxy()) {
          InternalEObject oldSource = (InternalEObject)source;
-         source = (Task)eResolveProxy(oldSource);
+         source = (Connectable)eResolveProxy(oldSource);
          if (source != oldSource) {
             if (eNotificationRequired())
                eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.TRANSITION__SOURCE, oldSource, source));
@@ -95,7 +95,7 @@ public class TransitionImpl extends IdentifiableImpl implements Transition {
     * <!-- end-user-doc -->
     * @generated
     */
-   public Task basicGetSource() {
+   public Connectable basicGetSource() {
       return source;
    }
 
@@ -105,8 +105,8 @@ public class TransitionImpl extends IdentifiableImpl implements Transition {
     * @generated
     */
    @Override
-   public void setSource(Task newSource) {
-      Task oldSource = source;
+   public void setSource(Connectable newSource) {
+      Connectable oldSource = source;
       source = newSource;
       if (eNotificationRequired())
          eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TRANSITION__SOURCE, oldSource, source));
@@ -118,10 +118,10 @@ public class TransitionImpl extends IdentifiableImpl implements Transition {
     * @generated
     */
    @Override
-   public Task getTarget() {
+   public Connectable getTarget() {
       if (target != null && target.eIsProxy()) {
          InternalEObject oldTarget = (InternalEObject)target;
-         target = (Task)eResolveProxy(oldTarget);
+         target = (Connectable)eResolveProxy(oldTarget);
          if (target != oldTarget) {
             if (eNotificationRequired())
                eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.TRANSITION__TARGET, oldTarget, target));
@@ -135,7 +135,7 @@ public class TransitionImpl extends IdentifiableImpl implements Transition {
     * <!-- end-user-doc -->
     * @generated
     */
-   public Task basicGetTarget() {
+   public Connectable basicGetTarget() {
       return target;
    }
 
@@ -145,8 +145,8 @@ public class TransitionImpl extends IdentifiableImpl implements Transition {
     * @generated
     */
    @Override
-   public void setTarget(Task newTarget) {
-      Task oldTarget = target;
+   public void setTarget(Connectable newTarget) {
+      Connectable oldTarget = target;
       target = newTarget;
       if (eNotificationRequired())
          eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TRANSITION__TARGET, oldTarget, target));
@@ -179,10 +179,10 @@ public class TransitionImpl extends IdentifiableImpl implements Transition {
    public void eSet(int featureID, Object newValue) {
       switch (featureID) {
          case ModelPackage.TRANSITION__SOURCE:
-            setSource((Task)newValue);
+            setSource((Connectable)newValue);
             return;
          case ModelPackage.TRANSITION__TARGET:
-            setTarget((Task)newValue);
+            setTarget((Connectable)newValue);
             return;
       }
       super.eSet(featureID, newValue);
@@ -197,10 +197,10 @@ public class TransitionImpl extends IdentifiableImpl implements Transition {
    public void eUnset(int featureID) {
       switch (featureID) {
          case ModelPackage.TRANSITION__SOURCE:
-            setSource((Task)null);
+            setSource((Connectable)null);
             return;
          case ModelPackage.TRANSITION__TARGET:
-            setTarget((Task)null);
+            setTarget((Connectable)null);
             return;
       }
       super.eUnset(featureID);

@@ -12,23 +12,23 @@ package org.eclipse.glsp.example.tasklist.model.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.glsp.example.tasklist.model.Connectable;
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
-import org.eclipse.glsp.example.tasklist.model.Task;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Task</b></em>'.
+ * An implementation of the model object '<em><b>Connectable</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class TaskImpl extends ConnectableImpl implements Task {
+public class ConnectableImpl extends IdentifiableImpl implements Connectable {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     */
-   protected TaskImpl() {
+   protected ConnectableImpl() {
       super();
    }
 
@@ -39,7 +39,7 @@ public class TaskImpl extends ConnectableImpl implements Task {
     */
    @Override
    protected EClass eStaticClass() {
-      return ModelPackage.Literals.TASK;
+      return ModelPackage.Literals.CONNECTABLE;
    }
 
-} //TaskImpl
+} //ConnectableImpl

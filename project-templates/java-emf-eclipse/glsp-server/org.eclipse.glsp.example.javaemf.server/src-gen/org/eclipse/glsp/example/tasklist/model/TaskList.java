@@ -81,6 +81,22 @@ public interface TaskList extends Identifiable {
    EList<Decision> getDecisions();
 
    /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @model
+    * @generated
+    */
+   Identifiable findById(String id);
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @model kind="operation"
+    * @generated
+    */
+   EList<Identifiable> getAll();
+
+   /**
     * Returns the value of the '<em><b>Decisions</b></em>' containment reference list.
     * The list contents are of type {@link org.eclipse.glsp.example.tasklist.model.Decision}.
     * <!-- begin-user-doc -->

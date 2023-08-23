@@ -75,6 +75,15 @@ public interface ModelFactory extends EFactory {
    Decision createDecision();
 
    /**
+    * Returns a new object of class '<em>Connectable</em>'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return a new object of class '<em>Connectable</em>'.
+    * @generated
+    */
+   Connectable createConnectable();
+
+   /**
     * Returns the package supported by this factory.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->

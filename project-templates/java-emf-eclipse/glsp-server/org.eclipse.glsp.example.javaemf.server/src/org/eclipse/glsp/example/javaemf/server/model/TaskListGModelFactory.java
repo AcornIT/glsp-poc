@@ -15,10 +15,8 @@
  ********************************************************************************/
 package org.eclipse.glsp.example.javaemf.server.model;
 
-import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.glsp.example.javaemf.server.TaskListModelTypes;
 import org.eclipse.glsp.example.tasklist.model.Compartment;
@@ -28,10 +26,8 @@ import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
 import org.eclipse.glsp.graph.DefaultTypes;
 import org.eclipse.glsp.graph.GCompartment;
-import org.eclipse.glsp.graph.GDimension;
 import org.eclipse.glsp.graph.GEdge;
 import org.eclipse.glsp.graph.GGraph;
-import org.eclipse.glsp.graph.GModelElement;
 import org.eclipse.glsp.graph.GModelRoot;
 import org.eclipse.glsp.graph.GNode;
 import org.eclipse.glsp.graph.GPoint;
@@ -61,7 +57,7 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
             .map(this::createTransitionEdge)
             .forEachOrdered(graph.getChildren()::add);
          taskList.getContainers().stream()
-            .map(this::createContainer)
+            .map(this::createTaskNodeContainer)
             .forEachOrdered(graph.getChildren()::add);
          taskList.getDecisions().stream()
             .map(this::createTaskNodeDecision)
@@ -79,10 +75,6 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
 
       applyShapeData(task, taskNodeBuilder);
       return taskNodeBuilder.build();
-   }
-
-   protected GModelElement findGNodeById(final EList<GModelElement> eList, final String elementId) {
-      return eList.stream().filter(node -> elementId.equals(node.getId())).findFirst().orElse(null);
    }
 
    protected GEdge createTransitionEdge(final Transition transition) {
@@ -118,28 +110,53 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
 
    // Generic container used for element grouping
    protected GCompartment createContainer(final Compartment container) {
-      GDimension containerPrefSize = GraphUtil.dimension(250, 125);
       GPoint childPosition = GraphUtil.point(75, 35);
-      Map<String, Object> layoutOptions = new HashMap<>();
-      layoutOptions.put(GLayoutOptions.KEY_H_ALIGN, true);
-      layoutOptions.put(GLayoutOptions.KEY_PREF_WIDTH, containerPrefSize.getWidth());
-      layoutOptions.put(GLayoutOptions.KEY_PREF_HEIGHT, containerPrefSize.getHeight());
-
       GCompartmentBuilder taskNodeBuilder = new GCompartmentBuilder(TaskListModelTypes.COMPARTMENT)
          .id(idGenerator.getOrCreateId(container))
          .addCssClass("container")
          .size(GraphUtil.dimension(60, 60))
          .type(DefaultTypes.NODE_RECTANGLE)
-         .layoutOptions(layoutOptions)
          .add(new GNodeBuilder(DefaultTypes.NODE)
             .position(childPosition)
             .build())
          .add(new GLabelBuilder(DefaultTypes.LABEL)
             .text(container.getName())
-            .id(container.getId() + "_label").build())
+            .id(container.getId() + "_label")
+            .build())
          .layout(GConstants.Layout.FREEFORM);
       return taskNodeBuilder.build();
+   }
 
+   protected GNode createTaskNodeContainer(final Compartment task) {
+      GNodeBuilder taskNodeBuilder = new GNodeBuilder(TaskListModelTypes.TASK)
+         .id(idGenerator.getOrCreateId(task))
+         .addCssClass("container")
+         .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_LEFT, 5))
+         .layoutOptions(new GLayoutOptions().vAlign(GConstants.VAlign.TOP));
+
+      applyShapeData(task, taskNodeBuilder);
+
+      GCompartmentBuilder precond = new GCompartmentBuilder(DefaultTypes.NODE)
+         .layout(GConstants.Layout.HBOX)
+         .addCssClass("preconditions")
+         .add(new GLabelBuilder(DefaultTypes.LABEL).text(task.getName()).id(task.getId() + "_label")
+            .build());
+
+      GCompartmentBuilder postcond = new GCompartmentBuilder(DefaultTypes.NODE)
+         .layout(GConstants.Layout.FREEFORM)
+         .addCssClass("postconditions")
+         .add(new GLabelBuilder()
+            .text("Label2")
+            .edgePlacement(new GEdgePlacementBuilder()
+               .side(GConstants.HAlign.CENTER)
+               .position(0.5)
+               .build())
+            .build());
+
+      taskNodeBuilder.add(precond.build());
+      taskNodeBuilder.add(postcond.build());
+
+      return taskNodeBuilder.build();
    }
 
 }

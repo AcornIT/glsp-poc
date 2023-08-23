@@ -31,7 +31,7 @@ public class TaskListDiagramConfiguration extends BaseDiagramConfiguration {
       List<ShapeTypeHint> nodeHints = new ArrayList<>();
       nodeHints.add(new ShapeTypeHint(TaskListModelTypes.TASK, true, true, true, false));
       nodeHints.add(new ShapeTypeHint(TaskListModelTypes.DIAMOND, true, true, true, false));
-      nodeHints.add(new ShapeTypeHint(TaskListModelTypes.COMPARTMENT, true, true, true, false));
+      nodeHints.add(new ShapeTypeHint(TaskListModelTypes.COMPARTMENT, true, true, true, true));
       return nodeHints;
    }
 

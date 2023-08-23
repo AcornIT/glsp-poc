@@ -12,6 +12,7 @@ package org.eclipse.glsp.example.tasklist.model;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -186,13 +187,77 @@ public interface ModelPackage extends EPackage {
    int TASK_LIST_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 4;
 
    /**
+    * The operation id for the '<em>Find By Id</em>' operation.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int TASK_LIST___FIND_BY_ID__STRING = IDENTIFIABLE_OPERATION_COUNT + 0;
+
+   /**
+    * The operation id for the '<em>Get All</em>' operation.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int TASK_LIST___GET_ALL = IDENTIFIABLE_OPERATION_COUNT + 1;
+
+   /**
     * The number of operations of the '<em>Task List</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-   int TASK_LIST_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
+   int TASK_LIST_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 2;
+
+   /**
+    * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.ConnectableImpl <em>Connectable</em>}' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see org.eclipse.glsp.example.tasklist.model.impl.ConnectableImpl
+    * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getConnectable()
+    * @generated
+    */
+   int CONNECTABLE = 6;
+
+   /**
+    * The feature id for the '<em><b>Id</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int CONNECTABLE__ID = IDENTIFIABLE__ID;
+
+   /**
+    * The feature id for the '<em><b>Name</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int CONNECTABLE__NAME = IDENTIFIABLE__NAME;
+
+   /**
+    * The number of structural features of the '<em>Connectable</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int CONNECTABLE_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 0;
+
+   /**
+    * The number of operations of the '<em>Connectable</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int CONNECTABLE_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
 
    /**
     * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TaskImpl <em>Task</em>}' class.
@@ -211,7 +276,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int TASK__ID = IDENTIFIABLE__ID;
+   int TASK__ID = CONNECTABLE__ID;
 
    /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -220,7 +285,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int TASK__NAME = IDENTIFIABLE__NAME;
+   int TASK__NAME = CONNECTABLE__NAME;
 
    /**
     * The number of structural features of the '<em>Task</em>' class.
@@ -229,7 +294,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int TASK_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 0;
+   int TASK_FEATURE_COUNT = CONNECTABLE_FEATURE_COUNT + 0;
 
    /**
     * The number of operations of the '<em>Task</em>' class.
@@ -238,7 +303,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int TASK_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
+   int TASK_OPERATION_COUNT = CONNECTABLE_OPERATION_COUNT + 0;
 
    /**
     * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TransitionImpl <em>Transition</em>}' class.
@@ -367,7 +432,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int DECISION__ID = TASK__ID;
+   int DECISION__ID = CONNECTABLE__ID;
 
    /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -376,7 +441,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int DECISION__NAME = TASK__NAME;
+   int DECISION__NAME = CONNECTABLE__NAME;
 
    /**
     * The number of structural features of the '<em>Decision</em>' class.
@@ -385,7 +450,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int DECISION_FEATURE_COUNT = TASK_FEATURE_COUNT + 0;
+   int DECISION_FEATURE_COUNT = CONNECTABLE_FEATURE_COUNT + 0;
 
    /**
     * The number of operations of the '<em>Decision</em>' class.
@@ -394,7 +459,7 @@ public interface ModelPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int DECISION_OPERATION_COUNT = TASK_OPERATION_COUNT + 0;
+   int DECISION_OPERATION_COUNT = CONNECTABLE_OPERATION_COUNT + 0;
 
    /**
     * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Identifiable <em>Identifiable</em>}'.
@@ -483,6 +548,26 @@ public interface ModelPackage extends EPackage {
    EReference getTaskList_Decisions();
 
    /**
+    * Returns the meta object for the '{@link org.eclipse.glsp.example.tasklist.model.TaskList#findById(java.lang.String) <em>Find By Id</em>}' operation.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the '<em>Find By Id</em>' operation.
+    * @see org.eclipse.glsp.example.tasklist.model.TaskList#findById(java.lang.String)
+    * @generated
+    */
+   EOperation getTaskList__FindById__String();
+
+   /**
+    * Returns the meta object for the '{@link org.eclipse.glsp.example.tasklist.model.TaskList#getAll() <em>Get All</em>}' operation.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the '<em>Get All</em>' operation.
+    * @see org.eclipse.glsp.example.tasklist.model.TaskList#getAll()
+    * @generated
+    */
+   EOperation getTaskList__GetAll();
+
+   /**
     * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Task <em>Task</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -543,6 +628,16 @@ public interface ModelPackage extends EPackage {
     * @generated
     */
    EClass getDecision();
+
+   /**
+    * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Connectable <em>Connectable</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for class '<em>Connectable</em>'.
+    * @see org.eclipse.glsp.example.tasklist.model.Connectable
+    * @generated
+    */
+   EClass getConnectable();
 
    /**
     * Returns the factory that creates the instances of the model.
@@ -636,6 +731,22 @@ public interface ModelPackage extends EPackage {
       EReference TASK_LIST__DECISIONS = eINSTANCE.getTaskList_Decisions();
 
       /**
+       * The meta object literal for the '<em><b>Find By Id</b></em>' operation.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EOperation TASK_LIST___FIND_BY_ID__STRING = eINSTANCE.getTaskList__FindById__String();
+
+      /**
+       * The meta object literal for the '<em><b>Get All</b></em>' operation.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EOperation TASK_LIST___GET_ALL = eINSTANCE.getTaskList__GetAll();
+
+      /**
        * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TaskImpl <em>Task</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
@@ -690,6 +801,16 @@ public interface ModelPackage extends EPackage {
        * @generated
        */
       EClass DECISION = eINSTANCE.getDecision();
+
+      /**
+       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.ConnectableImpl <em>Connectable</em>}' class.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @see org.eclipse.glsp.example.tasklist.model.impl.ConnectableImpl
+       * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getConnectable()
+       * @generated
+       */
+      EClass CONNECTABLE = eINSTANCE.getConnectable();
 
    }
 

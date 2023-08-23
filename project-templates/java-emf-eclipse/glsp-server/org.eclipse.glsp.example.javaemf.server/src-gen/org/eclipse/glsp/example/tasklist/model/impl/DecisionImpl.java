@@ -22,7 +22,7 @@ import org.eclipse.glsp.example.tasklist.model.ModelPackage;
  *
  * @generated
  */
-public class DecisionImpl extends TaskImpl implements Decision {
+public class DecisionImpl extends ConnectableImpl implements Decision {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->

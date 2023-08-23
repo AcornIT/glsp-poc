@@ -94,6 +94,7 @@ public class ModelSwitch<T> extends Switch<T> {
          case ModelPackage.TASK: {
             Task task = (Task)theEObject;
             T result = caseTask(task);
+            if (result == null) result = caseConnectable(task);
             if (result == null) result = caseIdentifiable(task);
             if (result == null) result = defaultCase(theEObject);
             return result;
@@ -109,6 +110,7 @@ public class ModelSwitch<T> extends Switch<T> {
             Compartment compartment = (Compartment)theEObject;
             T result = caseCompartment(compartment);
             if (result == null) result = caseTask(compartment);
+            if (result == null) result = caseConnectable(compartment);
             if (result == null) result = caseIdentifiable(compartment);
             if (result == null) result = defaultCase(theEObject);
             return result;
@@ -116,8 +118,15 @@ public class ModelSwitch<T> extends Switch<T> {
          case ModelPackage.DECISION: {
             Decision decision = (Decision)theEObject;
             T result = caseDecision(decision);
-            if (result == null) result = caseTask(decision);
+            if (result == null) result = caseConnectable(decision);
             if (result == null) result = caseIdentifiable(decision);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
+         case ModelPackage.CONNECTABLE: {
+            Connectable connectable = (Connectable)theEObject;
+            T result = caseConnectable(connectable);
+            if (result == null) result = caseIdentifiable(connectable);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -212,6 +221,21 @@ public class ModelSwitch<T> extends Switch<T> {
     * @generated
     */
    public T caseDecision(Decision object) {
+      return null;
+   }
+
+   /**
+    * Returns the result of interpreting the object as an instance of '<em>Connectable</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Connectable</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T caseConnectable(Connectable object) {
       return null;
    }
 
