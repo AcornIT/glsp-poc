@@ -45,8 +45,8 @@
   </elements>
   <elements xsi:type="notation:Shape">
     <semanticElement elementId="cbbb3fca-7323-43b2-954c-289c0ff11e50"/>
-    <position x="122.50385391009026" y="43.04189461705874"/>
-    <size width="75.0" height="35.0"/>
+    <position x="474.50385391009024" y="-23.958105382941255"/>
+    <size width="86.53578186035156" height="89.0"/>
   </elements>
   <elements xsi:type="notation:Edge" target="//@elements.7">
     <semanticElement elementId="bac9dc94-b1f3-412c-8e32-97a36c63020a"/>

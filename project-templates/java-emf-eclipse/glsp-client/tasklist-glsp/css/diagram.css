@@ -54,4 +54,23 @@ svg {
     cursor: pointer;
     position: absolute;
     stroke: burlywood;
+    border: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.preconditions {
+    fill: white;
+    padding: 10px;
+    border: 30px solid black;
+    margin-bottom: 5px;
+    flex-grow: 1;
+}
+
+.postconditions {
+    fill: white;
+    border: 30px black;
+    padding: 8px;
+    margin-top: 5px;
+    flex-grow: 1;
 }
