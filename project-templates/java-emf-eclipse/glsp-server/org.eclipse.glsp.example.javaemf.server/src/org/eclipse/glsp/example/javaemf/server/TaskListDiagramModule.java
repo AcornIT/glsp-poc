@@ -72,7 +72,6 @@ public class TaskListDiagramModule extends EMFNotationDiagramModule {
       binding.add(CreateEdgeHandler.class);
       binding.add(CreateNodeDecisionHandler.class);
       binding.add(CreateContainerNodeHandler.class);
-
    }
 
    @Override

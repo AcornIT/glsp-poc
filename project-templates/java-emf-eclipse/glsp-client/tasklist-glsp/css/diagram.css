@@ -50,27 +50,24 @@ svg {
 }
 
 .container {
-    fill: burlywood;
-    cursor: pointer;
-    position: absolute;
-    stroke: burlywood;
-    border: black;
+    fill: rgb(218, 217, 217);
+    border: 1px black;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .preconditions {
-    fill: white;
-    padding: 10px;
-    border: 30px solid black;
-    margin-bottom: 5px;
-    flex-grow: 1;
+    fill: rgb(252, 250, 146);
+    margin-bottom: 10 px;
+    width: auto;
+    height: auto;
+    border-color: black;
 }
 
 .postconditions {
-    fill: white;
-    border: 30px black;
-    padding: 8px;
-    margin-top: 5px;
-    flex-grow: 1;
+    fill: rgb(252, 250, 146);
+    margin-top: 10px;
+    width: auto;
+    height: auto;
+    border-color: black;
 }
