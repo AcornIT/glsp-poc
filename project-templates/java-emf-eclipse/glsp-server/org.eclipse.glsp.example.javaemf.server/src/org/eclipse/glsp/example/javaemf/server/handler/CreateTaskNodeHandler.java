@@ -67,24 +67,19 @@ public class CreateTaskNodeHandler extends AbstractEMFCreateNodeOperationHandler
    @Override
    public String getLabel() { return "Task"; }
 
-   // crearea unei sarcini de adaugare a unui nod
    protected Command createTaskAndShape(final Optional<GPoint> relativeLocation) {
-      // obtine modelul semantic
       TaskList taskList = modelState.getSemanticModel(TaskList.class).orElseThrow();
       Diagram diagram = modelState.getNotationModel();
       EditingDomain editingDomain = modelState.getEditingDomain();
 
       Task newTask = createTask();
-      // se creaza o noua instanta pt a adauga o noua sarcina
       Command taskCommand = AddCommand.create(editingDomain, taskList,
          ModelPackage.Literals.TASK_LIST__TASKS, newTask);
 
       Shape shape = createShape(idGenerator.getOrCreateId(newTask), relativeLocation);
-      // se creeaza o comanda pt a adauga noua forma in lista de elemente a diagramelor
       Command shapeCommand = AddCommand.create(editingDomain, diagram,
          NotationPackage.Literals.DIAGRAM__ELEMENTS, shape);
 
-      // comanda compusa: comenzi de adaugare pt sarcina si pt forma
       CompoundCommand compoundCommand = new CompoundCommand();
       compoundCommand.append(taskCommand);
       compoundCommand.append(shapeCommand);

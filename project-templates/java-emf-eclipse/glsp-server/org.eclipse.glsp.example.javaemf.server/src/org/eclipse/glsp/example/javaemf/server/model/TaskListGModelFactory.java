@@ -15,7 +15,6 @@
  ********************************************************************************/
 package org.eclipse.glsp.example.javaemf.server.model;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
@@ -26,12 +25,11 @@ import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
 import org.eclipse.glsp.graph.DefaultTypes;
-import org.eclipse.glsp.graph.GDimension;
+import org.eclipse.glsp.graph.GCompartment;
 import org.eclipse.glsp.graph.GEdge;
 import org.eclipse.glsp.graph.GGraph;
 import org.eclipse.glsp.graph.GModelRoot;
 import org.eclipse.glsp.graph.GNode;
-import org.eclipse.glsp.graph.GPoint;
 import org.eclipse.glsp.graph.builder.impl.GCompartmentBuilder;
 import org.eclipse.glsp.graph.builder.impl.GEdgeBuilder;
 import org.eclipse.glsp.graph.builder.impl.GEdgePlacementBuilder;
@@ -70,6 +68,17 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
       GNodeBuilder taskNodeBuilder = new GNodeBuilder(TaskListModelTypes.TASK)
          .id(idGenerator.getOrCreateId(task))
          .addCssClass("tasklist-node")
+         /*
+          * .add(new GCompartmentBuilder(TaskListModelTypes.TASK)
+          * .addCssClass("container")
+          * .add(new GLabelBuilder()
+          * .text("Compartment")
+          * .edgePlacement(new GEdgePlacementBuilder()
+          * .side(GConstants.EdgeSide.BOTTOM)
+          * .build())
+          * .build())
+          * .build())
+          */
          .add(new GLabelBuilder(DefaultTypes.LABEL).text(task.getName()).id(task.getId() + "_label").build())
          .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_LEFT, 5))
          .layoutOptions(new GLayoutOptions().vAlign(GConstants.VAlign.TOP));
@@ -83,14 +92,16 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          .id(idGenerator.getOrCreateId(transition))
          .addCssClass("tasklist-edge")
          .sourceId(transition.getSource().getId())
-         .targetId(transition.getTarget().getId())
-         .add(new GLabelBuilder(DefaultTypes.LABEL)
-            .text(transition.getName())
-            .id(transition.getId() + "_label")
-            .edgePlacement(new GEdgePlacementBuilder()
-               .side(GConstants.EdgeSide.TOP)
-               .build())
-            .build());
+         .targetId(transition.getTarget().getId());
+      /*
+       * .add(new GLabelBuilder(DefaultTypes.LABEL)
+       * .text(transition.getName())
+       * .id(transition.getId() + "_label")
+       * .edgePlacement(new GEdgePlacementBuilder()
+       * .side(GConstants.EdgeSide.TOP)
+       * .build())
+       * .build());
+       */
 
       applyEdgeData(transition, transitionEdgeBuilder);
       return transitionEdgeBuilder.build();
@@ -109,44 +120,21 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
       return taskNodeBuilder.build();
    }
 
-   protected GNode createCompartment(final Compartment task) {
-      GDimension containerPrefSize = GraphUtil.dimension(120, 200);
-      GPoint childPosition = GraphUtil.point(20, 20);
-      GPoint childPosition1 = GraphUtil.point(20, 55);
-      GNodeBuilder taskNodeBuilder = new GNodeBuilder(TaskListModelTypes.TASK)
-         .id(idGenerator.getOrCreateId(task))
-         .addCssClass("container")
-         .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_TOP, 5))
-         .layoutOptions(new GLayoutOptions().vAlign(GConstants.VAlign.TOP));
-
-      applyShapeData(task, taskNodeBuilder);
-
-      Map<String, Object> layoutOptions = new HashMap<>();
-      layoutOptions.put(GLayoutOptions.KEY_PREF_WIDTH, containerPrefSize.getWidth());
-      layoutOptions.put(GLayoutOptions.KEY_PREF_HEIGHT, containerPrefSize.getHeight());
+   protected GCompartment createCompartment(final Compartment task) {
       GCompartmentBuilder buildComp = new GCompartmentBuilder(TaskListModelTypes.COMPARTMENT)
-         .type(DefaultTypes.COMPARTMENT)
+         .id(idGenerator.getOrCreateId(task))
          .layout(GConstants.Layout.FREEFORM)
-         .layoutOptions(layoutOptions)
+         .type(DefaultTypes.NODE_RECTANGLE)
+         .addCssClass("container")
          .add(
-            new GNodeBuilder(DefaultTypes.NODE)
-               .position(childPosition)
-               .size(50, 15)
-               .addCssClass("preconditions")
-               .add(new GLabelBuilder()
-                  .text("Preconditions")
-                  .build())
-               .build())
-         .add(
-            new GNodeBuilder(DefaultTypes.NODE)
-               .position(childPosition1)
-               .size(50, 15)
-               .addCssClass("postconditions")
-               .add(new GLabelBuilder()
-                  .text("Postconditions")
+            new GLabelBuilder(DefaultTypes.LABEL)
+               .text(task.getName())
+               .id(task.getId() + "_label")
+               .edgePlacement(new GEdgePlacementBuilder()
+                  .side(GConstants.EdgeSide.TOP)
+                  .position(0.5)
                   .build())
                .build());
-      taskNodeBuilder.add(buildComp.build());
-      return taskNodeBuilder.build();
+      return buildComp.build();
    }
 }

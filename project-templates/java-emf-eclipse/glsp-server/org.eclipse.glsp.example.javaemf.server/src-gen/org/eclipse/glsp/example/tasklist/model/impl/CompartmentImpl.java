@@ -22,7 +22,7 @@ import org.eclipse.glsp.example.tasklist.model.ModelPackage;
  *
  * @generated
  */
-public class CompartmentImpl extends TaskImpl implements Compartment {
+public class CompartmentImpl extends IdentifiableImpl implements Compartment {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->

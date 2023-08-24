@@ -80,10 +80,8 @@ public class CreateEdgeHandler extends AbstractEMFCreateEdgeOperationHandler {
       Command transitionCommand = AddCommand.create(editingDomain, taskList,
          ModelPackage.Literals.TASK_LIST__TRANSITIONS, newTransition);
 
-      Shape sourceShape = (Shape) diagram.getElements().stream()
-         .filter(ne -> ne.getSemanticElement().getElementId().equals(source.getId())).findAny().orElseThrow();
-      Shape targetShape = (Shape) diagram.getElements().stream()
-         .filter(ne -> ne.getSemanticElement().getElementId().equals(target.getId())).findAny().orElseThrow();
+      Shape sourceShape = findShapeById(diagram, source.getId());
+      Shape targetShape = findShapeById(diagram, target.getId());
 
       Edge edge = createEdge(idGenerator.getOrCreateId(newTransition), sourceShape, targetShape);
       Command edgeCommand = AddCommand.create(editingDomain, diagram,
@@ -118,6 +116,11 @@ public class CreateEdgeHandler extends AbstractEMFCreateEdgeOperationHandler {
       reference.setElementId(elementId);
       newTransition.setSemanticElement(reference);
       return newTransition;
+   }
+
+   private Shape findShapeById(final Diagram diagram, final String id) {
+      return (Shape) diagram.getElements().stream()
+         .filter(ne -> ne.getSemanticElement().getElementId().equals(id)).findAny().orElseThrow();
    }
 
 }

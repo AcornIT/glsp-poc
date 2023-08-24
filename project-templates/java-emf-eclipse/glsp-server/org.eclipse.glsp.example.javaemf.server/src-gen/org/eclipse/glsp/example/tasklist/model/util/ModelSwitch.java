@@ -109,8 +109,6 @@ public class ModelSwitch<T> extends Switch<T> {
          case ModelPackage.COMPARTMENT: {
             Compartment compartment = (Compartment)theEObject;
             T result = caseCompartment(compartment);
-            if (result == null) result = caseTask(compartment);
-            if (result == null) result = caseConnectable(compartment);
             if (result == null) result = caseIdentifiable(compartment);
             if (result == null) result = defaultCase(theEObject);
             return result;

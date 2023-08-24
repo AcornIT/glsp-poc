@@ -36,10 +36,10 @@ public class TaskListToolPaletteItemProvider implements ToolPaletteItemProvider 
    private PaletteItem nodes() {
       PaletteItem createTask = node(TaskListModelTypes.TASK, "Task");
       PaletteItem createDecisionNode = node(TaskListModelTypes.DIAMOND, "Decision");
-      PaletteItem createContainer = node(TaskListModelTypes.COMPARTMENT, "Container");
+      PaletteItem createComp = comp(TaskListModelTypes.COMPARTMENT, "Compartment");
       List<PaletteItem> nodes = Lists.newArrayList(createTask);
       nodes.add(createDecisionNode);
-      nodes.add(createContainer);
+      nodes.add(createComp);
       return PaletteItem.createPaletteGroup("nodes", "Nodes", nodes, "symbol-property");
    }
 
@@ -55,5 +55,9 @@ public class TaskListToolPaletteItemProvider implements ToolPaletteItemProvider 
 
    private PaletteItem edge(final String elementTypeId, final String label) {
       return new PaletteItem(elementTypeId, label, new TriggerEdgeCreationAction(elementTypeId));
+   }
+
+   private PaletteItem comp(final String elementTypeId, final String label) {
+      return new PaletteItem(elementTypeId, label, new TriggerNodeCreationAction(elementTypeId));
    }
 }

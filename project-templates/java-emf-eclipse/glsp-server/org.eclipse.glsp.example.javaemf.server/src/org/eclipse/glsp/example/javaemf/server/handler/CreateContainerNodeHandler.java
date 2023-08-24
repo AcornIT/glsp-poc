@@ -27,6 +27,7 @@ import org.eclipse.glsp.example.javaemf.server.TaskListModelTypes;
 import org.eclipse.glsp.example.tasklist.model.Compartment;
 import org.eclipse.glsp.example.tasklist.model.ModelFactory;
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
+import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.graph.GModelElement;
 import org.eclipse.glsp.graph.GPoint;
@@ -69,6 +70,7 @@ public class CreateContainerNodeHandler extends AbstractEMFCreateNodeOperationHa
 
    protected Command createContainerAndShape(final Optional<GPoint> relativeLocation) {
       TaskList taskList = modelState.getSemanticModel(TaskList.class).orElseThrow();
+      Task task = modelState.getSemanticModel(Task.class).orElseThrow();
       Diagram diagram = modelState.getNotationModel();
       EditingDomain editingDomain = modelState.getEditingDomain();
 
@@ -103,7 +105,7 @@ public class CreateContainerNodeHandler extends AbstractEMFCreateNodeOperationHa
    protected Shape createShape(final String elementId, final Optional<GPoint> relativeLocation) {
       Shape newContainer = NotationFactory.eINSTANCE.createShape();
       newContainer.setPosition(relativeLocation.orElse(GraphUtil.point(0, 0)));
-      newContainer.setSize(GraphUtil.dimension(70, 120));
+      newContainer.setSize(GraphUtil.dimension(70, 10));
       SemanticElementReference reference = NotationFactory.eINSTANCE.createSemanticElementReference();
       reference.setElementId(elementId);
       newContainer.setSemanticElement(reference);
