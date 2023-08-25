@@ -93,16 +93,6 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          .addCssClass("tasklist-edge")
          .sourceId(transition.getSource().getId())
          .targetId(transition.getTarget().getId());
-      /*
-       * .add(new GLabelBuilder(DefaultTypes.LABEL)
-       * .text(transition.getName())
-       * .id(transition.getId() + "_label")
-       * .edgePlacement(new GEdgePlacementBuilder()
-       * .side(GConstants.EdgeSide.TOP)
-       * .build())
-       * .build());
-       */
-
       applyEdgeData(transition, transitionEdgeBuilder);
       return transitionEdgeBuilder.build();
    }
@@ -121,7 +111,7 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
    }
 
    protected GCompartment createCompartment(final Compartment task) {
-      GCompartmentBuilder buildComp = new GCompartmentBuilder(TaskListModelTypes.COMPARTMENT)
+      GCompartmentBuilder buildComp = new GCompartmentBuilder(TaskListModelTypes.TASK)
          .id(idGenerator.getOrCreateId(task))
          .layout(GConstants.Layout.FREEFORM)
          .type(DefaultTypes.NODE_RECTANGLE)

@@ -21,10 +21,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="decisions" upperBound="-1"
         eType="#//Decision" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Connectable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="compartments" upperBound="-1"
-        eType="#//Compartment" containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Connectable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" ordered="false"
         lowerBound="1" eType="#//Connectable"/>

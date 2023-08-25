@@ -27,7 +27,6 @@ import org.eclipse.glsp.example.javaemf.server.TaskListModelTypes;
 import org.eclipse.glsp.example.tasklist.model.Compartment;
 import org.eclipse.glsp.example.tasklist.model.ModelFactory;
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
-import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.graph.GModelElement;
 import org.eclipse.glsp.graph.GPoint;
@@ -59,10 +58,11 @@ public class CreateContainerNodeHandler extends AbstractEMFCreateNodeOperationHa
 
    @Override
    public Optional<Command> createCommand(final CreateNodeOperation operation) {
-      GModelElement container = modelState.getIndex().get(operation.getContainerId()).orElseGet(modelState::getRoot);
+      GModelElement container = modelState.getIndex().get(operation.getContainerId()).orElseThrow();
       Optional<GPoint> absoluteLocation = getLocation(operation);
       Optional<GPoint> relativeLocation = getRelativeLocation(operation, absoluteLocation, container);
       return Optional.of(createContainerAndShape(relativeLocation));
+
    }
 
    @Override
@@ -70,13 +70,12 @@ public class CreateContainerNodeHandler extends AbstractEMFCreateNodeOperationHa
 
    protected Command createContainerAndShape(final Optional<GPoint> relativeLocation) {
       TaskList taskList = modelState.getSemanticModel(TaskList.class).orElseThrow();
-      Task task = modelState.getSemanticModel(Task.class).orElseThrow();
       Diagram diagram = modelState.getNotationModel();
       EditingDomain editingDomain = modelState.getEditingDomain();
 
       Compartment container = createCompartment();
       Command containerCommand = AddCommand.create(editingDomain, taskList,
-         ModelPackage.Literals.TASK_LIST__CONTAINERS, container);
+         ModelPackage.Literals.TASK_LIST__TASKS, container);
 
       Shape shape = createShape(idGenerator.getOrCreateId(container), relativeLocation);
       Command shapeCommand = AddCommand.create(editingDomain, diagram,

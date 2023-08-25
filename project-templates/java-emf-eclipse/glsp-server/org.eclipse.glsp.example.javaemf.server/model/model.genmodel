@@ -24,9 +24,7 @@
       </genOperations>
       <genOperations ecoreOperation="model.ecore#//TaskList/getAll"/>
     </genClasses>
-    <genClasses ecoreClass="model.ecore#//Task">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Task/compartments"/>
-    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Task"/>
     <genClasses ecoreClass="model.ecore#//Transition">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Transition/source"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Transition/target"/>
