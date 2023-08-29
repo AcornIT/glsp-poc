@@ -111,7 +111,7 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
    }
 
    protected GCompartment createCompartment(final Compartment task) {
-      GCompartmentBuilder buildComp = new GCompartmentBuilder(TaskListModelTypes.TASK)
+      GCompartmentBuilder buildComp = new GCompartmentBuilder(TaskListModelTypes.COMPARTMENT)
          .id(idGenerator.getOrCreateId(task))
          .layout(GConstants.Layout.FREEFORM)
          .type(DefaultTypes.NODE_RECTANGLE)

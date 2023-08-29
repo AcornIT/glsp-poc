@@ -15,6 +15,14 @@
  ********************************************************************************/
 package org.eclipse.glsp.example.javaemf.server.handler;
 
-public class ChangeNameHandler {
+import org.eclipse.glsp.server.operations.AbstractOperationHandler;
+import org.eclipse.glsp.server.operations.Operation;
+
+public class SelectActionHandler extends AbstractOperationHandler {
+
+   @Override
+   protected void executeOperation(final Operation operation) {
+
+   }
 
 }

@@ -288,13 +288,22 @@ public interface ModelPackage extends EPackage {
    int TASK__NAME = CONNECTABLE__NAME;
 
    /**
+    * The feature id for the '<em><b>Compartments</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int TASK__COMPARTMENTS = CONNECTABLE_FEATURE_COUNT + 0;
+
+   /**
     * The number of structural features of the '<em>Task</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-   int TASK_FEATURE_COUNT = CONNECTABLE_FEATURE_COUNT + 0;
+   int TASK_FEATURE_COUNT = CONNECTABLE_FEATURE_COUNT + 1;
 
    /**
     * The number of operations of the '<em>Task</em>' class.
@@ -578,6 +587,17 @@ public interface ModelPackage extends EPackage {
    EClass getTask();
 
    /**
+    * Returns the meta object for the containment reference list '{@link org.eclipse.glsp.example.tasklist.model.Task#getCompartments <em>Compartments</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the containment reference list '<em>Compartments</em>'.
+    * @see org.eclipse.glsp.example.tasklist.model.Task#getCompartments()
+    * @see #getTask()
+    * @generated
+    */
+   EReference getTask_Compartments();
+
+   /**
     * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Transition <em>Transition</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -755,6 +775,14 @@ public interface ModelPackage extends EPackage {
        * @generated
        */
       EClass TASK = eINSTANCE.getTask();
+
+      /**
+       * The meta object literal for the '<em><b>Compartments</b></em>' containment reference list feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EReference TASK__COMPARTMENTS = eINSTANCE.getTask_Compartments();
 
       /**
        * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TransitionImpl <em>Transition</em>}' class.

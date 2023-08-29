@@ -259,6 +259,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
     * @generated
     */
    @Override
+   public EReference getTask_Compartments() {
+      return (EReference)taskEClass.getEStructuralFeatures().get(0);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
    public EClass getTransition() {
       return transitionEClass;
    }
@@ -355,6 +365,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       createEOperation(taskListEClass, TASK_LIST___GET_ALL);
 
       taskEClass = createEClass(TASK);
+      createEReference(taskEClass, TASK__COMPARTMENTS);
 
       transitionEClass = createEClass(TRANSITION);
       createEReference(transitionEClass, TRANSITION__SOURCE);
@@ -419,6 +430,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       initEOperation(getTaskList__GetAll(), this.getIdentifiable(), "getAll", 0, -1, IS_UNIQUE, IS_ORDERED);
 
       initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEReference(getTask_Compartments(), this.getCompartment(), null, "compartments", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEReference(getTransition_Source(), this.getConnectable(), null, "source", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

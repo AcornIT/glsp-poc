@@ -61,14 +61,15 @@ public class CreateContainerNodeHandler extends AbstractEMFCreateNodeOperationHa
       GModelElement container = modelState.getIndex().get(operation.getContainerId()).orElseThrow();
       Optional<GPoint> absoluteLocation = getLocation(operation);
       Optional<GPoint> relativeLocation = getRelativeLocation(operation, absoluteLocation, container);
-      return Optional.of(createContainerAndShape(relativeLocation));
+
+      return Optional.of(createContainerAndShape(relativeLocation, container));
 
    }
 
    @Override
    public String getLabel() { return "Compartment"; }
 
-   protected Command createContainerAndShape(final Optional<GPoint> relativeLocation) {
+   protected Command createContainerAndShape(final Optional<GPoint> relativeLocation, final GModelElement nodeId) {
       TaskList taskList = modelState.getSemanticModel(TaskList.class).orElseThrow();
       Diagram diagram = modelState.getNotationModel();
       EditingDomain editingDomain = modelState.getEditingDomain();
