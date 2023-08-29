@@ -15,14 +15,34 @@
  ********************************************************************************/
 package org.eclipse.glsp.example.javaemf.server.handler;
 
-import org.eclipse.glsp.server.operations.AbstractOperationHandler;
-import org.eclipse.glsp.server.operations.Operation;
+import java.util.ArrayList;
+import java.util.List;
 
-public class SelectActionHandler extends AbstractOperationHandler {
+import org.eclipse.glsp.example.tasklist.model.Task;
+import org.eclipse.glsp.example.tasklist.model.TaskList;
+import org.eclipse.glsp.graph.GModelElement;
+import org.eclipse.glsp.server.actions.AbstractActionHandler;
+import org.eclipse.glsp.server.actions.Action;
+import org.eclipse.glsp.server.actions.SelectAction;
+import org.eclipse.glsp.server.emf.notation.EMFNotationModelState;
+
+import com.google.inject.Inject;
+
+public class SelectActionHandler extends AbstractActionHandler<SelectAction> {
+
+   @Inject
+   protected EMFNotationModelState modelState;
 
    @Override
-   protected void executeOperation(final Operation operation) {
+   protected List<Action> executeAction(final SelectAction actualAction) {
+      GModelElement source = (GModelElement) modelState.getIndex().getAll(actualAction.getSelectedElementsIDs());
+      TaskList taskList = modelState.getSemanticModel(TaskList.class).orElseThrow();
+      Task task = (Task) taskList.findById(source.getId());
+      System.out.println(task);
+      List<Action> list = new ArrayList<>();
+      list.add(actualAction);
 
+      return list;
    }
 
 }
