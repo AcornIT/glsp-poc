@@ -84,6 +84,15 @@ public interface ModelFactory extends EFactory {
    Connectable createConnectable();
 
    /**
+    * Returns a new object of class '<em>Join Node</em>'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return a new object of class '<em>Join Node</em>'.
+    * @generated
+    */
+   JoinNode createJoinNode();
+
+   /**
     * Returns the package supported by this factory.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->

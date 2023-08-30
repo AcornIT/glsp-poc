@@ -32,6 +32,7 @@ public class TaskListDiagramConfiguration extends BaseDiagramConfiguration {
       nodeHints.add(new ShapeTypeHint(TaskListModelTypes.TASK, true, true, true, false));
       nodeHints.add(new ShapeTypeHint(TaskListModelTypes.DIAMOND, true, true, true, false));
       nodeHints.add(new ShapeTypeHint(TaskListModelTypes.COMPARTMENT, true, true, true, true));
+      nodeHints.add(new ShapeTypeHint(TaskListModelTypes.RECTANGLE, true, true, true, false));
       return nodeHints;
    }
 
@@ -39,8 +40,8 @@ public class TaskListDiagramConfiguration extends BaseDiagramConfiguration {
    public List<EdgeTypeHint> getEdgeTypeHints() {
       List<EdgeTypeHint> edgeHints = new ArrayList<>();
       edgeHints.add(new EdgeTypeHint(TaskListModelTypes.TRANSITION, false, true, true,
-         List.of(TaskListModelTypes.TASK, TaskListModelTypes.DIAMOND),
-         List.of(TaskListModelTypes.TASK, TaskListModelTypes.DIAMOND)));
+         List.of(TaskListModelTypes.TASK, TaskListModelTypes.DIAMOND, TaskListModelTypes.RECTANGLE),
+         List.of(TaskListModelTypes.TASK, TaskListModelTypes.DIAMOND, TaskListModelTypes.RECTANGLE)));
       return edgeHints;
    }
 

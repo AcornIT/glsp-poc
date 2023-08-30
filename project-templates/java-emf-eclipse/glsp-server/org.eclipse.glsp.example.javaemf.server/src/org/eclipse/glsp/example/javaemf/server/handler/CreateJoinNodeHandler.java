@@ -24,7 +24,7 @@ import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.glsp.example.javaemf.server.TaskListModelTypes;
-import org.eclipse.glsp.example.tasklist.model.Compartment;
+import org.eclipse.glsp.example.tasklist.model.JoinNode;
 import org.eclipse.glsp.example.tasklist.model.ModelFactory;
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
@@ -44,7 +44,7 @@ import org.eclipse.glsp.server.operations.CreateNodeOperation;
 
 import com.google.inject.Inject;
 
-public class CreateContainerNodeHandler extends AbstractEMFCreateNodeOperationHandler {
+public class CreateJoinNodeHandler extends AbstractEMFCreateNodeOperationHandler {
 
    @Inject
    protected EMFNotationModelState modelState;
@@ -52,65 +52,62 @@ public class CreateContainerNodeHandler extends AbstractEMFCreateNodeOperationHa
    @Inject
    protected EMFIdGenerator idGenerator;
 
-   public CreateContainerNodeHandler() {
-      super(TaskListModelTypes.COMPARTMENT);
+   public CreateJoinNodeHandler() {
+      super(TaskListModelTypes.RECTANGLE);
    }
 
    @Override
    public Optional<Command> createCommand(final CreateNodeOperation operation) {
-      GModelElement container = modelState.getIndex().get(operation.getContainerId()).orElseThrow();
+      GModelElement container = modelState.getIndex().get(operation.getContainerId()).orElseGet(modelState::getRoot);
       Optional<GPoint> absoluteLocation = getLocation(operation);
       Optional<GPoint> relativeLocation = getRelativeLocation(operation, absoluteLocation, container);
-
-      return Optional.of(createContainerAndShape(relativeLocation));
-
+      return Optional.of(createTaskAndShape(relativeLocation));
    }
 
    @Override
-   public String getLabel() { return "Compartment"; }
+   public String getLabel() { return "JoinNode"; }
 
-   protected Command createContainerAndShape(final Optional<GPoint> relativeLocation) {
+   protected Command createTaskAndShape(final Optional<GPoint> relativeLocation) {
       TaskList taskList = modelState.getSemanticModel(TaskList.class).orElseThrow();
       Diagram diagram = modelState.getNotationModel();
       EditingDomain editingDomain = modelState.getEditingDomain();
 
-      Compartment container = createCompartment();
-      Command containerCommand = AddCommand.create(editingDomain, taskList,
-         ModelPackage.Literals.TASK_LIST__CONTAINERS, container);
+      JoinNode newTask = createJoin();
+      Command taskCommand = AddCommand.create(editingDomain, taskList,
+         ModelPackage.Literals.TASK_LIST__JOIN_NODES, newTask);
 
-      Shape shape = createShape(idGenerator.getOrCreateId(container), relativeLocation);
+      Shape shape = createShape(idGenerator.getOrCreateId(newTask), relativeLocation);
       Command shapeCommand = AddCommand.create(editingDomain, diagram,
          NotationPackage.Literals.DIAGRAM__ELEMENTS, shape);
 
       CompoundCommand compoundCommand = new CompoundCommand();
-      compoundCommand.append(containerCommand);
+      compoundCommand.append(taskCommand);
       compoundCommand.append(shapeCommand);
 
       return compoundCommand;
    }
 
-   protected Compartment createCompartment() {
-      Compartment newCompartment = ModelFactory.eINSTANCE.createCompartment();
-      newCompartment.setId(UUID.randomUUID().toString());
-      setInitialName(newCompartment);
-      return newCompartment;
+   protected JoinNode createJoin() {
+      JoinNode newTask = ModelFactory.eINSTANCE.createJoinNode();
+      newTask.setId(UUID.randomUUID().toString());
+      setInitialName(newTask);
+      return newTask;
    }
 
-   protected void setInitialName(final Compartment container) {
-      Function<Integer, String> nameProvider = i -> container.eClass().getName() + " " + i;
-      int nodeCounter = modelState.getIndex().getCounter(GraphPackage.Literals.GCOMPARTMENT, nameProvider);
-      container.setName(nameProvider.apply(nodeCounter));
+   protected void setInitialName(final JoinNode task) {
+      Function<Integer, String> nameProvider = i -> "New" + task.eClass().getName() + i;
+      int nodeCounter = modelState.getIndex().getCounter(GraphPackage.Literals.GNODE, nameProvider);
+      task.setName(nameProvider.apply(nodeCounter));
    }
 
    protected Shape createShape(final String elementId, final Optional<GPoint> relativeLocation) {
-      Shape newContainer = NotationFactory.eINSTANCE.createShape();
-      newContainer.setPosition(relativeLocation.orElse(GraphUtil.point(0, 0)));
-      newContainer.setSize(GraphUtil.dimension(70, 10));
+      Shape newTask = NotationFactory.eINSTANCE.createShape();
+      newTask.setPosition(relativeLocation.orElse(GraphUtil.point(0, 0)));
+      newTask.setSize(GraphUtil.dimension(10, 50));
       SemanticElementReference reference = NotationFactory.eINSTANCE.createSemanticElementReference();
       reference.setElementId(elementId);
-      newContainer.setSemanticElement(reference);
-      return newContainer;
-
+      newTask.setSemanticElement(reference);
+      return newTask;
    }
 
 }

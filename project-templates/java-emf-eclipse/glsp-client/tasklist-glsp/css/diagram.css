@@ -52,9 +52,13 @@ svg {
 }
 
 .container {
-    fill: rgb(218, 217, 217);
+    fill: grey;
     border: 1px black;
     display: flex;
     flex-direction: row;
     position: absolute;
+}
+
+.join {
+    fill: gray;
 }

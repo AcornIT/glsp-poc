@@ -37,9 +37,11 @@ public class TaskListToolPaletteItemProvider implements ToolPaletteItemProvider 
       PaletteItem createTask = node(TaskListModelTypes.TASK, "Task");
       PaletteItem createDecisionNode = node(TaskListModelTypes.DIAMOND, "Decision");
       PaletteItem createComp = comp(TaskListModelTypes.COMPARTMENT, "Compartment");
+      PaletteItem createJoin = join(TaskListModelTypes.RECTANGLE, "Join Node");
       List<PaletteItem> nodes = Lists.newArrayList(createTask);
       nodes.add(createDecisionNode);
       nodes.add(createComp);
+      nodes.add(createJoin);
       return PaletteItem.createPaletteGroup("nodes", "Nodes", nodes, "symbol-property");
    }
 
@@ -58,6 +60,10 @@ public class TaskListToolPaletteItemProvider implements ToolPaletteItemProvider 
    }
 
    private PaletteItem comp(final String elementTypeId, final String label) {
+      return new PaletteItem(elementTypeId, label, new TriggerNodeCreationAction(elementTypeId));
+   }
+
+   private PaletteItem join(final String elementTypeId, final String label) {
       return new PaletteItem(elementTypeId, label, new TriggerNodeCreationAction(elementTypeId));
    }
 }

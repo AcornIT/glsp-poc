@@ -4,9 +4,18 @@
   <tasks id="6d5cc145-3718-4c26-906c-9a5d79e9c9c4" name="NewTask1"/>
   <tasks id="622cbdd8-57cf-48fc-a828-bcbc16226703" name="NewTask3"/>
   <tasks id="ee202ec0-dc94-4b0d-84d4-85af103f0e33" name="NewTask4"/>
+  <tasks id="9f743513-eb5a-482f-bd66-31a80aa66288" name="NewTask5"/>
+  <tasks id="f3116db1-dc46-4a45-9349-b84e04d746c8" name="NewTask7"/>
+  <tasks id="e5345159-1d68-44d3-a3f8-d6f053488969" name="NewTask8"/>
   <transitions id="95a32c11-8a4f-4cbb-8a25-e1cd20b375f0" name="Transition 0" source="eeaceee0-81a5-4c07-8530-6d6bc7a44dbf" target="6d5cc145-3718-4c26-906c-9a5d79e9c9c4"/>
   <transitions id="f801af6b-a672-461b-a217-4b8c8cef137d" name="Transition 1" source="6d5cc145-3718-4c26-906c-9a5d79e9c9c4" target="6d71d988-f8e4-40dc-8dd3-a6df866a407e"/>
   <transitions id="f8961ae9-1ae8-49ca-b1ec-3da6168cf732" name="Transition 2" source="6d71d988-f8e4-40dc-8dd3-a6df866a407e" target="622cbdd8-57cf-48fc-a828-bcbc16226703"/>
   <transitions id="4a3eb3b6-a9bb-417b-8ad5-80034b4582d3" name="Transition 3" source="6d71d988-f8e4-40dc-8dd3-a6df866a407e" target="ee202ec0-dc94-4b0d-84d4-85af103f0e33"/>
+  <transitions id="8e1a4ae9-1e0f-4a81-b568-c915e326274f" name="Transition 4" source="ee202ec0-dc94-4b0d-84d4-85af103f0e33" target="9f743513-eb5a-482f-bd66-31a80aa66288"/>
+  <transitions id="14638c0b-6838-4cc0-bfcc-5e7537a34c91" name="Transition 5" source="622cbdd8-57cf-48fc-a828-bcbc16226703" target="bc6f1964-70f2-4322-baf0-15651b47f386"/>
+  <transitions id="32aab7ed-bd93-444b-8489-2b20bfdc9b28" name="Transition 6" source="f3116db1-dc46-4a45-9349-b84e04d746c8" target="bc6f1964-70f2-4322-baf0-15651b47f386"/>
+  <transitions id="bb7f1878-8e0a-4b19-a6bd-e0c0a3543559" name="Transition 7" source="bc6f1964-70f2-4322-baf0-15651b47f386" target="e5345159-1d68-44d3-a3f8-d6f053488969"/>
+  <containers id="90331b4a-cb19-421a-8991-76e732e63de7" name="Compartment 0"/>
   <decisions id="6d71d988-f8e4-40dc-8dd3-a6df866a407e" name="Decision2"/>
+  <joinNodes id="bc6f1964-70f2-4322-baf0-15651b47f386" name="NewJoinNode6"/>
 </example-model:TaskList>

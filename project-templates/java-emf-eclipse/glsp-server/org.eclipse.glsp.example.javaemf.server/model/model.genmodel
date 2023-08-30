@@ -19,6 +19,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//TaskList/transitions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//TaskList/containers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//TaskList/decisions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//TaskList/joinNodes"/>
       <genOperations ecoreOperation="model.ecore#//TaskList/findById">
         <genParameters ecoreParameter="model.ecore#//TaskList/findById/id"/>
       </genOperations>
@@ -34,5 +35,6 @@
     <genClasses ecoreClass="model.ecore#//Compartment"/>
     <genClasses ecoreClass="model.ecore#//Decision"/>
     <genClasses ecoreClass="model.ecore#//Connectable"/>
+    <genClasses ecoreClass="model.ecore#//JoinNode"/>
   </genPackages>
 </genmodel:GenModel>

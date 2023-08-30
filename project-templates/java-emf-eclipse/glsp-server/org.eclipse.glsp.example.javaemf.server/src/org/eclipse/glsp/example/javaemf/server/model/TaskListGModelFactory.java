@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.glsp.example.javaemf.server.TaskListModelTypes;
 import org.eclipse.glsp.example.tasklist.model.Compartment;
 import org.eclipse.glsp.example.tasklist.model.Decision;
+import org.eclipse.glsp.example.tasklist.model.JoinNode;
 import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
@@ -60,6 +61,9 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
             .forEachOrdered(graph.getChildren()::add);
          taskList.getDecisions().stream()
             .map(this::createTaskNodeDecision)
+            .forEachOrdered(graph.getChildren()::add);
+         taskList.getJoinNodes().stream()
+            .map(this::createJoinNode)
             .forEachOrdered(graph.getChildren()::add);
       }
    }
@@ -114,7 +118,7 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
       GCompartmentBuilder buildComp = new GCompartmentBuilder(TaskListModelTypes.COMPARTMENT)
          .id(idGenerator.getOrCreateId(task))
          .layout(GConstants.Layout.FREEFORM)
-         .type(DefaultTypes.NODE_RECTANGLE)
+         .type(DefaultTypes.COMPARTMENT)
          .addCssClass("container")
          .add(
             new GLabelBuilder(DefaultTypes.LABEL)
@@ -126,5 +130,15 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
                   .build())
                .build());
       return buildComp.build();
+   }
+
+   protected GNode createJoinNode(final JoinNode node) {
+      GNodeBuilder joinBuilder = new GNodeBuilder(TaskListModelTypes.RECTANGLE)
+         .id(idGenerator.getOrCreateId(node))
+         .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_TOP, 5))
+         .addCssClass("join");
+
+      applyShapeData(node, joinBuilder);
+      return joinBuilder.build();
    }
 }

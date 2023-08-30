@@ -177,6 +177,15 @@ public interface ModelPackage extends EPackage {
    int TASK_LIST__DECISIONS = IDENTIFIABLE_FEATURE_COUNT + 3;
 
    /**
+    * The feature id for the '<em><b>Join Nodes</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int TASK_LIST__JOIN_NODES = IDENTIFIABLE_FEATURE_COUNT + 4;
+
+   /**
     * The number of structural features of the '<em>Task List</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -184,7 +193,7 @@ public interface ModelPackage extends EPackage {
     * @ordered
     */
 
-   int TASK_LIST_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 4;
+   int TASK_LIST_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 5;
 
    /**
     * The operation id for the '<em>Find By Id</em>' operation.
@@ -471,6 +480,52 @@ public interface ModelPackage extends EPackage {
    int DECISION_OPERATION_COUNT = CONNECTABLE_OPERATION_COUNT + 0;
 
    /**
+    * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.JoinNodeImpl <em>Join Node</em>}' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see org.eclipse.glsp.example.tasklist.model.impl.JoinNodeImpl
+    * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getJoinNode()
+    * @generated
+    */
+   int JOIN_NODE = 7;
+
+   /**
+    * The feature id for the '<em><b>Id</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int JOIN_NODE__ID = CONNECTABLE__ID;
+
+   /**
+    * The feature id for the '<em><b>Name</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int JOIN_NODE__NAME = CONNECTABLE__NAME;
+
+   /**
+    * The number of structural features of the '<em>Join Node</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int JOIN_NODE_FEATURE_COUNT = CONNECTABLE_FEATURE_COUNT + 0;
+
+   /**
+    * The number of operations of the '<em>Join Node</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int JOIN_NODE_OPERATION_COUNT = CONNECTABLE_OPERATION_COUNT + 0;
+
+   /**
     * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Identifiable <em>Identifiable</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -555,6 +610,17 @@ public interface ModelPackage extends EPackage {
     * @generated
     */
    EReference getTaskList_Decisions();
+
+   /**
+    * Returns the meta object for the containment reference list '{@link org.eclipse.glsp.example.tasklist.model.TaskList#getJoinNodes <em>Join Nodes</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the containment reference list '<em>Join Nodes</em>'.
+    * @see org.eclipse.glsp.example.tasklist.model.TaskList#getJoinNodes()
+    * @see #getTaskList()
+    * @generated
+    */
+   EReference getTaskList_JoinNodes();
 
    /**
     * Returns the meta object for the '{@link org.eclipse.glsp.example.tasklist.model.TaskList#findById(java.lang.String) <em>Find By Id</em>}' operation.
@@ -660,6 +726,16 @@ public interface ModelPackage extends EPackage {
    EClass getConnectable();
 
    /**
+    * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.JoinNode <em>Join Node</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for class '<em>Join Node</em>'.
+    * @see org.eclipse.glsp.example.tasklist.model.JoinNode
+    * @generated
+    */
+   EClass getJoinNode();
+
+   /**
     * Returns the factory that creates the instances of the model.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -751,6 +827,14 @@ public interface ModelPackage extends EPackage {
       EReference TASK_LIST__DECISIONS = eINSTANCE.getTaskList_Decisions();
 
       /**
+       * The meta object literal for the '<em><b>Join Nodes</b></em>' containment reference list feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EReference TASK_LIST__JOIN_NODES = eINSTANCE.getTaskList_JoinNodes();
+
+      /**
        * The meta object literal for the '<em><b>Find By Id</b></em>' operation.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
@@ -839,6 +923,16 @@ public interface ModelPackage extends EPackage {
        * @generated
        */
       EClass CONNECTABLE = eINSTANCE.getConnectable();
+
+      /**
+       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.JoinNodeImpl <em>Join Node</em>}' class.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @see org.eclipse.glsp.example.tasklist.model.impl.JoinNodeImpl
+       * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getJoinNode()
+       * @generated
+       */
+      EClass JOIN_NODE = eINSTANCE.getJoinNode();
 
    }
 

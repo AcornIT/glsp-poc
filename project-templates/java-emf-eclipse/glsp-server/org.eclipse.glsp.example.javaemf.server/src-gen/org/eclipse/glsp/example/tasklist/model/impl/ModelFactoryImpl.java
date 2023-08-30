@@ -70,6 +70,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
          case ModelPackage.COMPARTMENT: return createCompartment();
          case ModelPackage.DECISION: return createDecision();
          case ModelPackage.CONNECTABLE: return createConnectable();
+         case ModelPackage.JOIN_NODE: return createJoinNode();
          default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
       }
@@ -139,6 +140,17 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
    public Connectable createConnectable() {
       ConnectableImpl connectable = new ConnectableImpl();
       return connectable;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
+   public JoinNode createJoinNode() {
+      JoinNodeImpl joinNode = new JoinNodeImpl();
+      return joinNode;
    }
 
    /**

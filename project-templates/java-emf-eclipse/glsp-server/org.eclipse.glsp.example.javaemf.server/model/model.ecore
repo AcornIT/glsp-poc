@@ -20,6 +20,8 @@
         eType="#//Compartment" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="decisions" upperBound="-1"
         eType="#//Decision" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="joinNodes" ordered="false"
+        upperBound="-1" eType="#//JoinNode" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Connectable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="compartments" upperBound="-1"
@@ -34,4 +36,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="Compartment" eSuperTypes="#//Identifiable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Decision" eSuperTypes="#//Connectable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Connectable" eSuperTypes="#//Identifiable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JoinNode" eSuperTypes="#//Connectable"/>
 </ecore:EPackage>

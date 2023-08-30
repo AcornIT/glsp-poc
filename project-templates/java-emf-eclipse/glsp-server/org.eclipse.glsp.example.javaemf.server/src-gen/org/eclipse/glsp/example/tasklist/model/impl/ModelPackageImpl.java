@@ -20,6 +20,7 @@ import org.eclipse.glsp.example.tasklist.model.Compartment;
 import org.eclipse.glsp.example.tasklist.model.Connectable;
 import org.eclipse.glsp.example.tasklist.model.Decision;
 import org.eclipse.glsp.example.tasklist.model.Identifiable;
+import org.eclipse.glsp.example.tasklist.model.JoinNode;
 import org.eclipse.glsp.example.tasklist.model.ModelFactory;
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
 import org.eclipse.glsp.example.tasklist.model.Task;
@@ -81,6 +82,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
     * @generated
     */
    private EClass connectableEClass = null;
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   private EClass joinNodeEClass = null;
 
    /**
     * Creates an instance of the model <b>Package</b>, registered with
@@ -229,6 +237,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
     * @generated
     */
    @Override
+   public EReference getTaskList_JoinNodes() {
+      return (EReference)taskListEClass.getEStructuralFeatures().get(4);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
    public EOperation getTaskList__FindById__String() {
       return taskListEClass.getEOperations().get(0);
    }
@@ -329,6 +347,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
     * @generated
     */
    @Override
+   public EClass getJoinNode() {
+      return joinNodeEClass;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
    public ModelFactory getModelFactory() {
       return (ModelFactory)getEFactoryInstance();
    }
@@ -361,6 +389,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       createEReference(taskListEClass, TASK_LIST__TRANSITIONS);
       createEReference(taskListEClass, TASK_LIST__CONTAINERS);
       createEReference(taskListEClass, TASK_LIST__DECISIONS);
+      createEReference(taskListEClass, TASK_LIST__JOIN_NODES);
       createEOperation(taskListEClass, TASK_LIST___FIND_BY_ID__STRING);
       createEOperation(taskListEClass, TASK_LIST___GET_ALL);
 
@@ -376,6 +405,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       decisionEClass = createEClass(DECISION);
 
       connectableEClass = createEClass(CONNECTABLE);
+
+      joinNodeEClass = createEClass(JOIN_NODE);
    }
 
    /**
@@ -412,6 +443,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       compartmentEClass.getESuperTypes().add(this.getIdentifiable());
       decisionEClass.getESuperTypes().add(this.getConnectable());
       connectableEClass.getESuperTypes().add(this.getIdentifiable());
+      joinNodeEClass.getESuperTypes().add(this.getConnectable());
 
       // Initialize classes, features, and operations; add parameters
       initEClass(identifiableEClass, Identifiable.class, "Identifiable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -423,6 +455,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       initEReference(getTaskList_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEReference(getTaskList_Containers(), this.getCompartment(), null, "containers", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEReference(getTaskList_Decisions(), this.getDecision(), null, "decisions", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getTaskList_JoinNodes(), this.getJoinNode(), null, "joinNodes", null, 0, -1, TaskList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
       EOperation op = initEOperation(getTaskList__FindById__String(), this.getIdentifiable(), "findById", 0, 1, IS_UNIQUE, IS_ORDERED);
       addEParameter(op, ecorePackage.getEString(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -441,6 +474,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
       initEClass(decisionEClass, Decision.class, "Decision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
       initEClass(connectableEClass, Connectable.class, "Connectable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+      initEClass(joinNodeEClass, JoinNode.class, "JoinNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
       // Create resource
       createResource(eNS_URI);

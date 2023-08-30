@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.glsp.example.tasklist.model.TaskList#getTransitions <em>Transitions</em>}</li>
  *   <li>{@link org.eclipse.glsp.example.tasklist.model.TaskList#getContainers <em>Containers</em>}</li>
  *   <li>{@link org.eclipse.glsp.example.tasklist.model.TaskList#getDecisions <em>Decisions</em>}</li>
+ *   <li>{@link org.eclipse.glsp.example.tasklist.model.TaskList#getJoinNodes <em>Join Nodes</em>}</li>
  * </ul>
  *
  * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTaskList()
@@ -79,6 +80,18 @@ public interface TaskList extends Identifiable {
     * @generated
     */
    EList<Decision> getDecisions();
+
+   /**
+    * Returns the value of the '<em><b>Join Nodes</b></em>' containment reference list.
+    * The list contents are of type {@link org.eclipse.glsp.example.tasklist.model.JoinNode}.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the value of the '<em>Join Nodes</em>' containment reference list.
+    * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTaskList_JoinNodes()
+    * @model containment="true" ordered="false"
+    * @generated
+    */
+   EList<JoinNode> getJoinNodes();
 
    /**
     * <!-- begin-user-doc -->
