@@ -61,7 +61,6 @@ public class CreateContainerNodeHandler extends AbstractEMFCreateNodeOperationHa
       GModelElement container = modelState.getIndex().get(operation.getContainerId()).orElseThrow();
       Optional<GPoint> absoluteLocation = getLocation(operation);
       Optional<GPoint> relativeLocation = getRelativeLocation(operation, absoluteLocation, container);
-
       return Optional.of(createContainerAndShape(relativeLocation));
 
    }

@@ -118,7 +118,7 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
       GCompartmentBuilder buildComp = new GCompartmentBuilder(TaskListModelTypes.COMPARTMENT)
          .id(idGenerator.getOrCreateId(task))
          .layout(GConstants.Layout.FREEFORM)
-         .type(DefaultTypes.COMPARTMENT)
+         .type(DefaultTypes.NODE)
          .addCssClass("container")
          .add(
             new GLabelBuilder(DefaultTypes.LABEL)
